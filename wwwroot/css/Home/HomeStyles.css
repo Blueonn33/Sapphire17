@@ -1,0 +1,10 @@
+﻿.home-container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+}
+.home-heading {
+    color: #0F52BA;
+    font-size: 70px;
+    line-height: 65px;
+}
