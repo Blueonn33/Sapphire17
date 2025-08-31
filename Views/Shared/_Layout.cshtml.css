@@ -51,7 +51,6 @@ button.accept-policy {
     background-color: #0F52BA;
     text-align: center;
 }
-.logo{
-    width: 100px;
-    height: auto;
+.nav-item:hover {
+    text-decoration: underline;
 }
