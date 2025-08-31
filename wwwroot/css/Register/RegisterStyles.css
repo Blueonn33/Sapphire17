@@ -1,0 +1,28 @@
+﻿body {
+    background-color: #5472D4;
+}
+.register-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+}
+.register-content-container{
+    grid-column: 1 / -1;
+}
+.register-student-container {
+    position: relative;
+    grid-column: 2 / -1;
+    grid-row: 2 / -1;
+}
+.student-ellipse{
+    position: absolute;
+    top:0;
+    z-index: -1;
+}
+.navbar {
+    background-color: #5472D4 !important;
+}
+footer {
+    background-color: #5472D4 !important;
+    z-index: -2;
+}
