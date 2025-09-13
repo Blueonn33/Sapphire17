@@ -1,12 +1,18 @@
 ﻿body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(15, 82, 186, 0.37)), url(/Images/home-background.jpg);
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* Запълва целия екран */
+    background-attachment: fixed; /* Фиксира фона, за да не мърда при скрол */
+    min-height: 100vh; /* Страницата може да расте, без да ограничава фона */
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
-
 .home-container {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    column-gap: 50px;
+    padding-bottom: 200px;
 }
 
 .home-container-info {
@@ -15,16 +21,18 @@
     padding-left: 10px;
     background-color: rgba(15, 82, 186, 0.3);
 }
-.home-container-info p{
+
+.home-container-info p {
     font-size: 26px;
-/*    text-indent: 20px;*/
 }
+
 .home-container-more-info {
     display: grid;
     grid-column: 1 / 2;
     grid-template-columns: 1fr 1fr;
     align-items: flex-end;
 }
+
 .home-btn-info {
     background-color: #14428B;
     color: white;
@@ -33,16 +41,64 @@
     border-radius: 150px;
     font-size: 25px;
 }
-.home-image-info{
+
+.home-btn-info:hover {
+    background-color: rgba(15, 82, 186, 0.5);
+    color: white;
+}
+
+.home-image-info {
     width: 80%;
 }
+
 .home-heading {
     color: white;
     font-size: 80px;
     line-height: 85px;
     text-transform: uppercase;
 }
-
+.functionality-container {
+    height: 100vh;
+    width: 100%;
+    background-color: #AFCBFF;
+    display: flex;
+    align-items: center;
+}
+.functionality-container-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+/*.home-functionalities{
+    margin-top: 30%;
+}*/
+.home-functionality {
+    background-color: #495057;
+    border-radius: 20px;
+}
+.home-icon {
+    color: #AFCBFF;
+    width: 50px;
+}
+.functionality-name {
+    color: #AFCBFF;
+    font-size: 38px;
+}
+.functionality-description{
+    color: white;
+    font-size: 25px;
+}
+.functionality-image{
+    grid-column: 2 / 3;
+}
+.homeHr {
+    color: white;
+    border: 30px solid white;
+    /*    width: 50px;*/
+    /*    height: 4px;*/
+}
 nav {
     border-bottom: none !important;
     background-color: transparent !important;
@@ -51,4 +107,6 @@ nav {
 footer {
     border-top: none !important;
     background-color: transparent !important;
+/*    position: absolute;*/
+/*    bottom: 0;*/
 }
