@@ -1,1 +1,53 @@
-﻿
+﻿body {
+    background: linear-gradient(0deg, #fff, #003DAD, #AFCBFF);
+    background-size: 400% 400%;
+}
+.login-heading {
+    color: #1D498B;
+    text-align: center;
+    text-transform: uppercase;
+}
+label {
+    font-size: 1.6rem !important;
+    color: #1D498B;
+}
+input {
+    font-size: 1.6rem !important;
+}
+.login-buttons-container {
+    display: flex;
+    justify-content: space-between;
+}
+.login-btn {
+    color: white;
+    text-transform: uppercase;
+    padding: 1rem 3rem;
+    border-radius: 150px;
+}
+.login-back {
+    background-color: #337BFF;
+}
+.login-back:hover {
+    background-color: #6A9EFF;
+    color: white;
+}
+.login-submit {
+    background-color: #1D498C;
+}
+.login-submit:hover {
+    background-color: #375C94;
+    color: white;
+}
+.login-image-container {
+    display: flex;
+    justify-content: center;
+}
+.login-image {
+    width: 25%;
+}
+.navbar, footer {
+    background-color: transparent !important;
+}
+footer {
+    border-top: 3px solid white;
+}
