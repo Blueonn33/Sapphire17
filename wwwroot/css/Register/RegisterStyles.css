@@ -2,6 +2,17 @@
     background: linear-gradient(0deg, #fff, #003DAD, #AFCBFF);
     background-size: 400% 400%;
 }
+.register-heading {
+    color: #1D498B;
+    text-align: center;
+    text-transform: uppercase;
+}
+.navbar, footer {
+    background-color: transparent !important;
+}
+footer {
+    border-top: 3px solid white;
+}
 /*.register-container{
     display: grid;
     grid-template-columns: 1fr 1fr;

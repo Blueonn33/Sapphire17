@@ -10,7 +10,7 @@
 
 <div class="register-container mt-5 container">
     <div class="register-content-container">
-        <h1 class="text-light mb-5">Регистрация</h1>
+        <h1 class="mb-5 register-heading">Регистрация</h1>
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="form-floating mb-3">
@@ -28,7 +28,11 @@
                 <label asp-for="Input.ConfirmPassword">Потвърди парола</label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Регистрация</button>
+            <div>
+                <button id="registerBack" class="btn btn-lg">Назад</button>
+                <button id="registerSubmit" type="submit" class="btn btn-lg">Регистрация</button>
+            </div>
+           
         </form>
     </div>
 </div>
