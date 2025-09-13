@@ -253,10 +253,10 @@ nav {
     background-color: transparent !important;
 }
 footer {
-    border-top: none !important;
+    border-top: 3px solid white;
     background-color: transparent !important;
-/*    position: absolute;*/
-/*    bottom: 0;*/
+    position: absolute;
+    bottom: 0;
 }
 
 @keyframes gradient {

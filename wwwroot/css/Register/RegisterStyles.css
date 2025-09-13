@@ -1,7 +1,8 @@
 ﻿body {
-    background-color: #5472D4;
+    background: linear-gradient(0deg, #fff, #003DAD, #AFCBFF);
+    background-size: 400% 400%;
 }
-.register-container{
+/*.register-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
@@ -42,4 +43,4 @@ footer {
     left: 3%;
     z-index: -2;
     rotate: -30deg;
-}
+}*/
