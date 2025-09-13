@@ -41,28 +41,28 @@
     border-radius: 150px;
     font-size: 25px;
 }
-
 .home-btn-info:hover {
     background-color: rgba(15, 82, 186, 0.5);
     color: white;
 }
-
 .home-image-info {
     width: 80%;
 }
-
 .home-heading {
     color: white;
     font-size: 80px;
     line-height: 85px;
     text-transform: uppercase;
 }
+
+/* Функционалности - меню */
 .functionality-container {
     height: 100vh;
     width: 100%;
     background-color: #AFCBFF;
     display: flex;
     align-items: center;
+/*    margin-bottom: 20%;*/
 }
 .functionality-container-content {
     display: grid;
@@ -71,9 +71,6 @@
     row-gap: 20px;
     column-gap: 20px;
 }
-/*.home-functionalities{
-    margin-top: 30%;
-}*/
 .home-functionality {
     background-color: #495057;
     border-radius: 20px;
@@ -99,11 +96,80 @@
     /*    width: 50px;*/
     /*    height: 4px;*/
 }
+
+/* Описание на функционалностите */
+.functionalities-container {
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+}
+.functionalities-secondary-heading {
+    color: #4B8AFF;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+.functionalities-heading {
+    color: #495057;
+    font-size: 4rem;
+    line-height: 0.9;
+    margin-bottom: 5rem;
+}
+.functionality-description-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4.8rem;
+}
+.functionality-number {
+    font-size: 8.6rem;
+    font-weight: 600;
+    color: #4B8AFF;
+    opacity: 0.6;
+    margin-bottom: 1.2rem;
+}
+.functionality-title {
+    color: #4B8AFF;
+    font-size: 4rem;
+}
+.functionality-section-description {
+    color: #495057;
+    font-size: 1.6rem;
+}
+.functionality-description-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.functionality-description-image {
+    width: 80%;
+    z-index: 3;
+}
+.functionality-description-image-container::before,
+.functionality-description-image-container::after {
+    content: "";
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.functionality-description-image-container::before {
+    width: 60%;
+    padding-bottom: 60%;
+    background-color: #AFCBFF;
+    z-index: 1;
+}
+.functionality-description-image-container::after {
+    width: 50%;
+    padding-bottom: 50%;
+    background-color: #337BFF;
+    z-index: 2;
+}
 nav {
     border-bottom: none !important;
     background-color: transparent !important;
 }
-
 footer {
     border-top: none !important;
     background-color: transparent !important;
