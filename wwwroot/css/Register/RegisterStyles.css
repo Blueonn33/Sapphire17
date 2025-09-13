@@ -1,13 +1,26 @@
 ﻿body {
-    background-color: #5472D4;
+    background: linear-gradient(0deg, #fff, #003DAD, #AFCBFF);
+    background-size: 400% 400%;
 }
-.register-container{
+.register-heading {
+    color: #1D498B;
+    text-align: center;
+    text-transform: uppercase;
+}
+.navbar, footer {
+    background-color: transparent !important;
+}
+footer {
+    border-top: 3px solid white;
+}
+/*.register-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
 }
 .register-content-container{
     grid-column: 1 / -1;
+    display: relative;
 }
 .register-student-container {
     position: relative;
@@ -26,3 +39,19 @@ footer {
     background-color: #5472D4 !important;
     z-index: -2;
 }
+.register-bag-container{
+    position: relative;
+}
+.bag-ellipse{
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 80%;
+}
+.register-bag {
+    position: absolute;
+    top: 20%;
+    left: 3%;
+    z-index: -2;
+    rotate: -30deg;
+}*/

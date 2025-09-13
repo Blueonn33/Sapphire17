@@ -1,7 +1,10 @@
 html {
-  font-size: 14px;
+    font-size: 62.5%;
+    font-family: 'Rubik', sans-serif;
 }
-
+body {
+    font-family: 'Rubik', sans-serif !important;
+}
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -29,6 +32,29 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+.nav-item, .nav-profile {
+    background-color: #0F52BA;
+    border-radius: 150px;
+    padding: 10px 20px;
+}
 .nav-item:hover {
-    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #0F52BA;
+    border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #AFCBFF;
 }

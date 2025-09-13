@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Sapphire17.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3 py-0">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3 py-0 fixed">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index">
                     <img src="~/Images/Sapphire.png" class="img-fluid" width="120" height="auto"/>
@@ -21,7 +24,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav nav-home flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-light fs-4" asp-controller="Home" asp-action="Index">Начало</a>
                         </li>
@@ -36,7 +39,7 @@
             @RenderBody()
         </main>
     </div>
-    <footer class="border-top footer">
+    <footer class="footer">
         <div class="container fs-4 text-light">
             &copy; 2025 Мартин Маринов 🖋️
         </div>

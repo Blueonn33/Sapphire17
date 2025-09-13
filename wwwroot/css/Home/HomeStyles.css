@@ -1,43 +1,270 @@
 ﻿body {
-    position: relative;
-    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(15, 82, 186, 0.37)), url(/Images/home-background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* Запълва целия екран */
+    background-attachment: fixed; /* Фиксира фона, за да не мърда при скрол */
+    min-height: 100vh; /* Страницата може да расте, без да ограничава фона */
     width: 100%;
+    padding: 0;
     margin: 0;
-    background: linear-gradient(180deg, #fff, #5588D5, #000) !important;
-    background-size: 100% 100%;
 }
 .home-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    column-gap: 50px;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    margin-top: 6%;
+/*    padding-bottom: 200px;*/
 }
-.home-container-content{
+.home-container-info-1, .home-container-info-2 {
+    border-left: 6px solid #0F52BA;
+    padding-left: 10px;
+    background-color: rgba(15, 82, 186, 0.3);
+}
+.home-container-info-1 {
+    grid-column: 1 / 2;
+}
+.home-container-info-2 {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+.home-info {
+    font-size: 1.4rem;
+}
+
+.home-container-more-info {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-column: 1 / 2;
+    grid-template-columns: 1fr 1fr;
+    grid-row: 4 / 5;
+    align-items: flex-end;
 }
-.home-header {
-    grid-area: 1 / 1 / 2 / 2;
+
+.home-btn-info {
+    background-color: #14428B;
+    color: white;
+    justify-content: center;
+    padding: 20px 20px;
+    border-radius: 150px;
+    font-size: 25px;
+}
+.home-btn-info:hover {
+    background-color: rgba(15, 82, 186, 0.5);
+    color: white;
+}
+.home-image-info {
+    width: 80%;
 }
 .home-heading {
-    color: #0F52BA;
-    font-size: 70px;
-    line-height: 65px;
+    color: white;
+    font-size: 80px;
+    line-height: 85px;
+    text-transform: uppercase;
 }
-.home-cards-image{
-/*    width: 700px;*/
+
+/* Функционалности - меню */
+.functionality-container {
+    height: 100vh;
+    width: 100%;
+    background-color: #AFCBFF;
+    display: flex;
+    align-items: center;
+/*    margin-bottom: 20%;*/
 }
-.home-advice-container {
-    background-color: #EFEFEF;
-    border-left: 5px solid #5588D5;
+.functionality-container-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 20px;
+    column-gap: 20px;
 }
-.home-polygon-container{
+.home-functionality {
+    background-color: #495057;
+    border-radius: 20px;
+}
+.home-icon {
+    color: #AFCBFF;
+    width: 50px;
+}
+.functionality-name {
+    color: #AFCBFF;
+    font-size: 38px;
+}
+.functionality-description{
+    color: white;
+    font-size: 25px;
+}
+.functionality-image{
+    grid-column: 2 / 3;
+}
+.homeHr {
+    color: white;
+    border: 30px solid white;
+    /*    width: 50px;*/
+    /*    height: 4px;*/
+}
+
+/* Описание на функционалностите */
+.functionalities-container {
+/*    height: 100vh;*/
+    width: 100%;
+    background-color: white;
+    padding-bottom: 8.6rem;
+}
+.functionalities-secondary-heading {
+    color: #4B8AFF;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+.functionalities-heading {
+    color: #495057;
+    font-size: 4rem;
+    line-height: 0.9;
+    margin-bottom: 5rem;
+}
+.functionality-description-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4.8rem;
+}
+.functionality-number {
+    font-size: 9.6rem;
+    font-weight: 600;
+    color: #4B8AFF;
+    opacity: 0.6;
+    margin-bottom: 1.2rem;
+}
+.functionality-title {
+    color: #4B8AFF;
+    font-size: 4rem;
+}
+.functionality-section-description {
+    color: #495057;
+    font-size: 1.6rem;
+}
+.functionality-description-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.functionality-description-image {
+    width: 80%;
+    z-index: 3;
+}
+.functionality-description-image-container::before,
+.functionality-description-image-container::after {
+    content: "";
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.functionality-description-image-container::before {
+    width: 80%;
+    padding-bottom: 80%;
+    background-color: #AFCBFF;
+    z-index: 1;
+}
+.functionality-description-image-container::after {
+    width: 65%;
+    padding-bottom: 65%;
+    background-color: #337BFF;
+    z-index: 2;
+}
+
+/* Видео */
+.sapphire-video-container {
+/*    height: 100vh;*/
+    width: 100%;
+    background-color: #337BFF;
+    position: relative;
+    z-index: 0;
+}
+.video-heading {
+    color: white;
+    font-size: 4rem;
+    text-align: center;
+    padding-top: 5rem;
+    margin-bottom: 6rem;
+}
+.video-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    z-index: 3;
+}
+.sapphire-video{
+    grid-column: 1 / -1;
+    z-index: 3;
+}
+.sapphire-video iframe{
+    border-radius: 10px;
+}
+.video-image {
+    z-index: 3;
+    position: relative;
+    width: 40%;
+}
+.video-description-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.video-description {
+    color: white;
+    font-size: 2rem;
+    position: relative;
+    z-index: 3;
+    line-height: 1.2;
+}
+
+.sapphire-video-container::after {
+    content: "";
+    display: block;
     position: absolute;
     bottom: 0;
     right: 0;
-    z-index: -1;
-}
-.home-polygon{
-    width: 1400px;
+    width: 100%;
+    padding-bottom: 40%;
+    /*    background-color: white;*/
+    background: linear-gradient(90deg, #fff, #337BFF, #AFCBFF);
+    background-size: 400% 400%;
+    animation: gradient 7s ease infinite;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    z-index: 1;
 }
 
+nav {
+    border-bottom: none !important;
+    background-color: transparent !important;
+    overflow: hidden !important;
+    position: fixed !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 10;
+/*    opacity: 0.9;*/
+}
+footer {
+    border-top: 3px solid white;
+    background-color: transparent !important;
+    position: absolute;
+    bottom: 0;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
