@@ -120,7 +120,7 @@
     column-gap: 4.8rem;
 }
 .functionality-number {
-    font-size: 8.6rem;
+    font-size: 9.6rem;
     font-weight: 600;
     color: #4B8AFF;
     opacity: 0.6;
@@ -141,7 +141,7 @@
     align-items: center;
 }
 .functionality-description-image {
-    width: 80%;
+    width: 100%;
     z-index: 3;
 }
 .functionality-description-image-container::before,
@@ -155,14 +155,14 @@
     transform: translate(-50%, -50%);
 }
 .functionality-description-image-container::before {
-    width: 60%;
-    padding-bottom: 60%;
+    width: 80%;
+    padding-bottom: 80%;
     background-color: #AFCBFF;
     z-index: 1;
 }
 .functionality-description-image-container::after {
-    width: 50%;
-    padding-bottom: 50%;
+    width: 65%;
+    padding-bottom: 65%;
     background-color: #337BFF;
     z-index: 2;
 }
