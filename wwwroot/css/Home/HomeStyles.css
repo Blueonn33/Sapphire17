@@ -99,9 +99,10 @@
 
 /* Описание на функционалностите */
 .functionalities-container {
-    height: 100vh;
+/*    height: 100vh;*/
     width: 100%;
     background-color: white;
+    padding-bottom: 8.6rem;
 }
 .functionalities-secondary-heading {
     color: #4B8AFF;
@@ -141,7 +142,7 @@
     align-items: center;
 }
 .functionality-description-image {
-    width: 100%;
+    width: 80%;
     z-index: 3;
 }
 .functionality-description-image-container::before,
