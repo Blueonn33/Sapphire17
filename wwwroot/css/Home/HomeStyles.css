@@ -13,6 +13,7 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto auto auto auto;
+    margin-top: 6%;
 /*    padding-bottom: 200px;*/
 }
 .home-container-info-1, .home-container-info-2 {
@@ -251,6 +252,12 @@
 nav {
     border-bottom: none !important;
     background-color: transparent !important;
+    overflow: hidden !important;
+    position: fixed !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 10;
+/*    opacity: 0.9;*/
 }
 footer {
     border-top: 3px solid white;
