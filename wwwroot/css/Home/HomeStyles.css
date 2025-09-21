@@ -92,7 +92,7 @@
 }
 .functionality-description{
     color: white;
-    font-size: 25px;
+    font-size: 22px;
 }
 .functionality-image{
     grid-column: 2 / 3;
@@ -187,13 +187,13 @@
     color: white;
     font-size: 4rem;
     text-align: center;
-    padding-top: 5rem;
-    margin-bottom: 6rem;
+    padding-top: 4rem;
+/*    margin-bottom: 6rem;*/
 }
 .video-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 2fr;
+/*    display: grid;*/
+/*    grid-template-columns: 1fr 1fr;*/
+/*    grid-template-rows: 1fr 2fr;*/
     z-index: 3;
 }
 .sapphire-video{
@@ -206,7 +206,7 @@
 .video-image {
     z-index: 3;
     position: relative;
-    width: 40%;
+    width: 30%;
 }
 .video-description-container{
     display: flex;
@@ -215,7 +215,7 @@
 }
 .video-description {
     color: white;
-    font-size: 2rem;
+    font-size: 1.8rem;
     position: relative;
     z-index: 3;
     line-height: 1.2;

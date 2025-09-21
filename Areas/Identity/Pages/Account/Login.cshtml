@@ -1,42 +1,35 @@
 ﻿@page
 @model LoginModel
-
 @{
     ViewData["Title"] = "Вход";
 }
 
+<head>
+    <link href="~/css/Login/LoginStyles.css" rel="stylesheet" />
+</head>
 
-<div class="login-container mt-5">
+<div class="login-container mt-5 container">
     <div class="login-content-container">
-        <h1>Вход</h1>
-        <section>
-            <form id="account" method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                    <label asp-for="Input.Email" class="form-label">Email</label>
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
-                    <label asp-for="Input.Password" class="form-label">Password</label>
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="checkbox mb-3">
-                    <label asp-for="Input.RememberMe" class="form-label">
-                        <input class="form-check-input" asp-for="Input.RememberMe" />
-                        @Html.DisplayNameFor(m => m.Input.RememberMe)
-                    </label>
-                </div>
-                <div>
-                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
-                </div>
-            </form>
-        </section>
-    </div>
-    <div class="login-student-container">
-        <div>
-            <img src="~/Images/student-login.png" class="img-fluid" />
+        <h1 class="mb-5 login-heading">Вход</h1>
+        <form id="account" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="mb-3">
+                <label asp-for="Input.Email" class="form-label">Email</label>
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Input.Password" class="form-label">Password</label>
+                <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="**********" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="login-buttons-container mt-5 mb-5">
+                <button id="login-back" class="btn btn-lg login-back login-btn">Назад</button>
+                <button id="login-submit" type="submit" class="btn btn-lg login-submit login-btn">Вход</button>
+            </div>
+        </form>
+        <div class="login-image-container">
+            <img src="~/Images/eating.png" class="img-fluid login-image" />
         </div>
     </div>
 </div>

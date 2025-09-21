@@ -7,51 +7,47 @@
     text-align: center;
     text-transform: uppercase;
 }
+label {
+    font-size: 1.6rem !important;
+    color: #1D498B;
+}
+input {
+    font-size: 1.6rem !important;
+}
+.register-buttons-container{
+    display: flex;
+    justify-content: space-between;
+}
+.register-btn{
+    color: white;
+    text-transform: uppercase;
+    padding: 1rem 3rem;
+    border-radius: 150px;
+}
+.register-back {
+    background-color: #337BFF;
+}
+.register-back:hover {
+    background-color: #6A9EFF;
+    color: white;
+}
+.register-submit {
+    background-color: #1D498C;
+}
+.register-submit:hover {
+    background-color: #375C94;
+    color: white;
+}
+.register-image-container {
+    display: flex;
+    justify-content: center;
+}
+.register-image{
+    width: 30%;
+}
 .navbar, footer {
     background-color: transparent !important;
 }
 footer {
     border-top: 3px solid white;
 }
-/*.register-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-}
-.register-content-container{
-    grid-column: 1 / -1;
-    display: relative;
-}
-.register-student-container {
-    position: relative;
-    grid-column: 2 / -1;
-    grid-row: 2 / -1;
-}
-.student-ellipse{
-    position: absolute;
-    top:0;
-    z-index: -1;
-}
-.navbar {
-    background-color: #5472D4 !important;
-}
-footer {
-    background-color: #5472D4 !important;
-    z-index: -2;
-}
-.register-bag-container{
-    position: relative;
-}
-.bag-ellipse{
-    position: absolute;
-    top: 0;
-    z-index: -1;
-    width: 80%;
-}
-.register-bag {
-    position: absolute;
-    top: 20%;
-    left: 3%;
-    z-index: -2;
-    rotate: -30deg;
-}*/
