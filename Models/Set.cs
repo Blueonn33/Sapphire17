@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Sapphire17.Areas.Identity.Data;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Sapphire17.Models
 {
-    public class Collection
+    public class Set
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -14,7 +15,7 @@ namespace Sapphire17.Models
 
         [ForeignKey(nameof(UserId))]
         public string UserId { get; set; }
-        public IdentityUser User { get; set; }
+        public User User { get; set; }
 
         public ICollection<Deck> Decks { get; set; }
     }

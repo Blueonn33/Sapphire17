@@ -11,8 +11,9 @@ namespace Sapphire17.Models
         public string? ImageMimeType { get; set; }
         public bool Visible { get; set; }
 
-        [ForeignKey(nameof(CollectionId))]
-        public int CollectionId { get; set; }
+        [ForeignKey(nameof(SetId))]
+        public int SetId { get; set; }
+        public Set Set { get; set; }
 
         public ICollection<Flashcard> Flashcards { get; set; }
     }
