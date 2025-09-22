@@ -15,5 +15,6 @@ namespace Sapphire17.Areas.Identity.Data
         public string? ImageMimeType { get; set; }
 
         public ICollection<Set> Sets { get; set; }
+        public ICollection<Advice> Advices { get; set; }
     }
 }
