@@ -9,7 +9,7 @@ namespace Sapphire17.Data.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Set> builder)
         {
-            builder.ToTable("Collections");
+            builder.ToTable("Sets");
 
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Name).IsRequired().HasMaxLength(100);
