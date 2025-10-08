@@ -21,7 +21,7 @@ namespace Sapphire17.Repositories
                 throw new ArgumentNullException(nameof(setId));
             }
 
-            var decks = await _context.Decks.Where(s => s.Id == setId).ToListAsync();
+            var decks = await _context.Decks.Where(s => s.SetId == setId).ToListAsync();
             return decks;
         }
 
