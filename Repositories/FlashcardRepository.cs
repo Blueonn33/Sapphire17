@@ -60,10 +60,14 @@ namespace Sapphire17.Repositories
 
         public async Task DeleteFlashcardAsync(int id)
         {
-            if(id == null)
+            if(id == 0)
             {
                 throw new ArgumentNullException(nameof(id));
             }
+
+            var flashcard = await _context.Flashcards.FindAsync(id);
+            _context.Flashcards.Remove(flashcard);
+            await _context.SaveChangesAsync();
         }
     }
 }

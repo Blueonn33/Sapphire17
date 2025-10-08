@@ -16,7 +16,7 @@ namespace Sapphire17.Repositories
 
         public async Task<IEnumerable<Deck>> GetAllDecksBySetIdAsync(int setId)
         {
-            if(setId == 0)
+            if (setId == 0)
             {
                 throw new ArgumentNullException(nameof(setId));
             }
@@ -38,7 +38,7 @@ namespace Sapphire17.Repositories
 
         public async Task CreateDeckAsync(Deck deck)
         {
-            if(deck == null)
+            if (deck == null)
             {
                 throw new ArgumentNullException(nameof(deck));
             }
@@ -60,6 +60,11 @@ namespace Sapphire17.Repositories
 
         public async Task DeleteDeckAsync(int deckId)
         {
+            if (deckId == 0)
+            {
+                throw new ArgumentNullException(nameof(deckId));
+            }
+
             var deck = await _context.Decks.FindAsync(deckId);
             _context.Decks.Remove(deck);
             await _context.SaveChangesAsync();
