@@ -57,5 +57,13 @@ namespace Sapphire17.Repositories
             _context.Flashcards.Update(flashcard);
             await _context.SaveChangesAsync();
         }
+
+        public async Task DeleteFlashcardAsync(int id)
+        {
+            if(id == null)
+            {
+                throw new ArgumentNullException(nameof(id));
+            }
+        }
     }
 }
