@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Sapphire17.Areas.Identity.Data;
+using Sapphire17.Models;
 using Sapphire17.Repositories.Interfaces;
 
 namespace Sapphire17.Controllers
@@ -19,5 +20,17 @@ namespace Sapphire17.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        //[HttpPost]
+        //public async Task<IActionResult> CreateSet(Set set)
+        //{
+
+        //}
     }
 }
