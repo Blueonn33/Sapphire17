@@ -1,3 +1,57 @@
 ﻿body {
     background-color: #AFCBFF;
 }
+.set-content-container {
+    position: relative;
+    background-color: #495057;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 6px solid white;
+}
+.set-img-button {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 60px;
+}
+.set-image-container {
+    display: flex;
+    justify-content: center;
+    background-color: #AFCBFF;
+    border-radius: 30px;
+    width: 50%;
+    height: auto;
+}
+.set-image {
+    width: 70%;
+    height: auto;
+}
+.sets-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+.btn-set-option{
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 150px;
+    width: 60%;
+}
+.btn-open {
+    background-color: #2F6BC8;
+    color: white;
+}
+.btn-edit {
+    background-color: #AFCBFF;
+    color: black;
+}
+.btn-open:hover {
+    background-color: #1C4E8C;
+    color: white;
+}
+.btn-edit:hover {
+    background-color: #91C0FF;
+    color: black;
+}
