@@ -1,1 +1,30 @@
-﻿
+﻿body {
+    background-color: #AFCBFF;
+}
+
+.btn-deck-option {
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 150px;
+    width: 60%;
+}
+
+.btn-open {
+    background-color: #2F6BC8;
+    color: white;
+}
+
+.btn-edit {
+    background-color: #AFCBFF;
+    color: black;
+}
+
+.btn-open:hover {
+    background-color: #1C4E8C;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #91C0FF;
+    color: black;
+}

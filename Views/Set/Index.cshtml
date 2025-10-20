@@ -35,10 +35,10 @@
                                 <img src="Images/padlock.png" class="img-fluid" />
                             </div>
                         }
-                        <a class="btn btn-open btn-set-option mb-3">Отвори</a>
+                        <a class="btn btn-open btn-set-option mb-3" asp-action="Index" 
+                           asp-controller="Deck" asp-route-setId="@set.Id">Отвори</a>
                         <a class="btn btn-edit btn-set-option mb-3">Редактирай</a>
                     </div>
-                    
                 }
             </section>
         </div>

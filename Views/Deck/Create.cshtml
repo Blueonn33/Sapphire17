@@ -1,0 +1,48 @@
+﻿@model Sapphire17.ViewModels.DeckViewModel;
+@{
+    ViewData["Title"] = "Създаване";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Deck/DeckStylesCreate.css" />
+</head>
+<body>
+    <div>
+        <div class="container mt-5">
+            <header>
+                <h1 class="text-light deck-create-heading">Създаване на тесте</h1>
+            </header>
+            <div class="deck-create-container">
+                <form method="post" asp-action="CreateDeck" asp-controller="Deck" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label asp-for="ImageFile" class="form-label fs-3 text-light">Изображение</label>
+                        <input asp-for="ImageFile" class="form-control create-input" type="file" />
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label text-light fs-3">Име</label>
+                        <input asp-for="Name" class="form-control create-input" />
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Description" class="form-label text-light fs-3">Описание</label>
+                        <textarea asp-for="Description" class="form-control create-input-textarea"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Visible" class="form-label text-light fs-3">Видимост</label>
+                        <select asp-for="Visible" class="form-select create-input">
+                            <option value="true">Видима</option>
+                            <option value="false">Скрита</option>
+                        </select>
+                    </div>
+                    <div class="deck-create-buttons-container mt-5">
+                        <a class="btn btn-lg btn-back btn-warning" asp-action="Index" asp-controller="Deck">
+                            Назад
+                        </a>
+                        <button type="submit" class="btn btn-lg btn-submit">
+                            Създай
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
