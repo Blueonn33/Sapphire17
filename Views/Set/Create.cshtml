@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Sapphire17.ViewModels.SetViewModel;
+@{
     ViewData["Title"] = "Създаване";
 }
 
@@ -6,11 +7,45 @@
     <link rel="stylesheet" href="~/css/Set/SetStylesCreate.css" />
 </head>
 <body>
-<div>
-    <div class="container mt-5">
-        <header>
-                <h1 class="fs-4 text-light">Създаване на колекция</h1>
-        </header>
+    <div>
+        <div class="container mt-5">
+            <header>
+                <h1 class="text-light create-set-heading">Създаване на колекция</h1>
+            </header>
+            <div class="set-create-container">
+                <form method="post" asp-action="Create" asp-controller="Set" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label asp-for="ImageFile" class="form-label fs-3 text-light">Изображение</label>
+                        <input asp-for="ImageFile" class="form-control create-input" type="file" />
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label text-light fs-3">Име</label>
+                        <input asp-for="Name" class="form-control create-input" />
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Visible" class="form-label text-light fs-3">Видимост</label>
+                        <select asp-for="Visible" class="form-select create-input">
+                            <option value="true">Видима</option>
+                            <option value="false">Скрита</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Favorite" class="form-label text-light fs-3">Любим</label>
+                        <select asp-for="Favorite" class="form-select create-input">
+                            <option value="true">Да</option>
+                            <option value="false">Не</option>
+                        </select>
+                    </div>
+                    <div class="create-set-buttons-container mt-5">
+                        <a class="btn btn-lg btn-back btn-warning" asp-action="Index" asp-controller="Set">
+                            Назад
+                        </a>
+                        <button type="submit" class="btn btn-lg btn-submit">
+                            Създай
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
 </body>

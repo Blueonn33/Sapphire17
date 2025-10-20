@@ -1,1 +1,52 @@
-﻿
+﻿body {
+    background-color: #495057;
+}
+
+.navbar {
+    background-color: transparent !important;
+}
+
+.nav-item, .nav-profile, footer {
+    background-color: #2F3133 !important;
+}
+
+.create-set-heading {
+    text-align: center;
+}
+
+.create-set-buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.create-input {
+    height: 50px;
+    font-size: 24px;
+}
+
+.btn-submit {
+    width: 350px;
+    background-color: #393C3F;
+    border-radius: 150px;
+    text-transform: uppercase;
+    color: white;
+    outline: 3px solid white;
+}
+
+.btn-back {
+    width: 350px;
+    background-color: #393C3F;
+    border-radius: 150px;
+    text-transform: uppercase;
+    color: white;
+    border: none;
+}
+
+.btn-back:hover {
+    color: #393C3F;
+    background-color: white;
+}
+
+.btn-submit:hover{
+    color: white;
+}
