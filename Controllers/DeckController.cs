@@ -27,20 +27,38 @@ namespace Sapphire17.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create(int setId)
         {
-            return View();
+            if (setId == 0)
+            {
+                return BadRequest("Missing setId");
+            }
+
+            var set = await _setRepository.GetSetByIdAsync(setId);
+
+            if (set == null)
+            {
+                return NotFound();
+            }
+
+            ViewBag.SetId = setId;
+            var model = new DeckViewModel
+            {
+                SetId = setId
+            };
+
+            return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateDeck(DeckViewModel deckViewModel, int setId)
+        public async Task<IActionResult> CreateDeck(DeckViewModel deckViewModel)
         {
-            if (setId == 0)
+            if (deckViewModel.SetId == 0)
             {
                 throw new Exception("Set not found");
             }
 
-            var set = await _setRepository.GetSetByIdAsync(setId);
+            var set = await _setRepository.GetSetByIdAsync(deckViewModel.SetId);
 
             if (deckViewModel.ImageFile != null && deckViewModel.ImageFile.Length > 0)
             {
@@ -59,11 +77,12 @@ namespace Sapphire17.Controllers
                 ImageData = deckViewModel.ImageData,
                 ImageMimeType = deckViewModel.ImageMimeType,
                 Visible = deckViewModel.Visible,
-                SetId = setId,
+                SetId = deckViewModel.SetId,
                 Set = set
             };
 
             await _deckRepository.CreateDeckAsync(deck);
+            ViewBag.setId = deckViewModel.SetId;
             return RedirectToAction("Index", "Set");
         }
     }

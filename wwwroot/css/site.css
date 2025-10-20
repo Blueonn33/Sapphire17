@@ -58,3 +58,62 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #AFCBFF;
 }
+
+.create-input {
+    height: 50px;
+    font-size: 24px;
+}
+
+.create-input-textarea {
+    min-height: 100px;
+    max-height: 200px;
+    font-size: 24px;
+}
+
+.btn-submit {
+    width: 350px;
+    background-color: #393C3F;
+    border-radius: 150px;
+    text-transform: uppercase;
+    color: white;
+    outline: 3px solid white;
+}
+
+.btn-back {
+    width: 350px;
+    background-color: #393C3F;
+    border-radius: 150px;
+    text-transform: uppercase;
+    color: white;
+    border: none;
+}
+
+.btn-back:hover {
+    color: #393C3F;
+    background-color: white;
+}
+
+.btn-submit:hover {
+    color: white;
+}
+
+
+.btn-open {
+    background-color: #2F6BC8;
+    color: white;
+}
+
+.btn-edit {
+    background-color: #AFCBFF;
+    color: black;
+}
+
+.btn-open:hover {
+    background-color: #1C4E8C;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #91C0FF;
+    color: black;
+}

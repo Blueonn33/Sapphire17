@@ -1,15 +1,24 @@
-﻿@{
+﻿@model IEnumerable<Deck>;
+@{
     ViewData["Title"] = "Тесте";
 }
 
 <head>
     <link rel="stylesheet" href="~/css/Deck/DeckStyles.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <div>
         <div class="container mt-5">
             <section>
-                <a class="btn btn-lg btn-light" asp-action="Create" asp-controller="Deck">Създаване</a>
+                <a class="btn btn-lg btn-light" asp-action="Create" asp-controller="Deck" asp-route-setId="@ViewBag.SetId">Създаване</a>
+            </section>
+            <section class="decks-container mt-5">
+                @* @foreach (var deck in Model)
+                {
+                    <p>@deck.Name</p>
+                    <p>@deck.Description</p>
+                } *@
             </section>
         </div>
     </div>

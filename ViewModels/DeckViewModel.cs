@@ -11,5 +11,6 @@ namespace Sapphire17.ViewModels
         public byte[]? ImageData { get; set; }
         public string? ImageMimeType { get; set; }
         public bool Visible { get; set; }
+        public int SetId { get; set; }
     }
 }

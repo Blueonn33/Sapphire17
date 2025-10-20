@@ -5,6 +5,7 @@
 
 <head>
     <link rel="stylesheet" href="~/css/Deck/DeckStylesCreate.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <div>
@@ -13,14 +14,15 @@
                 <h1 class="text-light deck-create-heading">Създаване на тесте</h1>
             </header>
             <div class="deck-create-container">
-                <form method="post" asp-action="CreateDeck" asp-controller="Deck" enctype="multipart/form-data">
+                <form method="post" asp-action="CreateDeck" asp-controller="Deck" asp-route-setId="@ViewBag.setId" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="SetId" value="@ViewBag.setId" />
                     <div class="mb-3">
                         <label asp-for="ImageFile" class="form-label fs-3 text-light">Изображение</label>
-                        <input asp-for="ImageFile" class="form-control create-input" type="file" />
+                        <input asp-for="ImageFile" class="form-control create-input" type="file"/>
                     </div>
                     <div class="mb-3">
                         <label asp-for="Name" class="form-label text-light fs-3">Име</label>
-                        <input asp-for="Name" class="form-control create-input" />
+                        <input asp-for="Name" class="form-control create-input"/>
                     </div>
                     <div class="mb-3">
                         <label asp-for="Description" class="form-label text-light fs-3">Описание</label>
@@ -29,8 +31,8 @@
                     <div class="mb-3">
                         <label asp-for="Visible" class="form-label text-light fs-3">Видимост</label>
                         <select asp-for="Visible" class="form-select create-input">
-                            <option value="true">Видима</option>
-                            <option value="false">Скрита</option>
+                            <option value="true">Видимo</option>
+                            <option value="false">Скритo</option>
                         </select>
                     </div>
                     <div class="deck-create-buttons-container mt-5">
