@@ -13,7 +13,7 @@
                 <h1 class="text-light create-set-heading">Създаване на колекция</h1>
             </header>
             <div class="set-create-container">
-                <form method="post" asp-action="Create" asp-controller="Set" enctype="multipart/form-data">
+                <form method="post" asp-action="CreateSet" asp-controller="Set" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label asp-for="ImageFile" class="form-label fs-3 text-light">Изображение</label>
                         <input asp-for="ImageFile" class="form-control create-input" type="file" />

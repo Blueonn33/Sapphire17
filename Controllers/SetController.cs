@@ -19,9 +19,11 @@ namespace Sapphire17.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            string userId = _userManager.GetUserId(User);
+            var sets = await _repository.GetAllSetsByUserIdAsync(userId);
+            return View(sets);
         }
 
         [HttpGet]
@@ -64,6 +66,19 @@ namespace Sapphire17.Controllers
 
             await _repository.CreateSetAsync(set);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetSetImage(int setId)
+        {
+            var set = await _repository.GetSetByIdAsync(setId);
+
+            if (set == null || set.ImageData == null || set.ImageMimeType == null)
+            {
+                return NotFound();
+            }
+
+            return File(set.ImageData, set.ImageMimeType);
         }
     }
 }
