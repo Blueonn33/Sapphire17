@@ -2,7 +2,13 @@
     background-color: #503E34;
     color: white;
 }
-
+::-webkit-scrollbar-thumb {
+    background: #9E7660 !important;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #DFD4CE !important;
+}
 .navbar {
     background-color: transparent !important;
 }
@@ -53,11 +59,44 @@
 
 .how-to-image-container::before {
     width: 500px;
-    height: 300px;
+    height: 230px;
     background-color: #B1856B;
     z-index: 1;
 }
 
 .deck-advice-section-container {
-    margin-bottom: 150px;
+    margin-bottom: 120px;
+}
+
+.create-first-deck-container{
+    background-color: white;
+}
+
+.create-first-deck-heading {
+    color: #503E34;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+.create-first-deck-content-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.btn-go-to-decks {
+    background-image: linear-gradient(to right, rgba(80,62,52,1), rgba(182,141,118,1));
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 2rem;
+    border-radius: 150px;
+    width: 400px;
+    color: white;
+}
+.btn-go-to-decks:hover {
+    background-image: linear-gradient(to right, rgba(80,62,52,0.8), rgba(182,141,118,0.8));
+    font-weight: 500;
+}
+.create-first-deck-image{
+    width: 15%;
 }
