@@ -21,9 +21,16 @@ namespace Sapphire17.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int setId)
         {
-            return View();
+            if (setId == 0)
+            {
+                return BadRequest("Missing setId");
+            }
+
+            var decks = await _deckRepository.GetAllDecksBySetIdAsync(setId); 
+            ViewBag.setId = setId;
+            return View(decks);
         }
 
         [HttpGet]
@@ -41,7 +48,8 @@ namespace Sapphire17.Controllers
                 return NotFound();
             }
 
-            ViewBag.SetId = setId;
+            ViewBag.setId = setId;
+
             var model = new DeckViewModel
             {
                 SetId = setId
@@ -85,5 +93,19 @@ namespace Sapphire17.Controllers
             ViewBag.setId = deckViewModel.SetId;
             return RedirectToAction("Index", "Set");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetDeckImage(int deckId)
+        {
+            var deck = await _deckRepository.GetDeckByIdAsync(deckId);
+
+            if (deck == null || deck.ImageData == null || deck.ImageMimeType == null)
+            {
+                return NotFound();
+            }
+
+            return File(deck.ImageData, deck.ImageMimeType);
+        }
+
     }
 }

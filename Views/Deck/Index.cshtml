@@ -11,14 +11,40 @@
     <div>
         <div class="container mt-5">
             <section>
-                <a class="btn btn-lg btn-light" asp-action="Create" asp-controller="Deck" asp-route-setId="@ViewBag.SetId">Създаване</a>
+                <a class="btn btn-lg btn-light" asp-action="Create" asp-controller="Deck" asp-route-setId="@ViewBag.setId">Създаване</a>
             </section>
             <section class="decks-container mt-5">
-                @* @foreach (var deck in Model)
+                @foreach (var deck in Model)
                 {
-                    <p>@deck.Name</p>
-                    <p>@deck.Description</p>
-                } *@
+                    <div class="deck-content-container mb-5">
+                        <div class="deck-image-container mt-3 m-5">
+                            <img src="@Url.Action("GetDeckImage", "Deck", new { deckId = deck.Id })"
+                                 class="img-fluid deck-image p-3" />
+                        </div>
+                        <div class="ms-3 mt-5 deck-text-container mb-5">
+                            <p class="fs-2 fw-bold m-0 deck-name">@deck.Name</p>
+                            <p class="fs-3 m-0 deck-description">@deck.Description</p>
+                        </div>
+                        <div class="deck-open-container me-5">
+                            <a><img src="Images/right-arrow.png" class="img-fluid deck-open-arrow" /></a>
+                        </div>
+                        @if (deck.Visible == true)
+                        {
+                            <div class="deck-img-button">
+                                <img src="Images/worldwide.png" class="img-fluid" />
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="deck-img-button">
+                                <img src="Images/padlock.png" class="img-fluid" />
+                            </div>
+                        }
+                        @* <a class="btn btn-open btn-set-option mb-3" asp-action="Index"
+                           asp-controller="Deck" asp-route-deckId="@deck.Id">Отвори</a>
+                        <a class="btn btn-edit btn-set-option mb-3">Редактирай</a> *@
+                    </div>
+                }
             </section>
         </div>
     </div>
