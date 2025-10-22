@@ -107,5 +107,10 @@ namespace Sapphire17.Controllers
             return File(deck.ImageData, deck.ImageMimeType);
         }
 
+        [HttpGet]
+        public IActionResult HowToCreate()
+        {
+            return View();
+        }
     }
 }

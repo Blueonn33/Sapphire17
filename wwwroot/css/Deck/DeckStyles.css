@@ -1,7 +1,9 @@
 ﻿body {
     background-color: #AFCBFF;
 }
-
+.decks-container{
+    margin-bottom: 10vh;
+}
 .btn-deck-option {
     text-transform: uppercase;
     font-weight: bold;

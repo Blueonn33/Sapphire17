@@ -1,0 +1,30 @@
+﻿body {
+    background-color: #503E34;
+    color: white;
+}
+.navbar {
+    background-color: transparent !important;
+}
+
+.nav-item, .nav-profile, footer {
+    background-color: #B1856B !important;
+}
+
+.deck-advice-section-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.deck-advice-image {
+    width: 60%;
+}
+
+.how-to-deck-heading{
+    font-size: 3rem;
+    margin-bottom: 100px;
+}
+
+.how-to-title {
+    color: #9E7660;
+    font-weight: bold;
+}
