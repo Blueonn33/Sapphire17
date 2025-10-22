@@ -2,6 +2,7 @@
     background-color: #503E34;
     color: white;
 }
+
 .navbar {
     background-color: transparent !important;
 }
@@ -10,16 +11,17 @@
     background-color: #B1856B !important;
 }
 
-.deck-advice-section-container{
+.deck-advice-section-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
 .deck-advice-image {
     width: 60%;
+    z-index: 2;
 }
 
-.how-to-deck-heading{
+.how-to-deck-heading {
     font-size: 3rem;
     margin-bottom: 100px;
 }
@@ -27,4 +29,35 @@
 .how-to-title {
     color: #9E7660;
     font-weight: bold;
+}
+
+.how-to-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.how-to-image-container::before,
+.how-to-image-container::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border: 6px solid white;
+}
+
+.how-to-image-container::before {
+    width: 500px;
+    height: 300px;
+    background-color: #B1856B;
+    z-index: 1;
+}
+
+.deck-advice-section-container {
+    margin-bottom: 150px;
 }
