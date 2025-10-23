@@ -1,4 +1,7 @@
-﻿.menu-item {
+﻿.menu-container{
+    position: relative;
+}
+.menu-item {
     width: 100%;
     text-align: center;
     border-radius: 20px;
@@ -30,4 +33,11 @@
 }
 .menu-item:hover {
     opacity: 0.8;
+}
+.menu-traveler-container {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 50%;
+    margin-bottom: 5vh;
 }
