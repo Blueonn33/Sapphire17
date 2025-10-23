@@ -23,11 +23,6 @@
     justify-content: space-evenly;
 }
 
-.create-input {
-    height: 50px;
-    font-size: 24px;
-}
-
 .deck-advices-container{
     display: grid;
     grid-template-columns: 1fr 1fr;

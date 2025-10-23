@@ -9,8 +9,8 @@
 </head>
 <body>
 <div>
-    <div class="container">
-        <a class="btn btn-lg btn-light" asp-action="Create" asp-controller="Flashcard" 
+    <div class="container mt-5">
+        <a class="btn btn-lg btn-create-flashcard" asp-action="Create" asp-controller="Flashcard" 
            asp-route-deckId="@ViewBag.deckId">+ Нова карта</a>
         <div class="flashcards-container">
             @foreach (var flashcard in Model)
