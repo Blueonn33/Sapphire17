@@ -1,0 +1,15 @@
+﻿body {
+    background-color: #AFCBFF;
+}
+.btn-create-flashcard {
+    background-color: #184081;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 150px;
+    padding: 10px 20px;
+}
+.btn-create-flashcard:hover {
+    background-color: #0F2A57;
+    color: white;
+}

@@ -1,0 +1,36 @@
+﻿@model Sapphire17.ViewModels.FlashcardViewModel;
+@{
+    ViewData["Title"] = "Създаване на флашкарта";
+}
+
+<head>
+    <link href="~/css/Flashcard/FlashcardCreateStyles.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="container">
+            <header>
+                <h1 class="flashcard-heading mt-5">Създаване на флашкарта</h1>
+            </header>
+            <form method="post" asp-action="CreateFlashcard" asp-controller="Flashcard">
+                <div class="mb-5">
+                    <label class="form-label text-light fs-3" asp-for="Question">Въпрос</label>
+                    <input class="form-control create-input" asp-for="Question" />
+                </div>
+                <div class="mb-5">
+                    <label class="form-label text-light fs-3" asp-for="Answer">Отговор</label>
+                    <input class="form-control create-input-textarea" asp-for="Answer" />
+                </div>
+                <div class="flashcard-create-buttons-container mt-5">
+                    <a class="btn btn-lg btn-back" asp-action="Index" asp-controller="Flashcard" asp-route-deckId="@ViewBag.deckId">
+                        Назад
+                    </a>
+                    <button type="submit" class="btn btn-lg btn-submit" asp-route-deckId="@ViewBag.deckId">
+                        Създай
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

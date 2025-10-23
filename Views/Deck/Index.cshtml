@@ -26,7 +26,7 @@
                             <p class="fs-3 m-0 deck-description">@deck.Description</p>
                         </div>
                         <div class="deck-open-container me-5">
-                            <a><img src="Images/right-arrow.png" class="img-fluid deck-open-arrow" /></a>
+                            <a asp-action="Index" asp-controller="Flashcard" asp-route-deckId="@deck.Id"><img src="Images/right-arrow.png" class="img-fluid deck-open-arrow"/></a>
                         </div>
                         @if (deck.Visible == true)
                         {
@@ -40,9 +40,6 @@
                                 <img src="Images/padlock.png" class="img-fluid" />
                             </div>
                         }
-                        @* <a class="btn btn-open btn-set-option mb-3" asp-action="Index"
-                           asp-controller="Deck" asp-route-deckId="@deck.Id">Отвори</a>
-                        <a class="btn btn-edit btn-set-option mb-3">Редактирай</a> *@
                     </div>
                 }
             </section>
