@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Sapphire17.Areas.Identity.Data;
 using Sapphire17.Data;
+using Sapphire17.Repositories;
+using Sapphire17.Repositories.Interfaces;
 
 namespace Sapphire17
 {
@@ -16,9 +19,17 @@ namespace Sapphire17
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddScoped<IAdviceRepository, AdviceRepository>();
+            builder.Services.AddScoped<IDeckRepository, DeckRepository>();
+            builder.Services.AddScoped<IFlashcardRepository, FlashcardRepository>();
+            builder.Services.AddScoped<INoteRepository, NoteRepository>();
+            builder.Services.AddScoped<ISetRepository, SetRepository>();
+            builder.Services.AddScoped<IVideoRepository, VideoRepository>();
 
             var app = builder.Build();
 

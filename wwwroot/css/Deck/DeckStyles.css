@@ -1,0 +1,45 @@
+﻿body {
+    background-color: #AFCBFF;
+}
+.decks-container{
+    margin-bottom: 10vh;
+}
+.btn-deck-option {
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 150px;
+    width: 60%;
+}
+.deck-content-container {
+    background-color: #6F9BE4;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr auto;
+    position: relative;
+    gap: 20px;
+    border-left: 15px solid #2F6BC8;
+    border-radius: 15px;
+}
+.deck-image{
+    width: 80%;
+}
+.deck-img-button{
+    position: absolute;
+    bottom: -10px;
+    left:-30px;
+    width: 80px;
+}
+.deck-name {
+    color: #1D498C;
+}
+.deck-description{
+    color: white;
+}
+.deck-open-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.deck-open-arrow{
+    width: 60px;
+}

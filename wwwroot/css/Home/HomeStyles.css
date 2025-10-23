@@ -188,12 +188,8 @@
     font-size: 4rem;
     text-align: center;
     padding-top: 4rem;
-/*    margin-bottom: 6rem;*/
 }
 .video-content {
-/*    display: grid;*/
-/*    grid-template-columns: 1fr 1fr;*/
-/*    grid-template-rows: 1fr 2fr;*/
     z-index: 3;
 }
 .sapphire-video{

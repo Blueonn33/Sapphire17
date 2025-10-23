@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Sapphire17.Areas.Identity.Data;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Sapphire17.Models
@@ -16,6 +17,6 @@ namespace Sapphire17.Models
 
         [ForeignKey(nameof(UserId))]
         public string UserId { get; set; }
-        public IdentityUser User { get; set; }
+        public User User { get; set; }
     }
 }

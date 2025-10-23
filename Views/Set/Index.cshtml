@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Set>
+@{
+    ViewData["Title"] = "Колекции";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Set/SetStyles.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div>
+        <div class="container mt-5">
+            <section>
+                <a class="btn btn-lg btn-light" asp-action="Create" asp-controller="Set">Създаване</a>
+            </section>
+            <section class="sets-container mt-5"> 
+                @foreach (var set in Model)
+                {
+                    <div class="set-content-container mb-5">
+                        <div class="set-image-container mt-3 m-5">
+                            <img src="@Url.Action("GetSetImage", "Set", new { setId = set.Id })" 
+                                 class="img-fluid set-image p-3" />
+                        </div>
+                        <div class="ms-3 mt-2 set-text-container mb-5">
+                            <p class="fs-2 text-light fw-bold m-0">@set.Name</p>
+                        </div>
+                        @if (set.Visible == true)
+                        {
+                            <div class="set-img-button">
+                                <img src="Images/worldwide.png" class="img-fluid"/>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="set-img-button">
+                                <img src="Images/padlock.png" class="img-fluid" />
+                            </div>
+                        }
+                        <a class="btn btn-open btn-set-option mb-3" asp-action="Index" 
+                           asp-controller="Deck" asp-route-setId="@set.Id">Отвори</a>
+                        <a class="btn btn-edit btn-set-option mb-3">Редактирай</a>
+                    </div>
+                }
+            </section>
+        </div>
+    </div>
+</body>

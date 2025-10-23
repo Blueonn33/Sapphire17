@@ -1,0 +1,55 @@
+﻿body {
+    background-color: #495057;
+}
+
+.navbar {
+    background-color: transparent !important;
+}
+
+.nav-item, .nav-profile, footer {
+    background-color: #2F3133 !important;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.deck-create-heading {
+    text-align: center;
+}
+
+.deck-create-buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.create-input {
+    height: 50px;
+    font-size: 24px;
+}
+
+.deck-advices-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.deck-advice-buttons-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+.deck-advice-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-advice {
+    background-image: linear-gradient(to right, rgba(80,62,52,1), rgba(182,141,118,1));
+    font-weight: 500;
+}
+.btn-advice:hover {
+    background-image: linear-gradient(to right, rgba(80,62,52,0.8), rgba(182,141,118,0.8));
+}
