@@ -1,0 +1,33 @@
+﻿.menu-item {
+    width: 100%;
+    text-align: center;
+    border-radius: 20px;
+}
+.menu-sets {
+    background-color: #90B3F2;
+}
+.menu-advices {
+    background-color: #431264;
+}
+.menu-tests {
+    background-color: #90B3F2;
+}
+.menu-videos {
+    background-color: #375C94;
+}
+.menu-notes {
+    background-color: #855050;
+}
+.menu-item-link {
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.menu-item-link:hover{
+    color: white;
+    text-decoration: none;  
+}
+.menu-item:hover {
+    opacity: 0.8;
+}
