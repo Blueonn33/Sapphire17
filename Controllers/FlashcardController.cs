@@ -76,8 +76,8 @@ namespace Sapphire17.Controllers
                 DeckId = flashcardViewModel.DeckId,
                 Deck = deck
             };
-            
-            await _deckRepository.CreateDeckAsync(deck);
+
+            await _flashcardRepository.CreateFlashcardAsync(flashcard);
             ViewBag.deckId = flashcardViewModel.DeckId;
             return RedirectToAction("Index", "Deck");
         }
