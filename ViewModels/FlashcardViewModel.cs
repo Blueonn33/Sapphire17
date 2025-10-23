@@ -7,5 +7,6 @@ namespace Sapphire17.ViewModels
     {
         public string Question { get; set; }
         public string Answer { get; set; }
+        public int DeckId { get; set; }
     }
 }
