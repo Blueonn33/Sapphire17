@@ -1,3 +1,26 @@
-﻿@{
+﻿@model IEnumerable<Flashcard>;
+@{
     ViewData["Title"] = "Флашкарти";
 }
+
+<head>
+    <link href="css/Flashcard/FlashcardStyles.css" rel="stylesheet"/>
+    <link href="css/site.css" rel="stylesheet"/>
+</head>
+<body>
+<div>
+    <div class="container">
+        <a class="btn btn-lg btn-light" asp-action="Create" asp-controller="Flashcard" 
+           asp-route-deckId="@ViewBag.deckId">+ Нова карта</a>
+        <div class="flashcards-container">
+            @foreach (var flashcard in Model)
+            {
+                <div class="flashcard">
+                    <p>@flashcard.Question</p>
+                    <p>@flashcard.Answer</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+</body>
