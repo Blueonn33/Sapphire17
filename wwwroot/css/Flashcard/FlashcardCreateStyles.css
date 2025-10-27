@@ -18,3 +18,8 @@
     text-align: center;
     color: white;
 }
+
+.flashcard-create-buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+}

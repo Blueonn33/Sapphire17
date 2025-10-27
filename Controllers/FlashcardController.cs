@@ -60,6 +60,7 @@ namespace Sapphire17.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateFlashcard(FlashcardViewModel flashcardViewModel)
         {
             if (flashcardViewModel.DeckId == 0)
@@ -79,7 +80,7 @@ namespace Sapphire17.Controllers
 
             await _flashcardRepository.CreateFlashcardAsync(flashcard);
             ViewBag.deckId = flashcardViewModel.DeckId;
-            return RedirectToAction("Index", "Deck");
+            return RedirectToAction("Index", "Flashcard", new { deckId = flashcardViewModel.DeckId });
         }
     }
 }
