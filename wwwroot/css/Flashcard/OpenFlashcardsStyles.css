@@ -1,0 +1,8 @@
+﻿.flashcard-full-container {
+    background-color: #343a40;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+/*    justify-content: center;*/
+/*    align-items: center;*/
+}
