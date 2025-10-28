@@ -7,9 +7,42 @@
     text-transform: uppercase;
     font-weight: 500;
     border-radius: 150px;
-    padding: 10px 20px;
+    padding: 10px 50px;
 }
 .btn-create-flashcard:hover {
     background-color: #0F2A57;
     color: white;
+}
+.flashcards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+}
+.flashcard-container {
+    background-color: #495057;
+    border-radius: 15px;
+}
+.btn-flashcard {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 150px;
+    padding: 10px 20px;
+}
+.btn-flashcard-edit {
+    background-color: #AFCBFF;
+}
+.btn-flashcard-edit:hover {
+    background-color: #84BFFF;
+}
+.btn-flashcard-open {
+    background-color: #2F6BC8;
+}
+.btn-flashcard-open:hover {
+    background-color: #184081;
+}
+.flashcard-buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
 }
