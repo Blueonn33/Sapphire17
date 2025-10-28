@@ -10,8 +10,15 @@
 <body>
     <div>
         <div class="container mt-5">
-            <a class="btn btn-lg btn-create-flashcard" asp-action="Create" asp-controller="Flashcard"
-               asp-route-deckId="@ViewBag.deckId">+ Нова карта</a>
+            <div class="flashcard-buttons-top-container">
+                <a class="btn btn-lg btn-create-flashcard" asp-action="Create" asp-controller="Flashcard"
+                   asp-route-deckId="@ViewBag.deckId">+ Нова карта</a>
+                <div class="flashcard-right-container">
+                    <a class="btn btn-lg btn-create-flashcard me-3" asp-action="OpenFlashcards" asp-controller="Flashcard"
+                       asp-route-deckId="@ViewBag.deckId">Отвори всички</a>
+                    <a class="btn btn-lg btn-create-flashcard">Сортирай</a>
+                </div>
+            </div>
             <div class="flashcards-container mt-5">
                 @foreach (var flashcard in Model)
                 {

@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: #AFCBFF;
+    background-color: #AFCBFF !important;
 }
 .btn-create-flashcard {
     background-color: #184081;
@@ -45,4 +45,16 @@
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+}
+.flashcard-buttons-top-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+}
+.flashcard-full-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #495057;
 }

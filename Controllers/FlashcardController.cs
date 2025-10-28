@@ -35,6 +35,19 @@ namespace Sapphire17.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> OpenFlashcards(int deckId)
+        {
+            if (deckId == 0)
+            {
+                return BadRequest("Missing deckId");
+            }
+
+            var flashcards = await _flashcardRepository.GetAllFlashcardsByDeckIdAsync(deckId);
+            ViewBag.deckId = deckId;
+            return View(flashcards);
+        }
+
+        [HttpGet]
         public async Task<IActionResult> Create(int deckId)
         {
             if (deckId == 0)
