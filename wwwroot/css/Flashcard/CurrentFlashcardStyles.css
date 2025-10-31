@@ -1,3 +1,50 @@
 ﻿body {
-/*    background-color: red !important;*/
+    background-color: #AFCBFF !important;
+}
+
+.navbar {
+    background-color: transparent !important;
+}
+
+.nav-item, .nav-profile, footer {
+    background-color: #0F52BA !important;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.current-flashcard-container {
+    background-color: #184081;
+    border-radius: 20px;
+    display: grid;
+    align-items: center;
+    height: 400px;
+}
+
+.current-flashcard-question {
+    color: white;
+    font-size: 50px;
+    text-align: center;
+}
+
+.btn-show-answer-container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.btn-show-answer {
+    background-color: #2F6BC8;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-show-answer:hover {
+    background-color: #1C4A8B;
+    color: white;
 }
