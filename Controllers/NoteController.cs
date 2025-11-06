@@ -1,10 +1,11 @@
-﻿using System.CodeDom;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Protocol.Core.Types;
 using Sapphire17.Areas.Identity.Data;
 using Sapphire17.Models;
 using Sapphire17.Repositories.Interfaces;
 using Sapphire17.ViewModels;
+using System.CodeDom;
 
 namespace Sapphire17.Controllers
 {
@@ -76,6 +77,19 @@ namespace Sapphire17.Controllers
             await _noteRepository.CreateNoteAsync(note);
 
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetNoteImage(int noteId)
+        {
+            var note = await _noteRepository.GetNoteByIdAsync(noteId);
+
+            if (note == null || note.ImageData == null || note.ImageMimeType == null)
+            {
+                return NotFound();
+            }
+
+            return File(note.ImageData, note.ImageMimeType);
         }
     }
 }

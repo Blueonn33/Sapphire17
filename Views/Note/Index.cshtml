@@ -5,6 +5,7 @@
 
 <head>
     <link href="~/css/Note/NoteStyles.css" rel="stylesheet" />
+    <link href="~/css/Note/NoteCreateStyles.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
@@ -18,10 +19,14 @@
                 <h1 class="text-light mt-5 header-title-note">Бележки</h1>
             </div>
         </header>
-        <section>
+        <section class="mt-5">
             @foreach (var note in Model)
             {
-                <div>
+                <div class="note-content-container theme-@note.Theme">
+                    <div class="note-image-container mt-3 m-5">
+                        <img src="@Url.Action("GetNoteImage", "Note", new { noteId = note.Id })" 
+                             class="img-fluid note-image p-3" />
+                    </div>
                     <p>@note.Title</p>
                 </div>
             }
