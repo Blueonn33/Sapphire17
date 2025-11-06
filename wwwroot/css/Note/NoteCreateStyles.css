@@ -22,3 +22,28 @@ footer {
     text-align: center;
     font-weight: bold;
 }
+
+.theme-blue {
+    background-color: #90B3F2;
+}
+.theme-purple {
+    background-color: #C388E9;
+}
+.theme-green {
+    background-color: #C0F5C0;
+}
+.theme-yellow {
+    background-color: #F8FF9A;
+}
+.theme-red {
+    background-color: #FFB1B1;
+}
+.theme-orange {
+    background-color: #FFC69B;
+}
+.theme-brown {
+    background-color: #B49191;
+}
+.theme-gray {
+    background-color: #D9D9D9;
+}

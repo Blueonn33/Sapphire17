@@ -19,9 +19,18 @@ namespace Sapphire17.Controllers
             _userManager = userManager;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public async Task<IActionResult> Index()
         {
-            return View();
+            string userId = _userManager.GetUserId(User);
+
+            if (userId == null)
+            {
+                throw new Exception("User not found");
+            }
+
+            var notes = await _noteRepository.GetAllNotesByUserIdAsync(userId);
+            return View(notes);
         }
 
         [HttpGet]

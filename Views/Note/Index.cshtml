@@ -1,12 +1,13 @@
-﻿@{
+﻿@model IEnumerable<Note>;
+@{
     ViewData["Title"] = "Бележки";
 }
 
 <head>
-    <link href="~/css/Note/NoteStyles.css" rel="stylesheet"/>
+    <link href="~/css/Note/NoteStyles.css" rel="stylesheet" />
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <header class="mt-5">
             <div class="header-buttons-container">
                 <a class="btn btn-lg btn-light btn-create-note header-button-note" asp-action="Create"
@@ -17,5 +18,13 @@
                 <h1 class="text-light mt-5 header-title-note">Бележки</h1>
             </div>
         </header>
-</div>
+        <section>
+            @foreach (var note in Model)
+            {
+                <div>
+                    <p>@note.Title</p>
+                </div>
+            }
+        </section>
+    </div>
 </body>
