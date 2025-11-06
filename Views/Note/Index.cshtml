@@ -3,16 +3,19 @@
 }
 
 <head>
-    <link href="css/Note/NoteStyles.css" rel="stylesheet"/>
+    <link href="~/css/Note/NoteStyles.css" rel="stylesheet"/>
 </head>
 <body>
-<header class="container mt-5">
-    <div class="header-buttons-container">
-        <a class="btn btn-lg btn-light btn-create-note header-button-note">+ Нова бележка</a>
-        <a class="btn btn-lg btn-light btn-sort-notes header-button-note">Сортирай</a>
-    </div>
-    <div class="header-title-note-container">
-        <h1 class="text-light mt-5 header-title-note">Бележки</h1>
-    </div>
-</header>
+<div class="container">
+        <header class="mt-5">
+            <div class="header-buttons-container">
+                <a class="btn btn-lg btn-light btn-create-note header-button-note" asp-action="Create"
+                   asp-controller="Note">+ Нова бележка</a>
+                <a class="btn btn-lg btn-light btn-sort-notes header-button-note">Сортирай</a>
+            </div>
+            <div class="header-title-note-container">
+                <h1 class="text-light mt-5 header-title-note">Бележки</h1>
+            </div>
+        </header>
+</div>
 </body>
