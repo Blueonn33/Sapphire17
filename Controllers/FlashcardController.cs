@@ -35,6 +35,37 @@ namespace Sapphire17.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> OpenFlashcards(int deckId)
+        {
+            if (deckId == 0)
+            {
+                return BadRequest("Missing deckId");
+            }
+
+            var flashcards = await _flashcardRepository.GetAllFlashcardsByDeckIdAsync(deckId);
+            ViewBag.deckId = deckId;
+            return View(flashcards);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Flashcard(int flashcardId)
+        {
+            if(flashcardId == 0)
+            {
+                return BadRequest("Missing flashcardId");
+            }
+
+            var flashcard = await _flashcardRepository.GetFlashcardByIdAsync(flashcardId);
+
+            if(flashcard == null)
+            {
+                return NotFound();
+            }
+
+            return View(flashcard);
+        }
+
+        [HttpGet]
         public async Task<IActionResult> Create(int deckId)
         {
             if (deckId == 0)
@@ -60,6 +91,7 @@ namespace Sapphire17.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateFlashcard(FlashcardViewModel flashcardViewModel)
         {
             if (flashcardViewModel.DeckId == 0)
@@ -79,7 +111,7 @@ namespace Sapphire17.Controllers
 
             await _flashcardRepository.CreateFlashcardAsync(flashcard);
             ViewBag.deckId = flashcardViewModel.DeckId;
-            return RedirectToAction("Index", "Deck");
+            return RedirectToAction("Index", "Flashcard", new { deckId = flashcardViewModel.DeckId });
         }
     }
 }

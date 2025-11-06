@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Flashcard>
+@{
+    ViewData["Title"] = "Всички флашкарти";
+}
+
+<head>
+    <link href="~/css/Flashcard/OpenFlashcardsStyles.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="container mt-5">
+            @foreach (var flashcard in Model)
+            {
+                <div class="flashcard-full-container p-5 mb-5">
+                    <div class="">
+                        <p class="fs-3 text-light">@flashcard.Question</p>
+                    </div>
+                    <div class="vertical-line"></div>
+                    <div>
+                        <p class="fs-3 text-light">@flashcard.Answer</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>

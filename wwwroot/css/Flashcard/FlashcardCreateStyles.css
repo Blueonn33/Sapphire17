@@ -1,5 +1,5 @@
 ﻿body {
-        background-color: #495057;
+    background-color: #495057;
 }
 
 .navbar {
@@ -17,4 +17,9 @@
 .flashcard-heading {
     text-align: center;
     color: white;
+}
+
+.flashcard-create-buttons-container {
+    display: flex;
+    justify-content: space-evenly;
 }

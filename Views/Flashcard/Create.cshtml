@@ -14,19 +14,21 @@
                 <h1 class="flashcard-heading mt-5">Създаване на флашкарта</h1>
             </header>
             <form method="post" asp-action="CreateFlashcard" asp-controller="Flashcard">
+                @Html.AntiForgeryToken()
+                <input asp-for="DeckId" type="hidden" />
                 <div class="mb-5">
                     <label class="form-label text-light fs-3" asp-for="Question">Въпрос</label>
-                    <input class="form-control create-input" asp-for="Question" />
+                    <input class="form-control create-input" asp-for="Question"/>
                 </div>
                 <div class="mb-5">
                     <label class="form-label text-light fs-3" asp-for="Answer">Отговор</label>
-                    <input class="form-control create-input-textarea" asp-for="Answer" />
+                    <textarea class="form-control create-input-textarea" asp-for="Answer"></textarea>
                 </div>
                 <div class="flashcard-create-buttons-container mt-5">
-                    <a class="btn btn-lg btn-back" asp-action="Index" asp-controller="Flashcard" asp-route-deckId="@ViewBag.deckId">
+                    <a class="btn btn-lg btn-back" asp-action="Index" asp-controller="Flashcard" asp-route-deckId="@Model.DeckId">
                         Назад
                     </a>
-                    <button type="submit" class="btn btn-lg btn-submit" asp-route-deckId="@ViewBag.deckId">
+                    <button type="submit" class="btn btn-lg btn-submit">
                         Създай
                     </button>
                 </div>

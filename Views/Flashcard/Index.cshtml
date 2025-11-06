@@ -4,23 +4,34 @@
 }
 
 <head>
-    <link href="css/Flashcard/FlashcardStyles.css" rel="stylesheet"/>
-    <link href="css/site.css" rel="stylesheet"/>
+    <link href="css/Flashcard/FlashcardStyles.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
 </head>
 <body>
-<div>
-    <div class="container mt-5">
-        <a class="btn btn-lg btn-create-flashcard" asp-action="Create" asp-controller="Flashcard" 
-           asp-route-deckId="@ViewBag.deckId">+ Нова карта</a>
-        <div class="flashcards-container">
-            @foreach (var flashcard in Model)
-            {
-                <div class="flashcard">
-                    <p>@flashcard.Question</p>
-                    <p>@flashcard.Answer</p>
+    <div>
+        <div class="container mt-5">
+            <div class="flashcard-buttons-top-container">
+                <a class="btn btn-lg btn-create-flashcard" asp-action="Create" asp-controller="Flashcard"
+                   asp-route-deckId="@ViewBag.deckId">+ Нова карта</a>
+                <div class="flashcard-right-container">
+                    <a class="btn btn-lg btn-create-flashcard me-3" asp-action="OpenFlashcards" asp-controller="Flashcard"
+                       asp-route-deckId="@ViewBag.deckId">Отвори всички</a>
+                    <a class="btn btn-lg btn-create-flashcard">Сортирай</a>
                 </div>
-            }
+            </div>
+            <div class="flashcards-container mt-5">
+                @foreach (var flashcard in Model)
+                {
+                    <div class="flashcard-container mb-5">
+                        <p class="fs-3 p-3 text-light">@flashcard.Question</p>
+                        <div class="flashcard-buttons-container mb-3 me-3">
+                            <a class="btn btn-lg btn-flashcard-edit btn-flashcard">Редактирай</a>
+                            <a class="btn btn-lg btn-flashcard-open btn-flashcard" asp-action="Flashcard"
+                               asp-controller="Flashcard" asp-route-flashcardId="@flashcard.Id">Отвори</a>
+                        </div>
+                    </div>
+                }
+            </div>
         </div>
     </div>
-</div>
 </body>

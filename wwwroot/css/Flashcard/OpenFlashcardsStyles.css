@@ -1,0 +1,29 @@
+﻿body {
+    background-color: #AFCBFF !important;
+}
+
+.navbar {
+    background-color: transparent !important;
+}
+
+.nav-item, .nav-profile, footer {
+    background-color: #2F6BC8 !important;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.flashcard-full-container {
+    background-color: #343a40;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    column-gap: 50px;
+    align-items: center;
+}
+
+.vertical-line {
+    border-left: 6px solid white;
+    height: 100%;
+}
