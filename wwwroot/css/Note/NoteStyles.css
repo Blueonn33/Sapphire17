@@ -1,1 +1,30 @@
-﻿
+﻿body {
+    background-color: #CAA7A7;
+}
+.navbar {
+    background-color: transparent !important;
+}
+
+.nav-item, .nav-profile, footer {
+    background-color: #5C3737 !important;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.header-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.header-button-note {
+    background-color: #A16363;
+    color: white;
+}
+
+.header-title-note{
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
