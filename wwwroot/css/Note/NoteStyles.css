@@ -46,6 +46,11 @@
     justify-content: center;
 }
 
+.note-image{
+    max-width: 200px;
+    height: auto;
+}
+
 .note-title{
     text-align: center;
 }
