@@ -23,7 +23,7 @@
         <section class="notes-container mt-5">
             @foreach (var note in Model)
             {
-                <div class="note-content-container theme-@note.Theme-body">
+                <div class="note-content-container theme-@note.Theme-body" id="note-@note.Id">
                     <div class="note-image-container theme-@note.Theme">
                         <img src="@Url.Action("GetNoteImage", "Note", new { noteId = note.Id })"
                              class="img-fluid note-image p-3" />
@@ -42,12 +42,12 @@
                         </div>
                     }
                     <div class="note-action-buttons-container">
-                        <a data-bs-toggle="modal" data-bs-target="#action-modal">
+                        <a data-bs-toggle="modal" data-bs-target="#action-modal-@note.Id">
                             <img src="Images/mobile-app.png" class="note-action-buttons" />
                         </a>
                     </div>
                 </div>
-                <div class="modal fade" id="action-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="action-modal-@note.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -56,7 +56,7 @@
                             <div class="modal-body text-light">
                                 <a class="btn btn-md modal-action-button mb-3">☑️ Завърши</a>
                                 <a class="btn btn-md modal-action-button mb-3">✏️ Редактирай</a>
-                                <a class="btn btn-md modal-action-button">🗑️ Изтрий</a>
+                                <a onclick="removeNote(@note.Id)" class="btn btn-md modal-action-button">🗑️ Изтрий</a>
                             </div>
                         </div>
                     </div>
@@ -65,3 +65,26 @@
         </section>
     </div>
 </body>
+
+@section Scripts
+{
+    <script>
+        function removeNote(id)
+        {
+            if(confirm("Изтриване"))
+            {
+                $.ajax({
+                    url: "@Url.Action("DeleteNote", "Note")?noteId=" + id,
+                    type: "DELETE",
+                    success: function() {
+                        $("#note-" + id).remove();
+                        location.reload();
+                    },
+                    error: function() {
+                        location.reload();
+                    }
+                });
+            }
+        }
+    </script>
+}

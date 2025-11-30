@@ -91,5 +91,19 @@ namespace Sapphire17.Controllers
 
             return File(note.ImageData, note.ImageMimeType);
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteNote(int noteId)
+        {
+            var note = await _noteRepository.GetNoteByIdAsync(noteId);
+
+            if (note == null)
+            {
+                return NotFound();
+            }
+
+            _noteRepository.DeleteNoteAsync(noteId);
+            return RedirectToAction("Index");
+        }
     }
 }
