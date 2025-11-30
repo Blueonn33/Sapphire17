@@ -35,6 +35,31 @@
                         <p class="text-light fs-2 note-title">@note.Title</p>
                         <p class="text-light fs-4">@note.Description</p>
                     </div>
+                    @if (note.Important)
+                    {
+                        <div class="note-priority-container">
+                            <img src="Images/pin.png" class="note-priority" />
+                        </div>
+                    }
+                    <div class="note-action-buttons-container">
+                        <a data-bs-toggle="modal" data-bs-target="#action-modal">
+                            <img src="Images/mobile-app.png" class="note-action-buttons" />
+                        </a>
+                    </div>
+                </div>
+                <div class="modal fade" id="action-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-light">
+                                <a class="btn btn-md modal-action-button mb-3">☑️ Завърши</a>
+                                <a class="btn btn-md modal-action-button mb-3">✏️ Редактирай</a>
+                                <a class="btn btn-md modal-action-button">🗑️ Изтрий</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             }
         </section>
