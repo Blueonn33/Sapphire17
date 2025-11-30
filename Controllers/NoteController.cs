@@ -185,5 +185,25 @@ namespace Sapphire17.Controllers
             _noteRepository.DeleteNoteAsync(noteId);
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CompleteNote(int noteId)
+        {
+            if (noteId == 0)
+            {
+                return NotFound();
+            }
+
+            var note = await _noteRepository.GetNoteByIdAsync(noteId);
+
+            if (note == null)
+            {
+                return NotFound();
+            }
+
+            note.Completed = true;
+            await _noteRepository.UpdateNoteAsync(note);
+            return RedirectToAction("Index");
+        }
     }
 }

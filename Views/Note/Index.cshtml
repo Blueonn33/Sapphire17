@@ -9,8 +9,8 @@
     <link href="~/css/Note/NoteCreateStyles.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container">
-        <header class="mt-5">
+    <div class="">
+        <header class="mt-5 container">
             <div class="header-buttons-container">
                 <a class="btn btn-lg btn-light btn-create-note header-button-note" asp-action="Create"
                    asp-controller="Note">+ Нова бележка</a>
@@ -20,47 +20,21 @@
                 <h1 class="text-light mt-5 header-title-note">Бележки</h1>
             </div>
         </header>
-        <section class="notes-container mt-5">
-            @foreach (var note in Model)
+        <section class="notes-container mt-5 container">
+            @foreach (var note in Model.Where(n => !n.Completed))
             {
-                <div class="note-content-container theme-@note.Theme-body" id="note-@note.Id">
-                    <div class="note-image-container theme-@note.Theme">
-                        <img src="@Url.Action("GetNoteImage", "Note", new { noteId = note.Id })"
-                             class="img-fluid note-image p-3" />
-                    </div>
-                    <div class="line-container">
-                        <hr class="note-line m-0" />
-                    </div>
-                    <div class="note-text-container p-3">
-                        <p class="text-light fs-2 note-title">@note.Title</p>
-                        <p class="text-light fs-4">@note.Description</p>
-                    </div>
-                    @if (note.Important)
-                    {
-                        <div class="note-priority-container">
-                            <img src="Images/pin.png" class="note-priority" />
-                        </div>
-                    }
-                    <div class="note-action-buttons-container">
-                        <a data-bs-toggle="modal" data-bs-target="#action-modal-@note.Id">
-                            <img src="Images/mobile-app.png" class="note-action-buttons" />
-                        </a>
-                    </div>
-                </div>
-                <div class="modal fade" id="action-modal-@note.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-light">
-                                <a class="btn btn-md modal-action-button mb-3">☑️ Завърши</a>
-                                <a asp-action="Edit" asp-controller="Note" asp-route-noteId="@note.Id" class="btn btn-md modal-action-button mb-3">✏️ Редактирай</a>
-                                <a onclick="removeNote(@note.Id)" class="btn btn-md modal-action-button">🗑️ Изтрий</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @Html.Partial("_NotePartial", note)
+            }
+        </section>
+        <section class="notes-completed-container">
+            <div class="header-title-note-container container">
+                <h1 class="text-light mt-5 header-title-note note-underline">Завършени</h1>
+            </div>
+        </section>
+        <section class="notes-container mt-5 container">
+            @foreach (var note in Model.Where(n => n.Completed))
+            {
+                @Html.Partial("_NotePartial", note)
             }
         </section>
     </div>
@@ -86,5 +60,23 @@
                 });
             }
         }
+
+        function completeNote(id)
+        {
+            $.ajax({
+                url: "@Url.Action("CompleteNote", "Note")",
+                type: "POST",
+                data: { noteId: id },
+                success: function()
+                {
+                    location.reload();
+                },
+                error: function()
+                {
+                    location.reload();
+                }
+            });
+        }
+
     </script>
 }
