@@ -11,9 +11,9 @@ namespace Sapphire17.Models
         public string Description { get; set; }
         public byte[]? ImageData { get; set; }
         public string? ImageMimeType { get; set; }
-        public bool Important { get; set; }
+        public bool Important { get; set; } = false;
         public string Theme { get; set; }
-        public bool Completed { get; set; }
+        public bool Completed { get; set; } = false;
 
         [ForeignKey(nameof(UserId))]
         public string UserId { get; set; }

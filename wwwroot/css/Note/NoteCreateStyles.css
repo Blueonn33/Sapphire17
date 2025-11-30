@@ -1,0 +1,78 @@
+﻿body {
+    background-color: #593535;
+}
+
+.navbar {
+    background-color: transparent !important;
+}
+
+.nav-item, .nav-profile{
+    background-color: #CAA7A7 !important;
+}
+
+footer {
+    background-color: #593535 !important;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.header-title-note-create {
+    text-align: center;
+    font-weight: bold;
+}
+
+.theme-blue {
+    background-color: #005BFF;
+}
+.theme-blue-body {
+    background-color: #90B3F2;
+}
+.theme-purple {
+    background-color: #C388E9;
+}
+.theme-purple-body {
+    background-color: #922AD8;
+}
+.theme-green {
+    background-color: #C0F5C0;
+}
+.theme-green-body {
+    background-color: #1AA51A;
+}
+.theme-yellow {
+    background-color: #F8FF9A;
+}
+.theme-yellow-body {
+    background-color: #6F7700;
+}
+.theme-red {
+    background-color: #FFB1B1;
+}
+.theme-red-body {
+    background-color: #FF6363;
+}
+.theme-orange {
+    background-color: #FFC69B;
+}
+.theme-orange-body {
+    background-color: #FF8E38;
+}
+.theme-brown {
+    background-color: #B49191;
+}
+.theme-brown-body {
+    background-color: #4A3F3F;
+}
+.theme-gray {
+    background-color: #D9D9D9;
+}
+.theme-gray-body {
+    background-color: #515151;
+}
+
+.flashcard-create-buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+}
