@@ -71,3 +71,8 @@ footer {
 .theme-gray-body {
     background-color: #515151;
 }
+
+.flashcard-create-buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+}
