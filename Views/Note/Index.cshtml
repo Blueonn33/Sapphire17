@@ -55,7 +55,7 @@
                             </div>
                             <div class="modal-body text-light">
                                 <a class="btn btn-md modal-action-button mb-3">☑️ Завърши</a>
-                                <a class="btn btn-md modal-action-button mb-3">✏️ Редактирай</a>
+                                <a asp-action="Edit" asp-controller="Note" asp-route-noteId="@note.Id" class="btn btn-md modal-action-button mb-3">✏️ Редактирай</a>
                                 <a onclick="removeNote(@note.Id)" class="btn btn-md modal-action-button">🗑️ Изтрий</a>
                             </div>
                         </div>

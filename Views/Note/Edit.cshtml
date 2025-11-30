@@ -1,1 +1,61 @@
-﻿
+﻿@model Sapphire17.ViewModels.NoteViewModel;
+@{
+    ViewData["Title"] = "Редактиране на бележка";
+}
+
+<head>
+    <link href="~/css/Note/NoteCreateStyles.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="text-light header-title-note-create">Редактиране на бележка</h1>
+        </header>
+        <section>
+            <form method="post" asp-action="Edit" asp-controller="Note" enctype="multipart/form-data" 
+                  asp-route-noteId="@ViewBag.noteId">
+                <div class="mb-3">
+                    <label asp-for="ImageFile" class="form-label fs-3 text-light">Изображение</label>
+                    <input asp-for="ImageFile" class="form-control create-input" type="file" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label text-light fs-3" asp-for="Title">Заглавие</label>
+                    <input class="form-control create-input" asp-for="Title" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label text-light fs-3" asp-for="Description">Описание</label>
+                    <textarea class="form-control create-input-textarea" asp-for="Description"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Important" class="form-label text-light fs-3">Важна</label>
+                    <select asp-for="Important" class="form-select create-input">
+                        <option value="true">Да</option>
+                        <option value="false">Не</option>
+                    </select>
+                </div>
+                <div class="mb-5">
+                    <label asp-for="Theme" class="form-label text-light fs-3">Тема</label>
+                    <select asp-for="Theme" class="form-select create-input">
+                        <option value="blue" class="theme-blue theme">Синя</option>
+                        <option value="purple" class="theme-purple theme">Лилава</option>
+                        <option value="green" class="theme-green theme">Зелена</option>
+                        <option value="yellow" class="theme-yellow theme">Жълта</option>
+                        <option value="orange" class="theme-orange theme">Оранжева</option>
+                        <option value="brown" class="theme-brown theme">Кафява</option>
+                        <option value="red" class="theme-red theme">Червена</option>
+                        <option value="gray" class="theme-gray theme">Сива</option>
+                    </select>
+                </div>
+                <div class="flashcard-create-buttons-container mt-5">
+                    <a class="btn btn-lg btn-back" asp-action="Index" asp-controller="Note">
+                        Назад
+                    </a>
+                    <button type="submit" class="btn btn-lg btn-submit">
+                        Редактирай
+                    </button>
+                </div>
+            </form>
+        </section>
+    </div>
+</body>

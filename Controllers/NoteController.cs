@@ -80,6 +80,86 @@ namespace Sapphire17.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> Edit(int noteId)
+        {
+            if (noteId == 0)
+            {
+                return NotFound();
+            }
+
+            var note = await _noteRepository.GetNoteByIdAsync(noteId);
+
+            if (note == null)
+            {
+                return NotFound();
+            }
+
+            var noteVm = new NoteViewModel
+            {
+                Title = note.Title,
+                Description = note.Description,
+                Important = note.Important,
+                Theme = note.Theme,
+                ImageData = note.ImageData,
+                ImageMimeType = note.ImageMimeType,
+                Completed = note.Completed
+            };
+
+            ViewBag.noteId = note.Id;
+
+            return View(noteVm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(NoteViewModel noteViewModel, int noteId)
+        {
+            string userId = _userManager.GetUserId(User);
+            User user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                throw new Exception("User not found");
+            }
+
+            if (ModelState.IsValid)
+            {
+                var note = await _noteRepository.GetNoteByIdAsync(noteId);
+
+                if (note == null)
+                {
+                    return NotFound();
+                }
+
+                note.Title = noteViewModel.Title;
+                note.Description = noteViewModel.Description;
+                note.Important = noteViewModel.Important;
+                note.Theme = noteViewModel.Theme;
+                note.Completed = noteViewModel.Completed;
+
+                if (noteViewModel.ImageFile != null && noteViewModel.ImageFile.Length > 0)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        await noteViewModel.ImageFile.CopyToAsync(ms);
+                        note.ImageData = ms.ToArray();
+                        note.ImageMimeType = noteViewModel.ImageFile.ContentType;
+                    }
+                }
+                else
+                {
+                    note.ImageData = note.ImageData ?? noteViewModel.ImageData;
+                    note.ImageMimeType = note.ImageMimeType ?? noteViewModel.ImageMimeType;
+                }
+
+                await _noteRepository.UpdateNoteAsync(note);
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.noteId = noteId;
+            return View(noteViewModel);
+        }
+
+        [HttpGet]
         public async Task<IActionResult> GetNoteImage(int noteId)
         {
             var note = await _noteRepository.GetNoteByIdAsync(noteId);
