@@ -17,21 +17,21 @@
                 <a class="btn btn-lg btn-light btn-sort-notes header-button-note">Сортирай</a>
             </div>
             <div class="header-title-note-container">
-                <h1 class="text-light mt-5 header-title-note">Бележки</h1>
+                <h1 class="text-light mt-5 header-title-note">Бележки - </h1>
             </div>
         </header>
-        <section class="notes-container mt-5 container">
+        <section class="notes-container mt-5 container notes-unfinished-container">
             @foreach (var note in Model.Where(n => !n.Completed))
             {
                 @Html.Partial("_NotePartial", note)
             }
         </section>
-        <section class="notes-completed-container">
+        <section class="">
             <div class="header-title-note-container container">
                 <h1 class="text-light mt-5 header-title-note note-underline">Завършени</h1>
             </div>
         </section>
-        <section class="notes-container mt-5 container">
+        <section class="notes-container mt-5 container notes-finished-container">
             @foreach (var note in Model.Where(n => n.Completed))
             {
                 @Html.Partial("_NotePartial", note)
@@ -78,5 +78,11 @@
             });
         }
 
+        // function countNotes(id)
+        // {
+        //     var noteCount = document.getElementById(id);
+        //     var notes = noteCount.getElementsByClassName("note-un-container");
+        //     return notes.length;
+        // }
     </script>
 }

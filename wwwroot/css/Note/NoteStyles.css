@@ -129,7 +129,3 @@
 .note-underline {
     text-underline-offset: 13px;
 }
-
-.notes-completed-container{
-    backdrop-filter: blur(50px);
-}
