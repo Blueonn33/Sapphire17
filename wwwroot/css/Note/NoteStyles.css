@@ -70,10 +70,11 @@
     height: 50px;
 }
 
-.note-action-buttons:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 100%;
-}
+    .note-action-buttons:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 100%;
+        cursor: pointer;
+    }
 
 .note-priority {
     position: absolute;
@@ -120,7 +121,11 @@
     color: white;
 }
 
-    .modal-action-button:hover {
-        background-color: #CAA7A7;
-        color: black;
-    }
+.modal-action-button:hover {
+    background-color: #CAA7A7;
+    color: black;
+}
+
+.note-underline {
+    text-underline-offset: 13px;
+}

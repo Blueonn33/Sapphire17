@@ -1,0 +1,23 @@
+﻿body {
+    background-color: #7F55C1;
+}
+footer{
+    background-color: #4B2A75 !important;
+}
+.navbar {
+    background-color: transparent !important;
+}
+.nav-item, .nav-profile, footer {
+    background-color: #2E1A4C !important;
+}
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+.advice-add-button {
+    background-color: #8324C2;
+    color: white;
+}
+.advice-add-button:hover {
+    background-color: #9B3DE5;
+    color: white;
+}
