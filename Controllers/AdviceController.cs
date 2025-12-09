@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Sapphire17.Areas.Identity.Data;
 using Sapphire17.Models;
+using Sapphire17.Repositories;
 using Sapphire17.Repositories.Interfaces;
 using Sapphire17.ViewModels;
 
@@ -19,9 +20,12 @@ namespace Sapphire17.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            string userId = _userManager.GetUserId(User);
+            var advices = await _adviceRepository.GetAllAdvicesByUserIdAsync(userId);
+
+            return View(advices);
         }
 
         [HttpGet]
@@ -65,6 +69,19 @@ namespace Sapphire17.Controllers
 
             await _adviceRepository.CreateAdviceAsync(advice);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAdviceImage(int adviceId)
+        {
+            var advice = await _adviceRepository.GetAdviceByIdAsync(adviceId);
+
+            if (advice == null || advice.ImageData == null || advice.ImageMimeType == null)
+            {
+                return NotFound();
+            }
+
+            return File(advice.ImageData, advice.ImageMimeType);
         }
     }
 }

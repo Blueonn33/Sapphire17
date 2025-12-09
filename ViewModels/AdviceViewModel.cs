@@ -10,6 +10,6 @@ namespace Sapphire17.ViewModels
         public byte[]? ImageData { get; set; }
         public string? ImageMimeType { get; set; }
         public IFormFile ImageFile { get; set; }
-        public string Type { get; set; }
+        public string Type { get; set; } = "Video";
     }
 }

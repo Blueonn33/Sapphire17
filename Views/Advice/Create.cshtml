@@ -1,1 +1,43 @@
-﻿
+﻿@model Sapphire17.ViewModels.AdviceViewModel;
+@{
+    ViewData["Title"] = "Създаване";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Advice/AdviceStylesCreate.css" />
+    <link rel="stylesheet" href="~/css/Advice/AdviceStyles.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div>
+        <div class="container mt-5">
+            <header>
+                <h1 class="text-light advice-create-heading">Създаване на съвет</h1>
+            </header>
+            <div class="advice-create-container mt-5">
+                <form method="post" asp-action="CreateAdvice" asp-controller="Advice" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label asp-for="ImageFile" class="form-label fs-3 text-light">Изображение</label>
+                        <input asp-for="ImageFile" class="form-control create-input" type="file" />
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label text-light fs-3">Име</label>
+                        <input asp-for="Name" class="form-control create-input" />
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Value" class="form-label text-light fs-3">Връзка</label>
+                        <input asp-for="Value" class="form-control create-input" />
+                    </div>
+                    <div class="advice-create-buttons-container mt-5">
+                        <a class="btn btn-lg btn-back" asp-action="Index" asp-controller="Advice">
+                            Назад
+                        </a>
+                        <button type="submit" class="btn btn-lg btn-submit btn-submit-advice">
+                            Създай
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

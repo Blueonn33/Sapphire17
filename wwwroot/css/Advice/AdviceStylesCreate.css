@@ -1,1 +1,24 @@
-﻿
+﻿.advice-create-heading {
+    text-align: center;
+}
+.advice-create-container {
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+    background-color: #4B2A75;
+    border-radius: 20px;
+}
+.advice-create-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+.btn-submit-advice {
+    background-color: #8324C2 !important;
+    color: white;
+}
+.btn-submit-advice:hover {
+    background-color: #9B3DE5 !important;
+    color: white;
+}
