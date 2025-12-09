@@ -11,7 +11,7 @@ namespace Sapphire17.Models
         public string Value { get; set; }
         public byte[]? ImageData { get; set; }
         public string? ImageMimeType { get; set; }
-        public string Type { get; set; } = "Video";
+        public string Type { get; set; } = "Видео";
 
         [ForeignKey(nameof(UserId))]
         public string UserId { get; set; }
