@@ -64,9 +64,11 @@ namespace Sapphire17.Areas.Identity.Pages.Account.Manage
 
         private async Task LoadAsync(User user)
         {
+            var name = user.Name;
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
+            Name = name;
             Username = userName;
 
             Input = new InputModel
