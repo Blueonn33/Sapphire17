@@ -14,19 +14,19 @@ footer {
     background-color: #2E1A4C !important;
 }
 
-    .nav-item:hover {
-        background-color: rgba(255, 255, 255, 0.3) !important;
-    }
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
 
 .advice-add-button {
     background-color: #8324C2;
     color: white;
 }
 
-    .advice-add-button:hover {
-        background-color: #9B3DE5;
-        color: white;
-    }
+.advice-add-button:hover {
+    background-color: #9B3DE5;
+    color: white;
+}
 
 .advice-content-container {
     display: grid;
