@@ -12,8 +12,8 @@ using Sapphire17.Data;
 namespace Sapphire17.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251207204832_AdviceType")]
-    partial class AdviceType
+    [Migration("20251224211723_AdminRole")]
+    partial class AdminRole
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -186,6 +186,10 @@ namespace Sapphire17.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -538,7 +542,7 @@ namespace Sapphire17.Migrations
                     b.HasOne("Sapphire17.Areas.Identity.Data.User", "User")
                         .WithMany("Notes")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");

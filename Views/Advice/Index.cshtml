@@ -10,17 +10,20 @@
         <header class="advice-header-container mt-5">
             <a class="advice-add-button btn fs-4" asp-action="Create" asp-controller="Advice">+ Нов съвет</a>
         </header>
-        <section class="advice-container">
+        <section class="advice-flex-container">
             @foreach (var advice in Model)
             {
-                <div class="advice-content-container">
+                <div class="advice-content-container mt-5">
                     <div class="advice-image-container">
                         <img src="@Url.Action("GetAdviceImage", "Advice", new { adviceId = advice.Id })"
                              class="img-fluid advice-image p-3" />
                     </div>
-                    <div class="ms-3 mt-5 advice-text-container mb-5">
-                        <p class="fs-2 fw-bold m-0 advice-name">@advice.Name</p>
-                        <p class="fs-3 m-0 advice-type">@advice.Type</p>
+                    <div class="ms-3 mt-3 advice-text-container">
+                        <p class="fs-1 fw-bold text-light m-0 advice-name">@advice.Name</p>
+                        <p class="fs-5 m-0 advice-type mb-4">@advice.Type</p>
+                        <div>
+                            <a class="btn btn-light advice-open-button fs-5" href="@advice.Value" target="_blank">Отвори</a>
+                        </div>
                     </div>
                 </div>
             }
