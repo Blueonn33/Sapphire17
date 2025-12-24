@@ -30,6 +30,7 @@ namespace Sapphire17.Data
             builder.ApplyConfiguration(new NoteEntityConfiguration());
             builder.ApplyConfiguration(new SetEntityConfiguration());
             builder.ApplyConfiguration(new VideoEntityConfiguration());
+            builder.ApplyConfiguration(new UserEntityConfiguration());
         }
     }
 }
