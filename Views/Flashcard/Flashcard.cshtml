@@ -8,20 +8,40 @@
     <link href="~/css/site.css" rel="stylesheet" />
 </head>
 <body>
-<div>
-    <div class="container">
-        <div class="flashcard-info">
-            <p>Колекция: @ViewBag.setName</p>
-            <p>Тесте: @ViewBag.deckName</p>
-            <div class="current-flashcard-container mt-5">
-                <div class="current-flashcard">
-                    <p class="current-flashcard-question">@Model.Question</p>
-                    <div class="btn-show-answer-container mt-5">
-                        <a class="btn btn-lg btn-show-answer">Покажи отговора</a>
+    <div>
+        <div class="container">
+            <div class="flashcard-info">
+                <p>Колекция: @ViewBag.setName</p>
+                <p>Тесте: @ViewBag.deckName</p>
+                <div class="current-flashcard-container mt-5">
+                    <div class="current-flashcard">
+                        <p class="current-flashcard-question">@Model.Question</p>
+                        <div class="btn-show-answer-container mt-5">
+                            <a class="btn btn-lg btn-show-answer" onclick="showAnswer()">Покажи отговора</a>
+                        </div>
+                        <div class="current-flashcard-answer-container">
+                            <div class="current-flashcard-answer mt-4">
+                                <h3 class="py-3 m-0">@Model.Answer</h3>
+                            </div>
+                        </div>
+                        <div class="points-container">
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </body>
+
+@section Scripts
+{
+    <script>
+        function showAnswer() {
+            const answerContainer = document.querySelector('.current-flashcard-answer-container');
+            answerContainer.style.display = 'block';
+            const showAnswerBtn = document.querySelector('.btn-show-answer');
+            showAnswerBtn.style.display = 'none';
+        }
+    </script>
+}

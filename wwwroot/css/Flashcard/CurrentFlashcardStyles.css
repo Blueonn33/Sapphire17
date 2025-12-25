@@ -48,3 +48,16 @@
     background-color: #1C4A8B;
     color: white;
 }
+
+.current-flashcard-answer {
+    display: flex;
+    justify-content: center;
+    color: #1C4A8B;
+    background-color: #FFFFFF;
+    width: 80%;
+    border-radius: 10px;
+    margin: auto;
+}
+.current-flashcard-answer-container {
+    display: none;
+}
