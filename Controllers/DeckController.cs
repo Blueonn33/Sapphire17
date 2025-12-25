@@ -59,7 +59,7 @@ namespace Sapphire17.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateDeck(DeckViewModel deckViewModel)
+        public async Task<IActionResult> Create(DeckViewModel deckViewModel)
         {
             if (deckViewModel.SetId == 0)
             {
@@ -91,7 +91,7 @@ namespace Sapphire17.Controllers
 
             await _deckRepository.CreateDeckAsync(deck);
             ViewBag.setId = deckViewModel.SetId;
-            return RedirectToAction("Index", "Set");
+            return RedirectToAction("Index", "Deck", new { setId = deckViewModel.SetId });
         }
 
         [HttpGet]

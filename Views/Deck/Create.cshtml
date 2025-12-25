@@ -14,15 +14,15 @@
                 <h1 class="text-light deck-create-heading">Създаване на тесте</h1>
             </header>
             <div class="deck-create-container">
-                <form method="post" asp-action="CreateDeck" asp-controller="Deck" asp-route-setId="@ViewBag.setId" enctype="multipart/form-data">
-                    <input type="hidden" asp-for="SetId" value="@ViewBag.setId" />
+                <form method="post" asp-action="Create" asp-controller="Deck" enctype="multipart/form-data">
+                    <input asp-for="SetId" type="hidden" />
                     <div class="mb-3">
                         <label asp-for="ImageFile" class="form-label fs-3 text-light">Изображение</label>
-                        <input asp-for="ImageFile" class="form-control create-input" type="file" />
+                        <input asp-for="ImageFile" class="form-control create-input" type="file"/>
                     </div>
                     <div class="mb-3">
                         <label asp-for="Name" class="form-label text-light fs-3">Име</label>
-                        <input asp-for="Name" class="form-control create-input" />
+                        <input asp-for="Name" class="form-control create-input"/>
                     </div>
                     <div class="mb-3">
                         <label asp-for="Description" class="form-label text-light fs-3">Описание</label>
@@ -39,7 +39,7 @@
                         <a class="btn btn-lg btn-back" asp-action="Index" asp-controller="Deck" asp-route-setId="@ViewBag.setId">
                             Назад
                         </a>
-                        <button type="submit" class="btn btn-lg btn-submit" asp-route-setId="@ViewBag.setId">
+                        <button type="submit" class="btn btn-lg btn-submit">
                             Създай
                         </button>
                     </div>
