@@ -31,6 +31,7 @@ namespace Sapphire17.Controllers
 
             var flashcards = await _flashcardRepository.GetAllFlashcardsByDeckIdAsync(deckId);
             ViewBag.deckId = deckId;
+
             return View(flashcards);
         }
 
@@ -61,6 +62,10 @@ namespace Sapphire17.Controllers
             {
                 return NotFound();
             }
+
+            var deck = await _deckRepository.GetDeckByIdAsync(flashcard.DeckId);
+            ViewBag.deckName = deck?.Name;
+            ViewBag.setName = deck?.Set.Name;
 
             return View(flashcard);
         }
