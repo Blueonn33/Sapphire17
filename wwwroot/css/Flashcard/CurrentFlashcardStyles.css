@@ -61,3 +61,17 @@
 .current-flashcard-answer-container {
     display: none;
 }
+.points-flex-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.points-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 50px;
+}
+.point img{
+    width: 70px;
+    height: 70px;
+}
