@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Sapphire17.Areas.Identity.Data;
 using Sapphire17.Models;
 using Sapphire17.Repositories.Interfaces;
@@ -66,6 +68,84 @@ namespace Sapphire17.Controllers
 
             await _repository.CreateSetAsync(set);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int setId)
+        {
+            if (setId == 0)
+            {
+                return NotFound();
+            }
+
+            var set = await _repository.GetSetByIdAsync(setId);
+
+            if (set == null)
+            {
+                return NotFound();
+            }
+
+            var setViewModel = new SetViewModel
+            {
+                Name = set.Name,
+                ImageData = set.ImageData,
+                ImageMimeType = set.ImageMimeType,
+                Visible = set.Visible,
+                Favorite = set.Favorite
+            };
+
+            ViewBag.setId = set.Id;
+            return View(setViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditSet(SetViewModel setViewModel, int setId)
+        {
+            string userId = _userManager.GetUserId(User);
+            User user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                throw new Exception("User not found");
+            }
+
+            if (ModelState.IsValid)
+            {
+                var set = await _repository.GetSetByIdAsync(setId);
+
+                if (set == null)
+                {
+                    return NotFound();
+                }
+
+                if (setViewModel.ImageFile != null && setViewModel.ImageFile.Length > 0)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        await setViewModel.ImageFile.CopyToAsync(ms);
+                        setViewModel.ImageData = ms.ToArray();
+                        setViewModel.ImageMimeType = setViewModel.ImageFile.ContentType;
+                    }
+                }
+                else
+                {
+                    setViewModel.ImageData = set.ImageData;
+                    setViewModel.ImageMimeType = set.ImageMimeType;
+                }
+
+                set.Name = setViewModel.Name;
+                set.ImageData = setViewModel.ImageData;
+                set.ImageMimeType = setViewModel.ImageMimeType;
+                set.Visible = setViewModel.Visible;
+                set.Favorite = setViewModel.Favorite;
+                set.User = user;
+                set.UserId = userId;
+
+                await _repository.UpdateSetAsync(set);
+                return RedirectToAction("Index");
+            }
+
+            return View(setViewModel);
         }
 
         [HttpGet]
