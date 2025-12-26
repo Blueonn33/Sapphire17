@@ -16,6 +16,7 @@ namespace Sapphire17.Data
         public DbSet<Advice> Advices { get; set; }
         public DbSet<Deck> Decks { get; set; }
         public DbSet<Flashcard> Flashcards { get; set; }
+        public DbSet<Result> Results { get; set; }
         public DbSet<Note> Notes { get; set; } 
         public DbSet<Set> Sets { get; set; }
         public DbSet<Video> Videos { get; set; }
@@ -27,6 +28,7 @@ namespace Sapphire17.Data
             builder.ApplyConfiguration(new AdviceEntityConfiguration());
             builder.ApplyConfiguration(new DeckEntityConfiguration());
             builder.ApplyConfiguration(new FlashcardEntityConfiguration());
+            builder.ApplyConfiguration(new ResultEntityConfiguration());
             builder.ApplyConfiguration(new NoteEntityConfiguration());
             builder.ApplyConfiguration(new SetEntityConfiguration());
             builder.ApplyConfiguration(new VideoEntityConfiguration());

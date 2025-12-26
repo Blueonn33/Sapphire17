@@ -28,6 +28,7 @@ namespace Sapphire17
             builder.Services.AddScoped<IAdviceRepository, AdviceRepository>();
             builder.Services.AddScoped<IDeckRepository, DeckRepository>();
             builder.Services.AddScoped<IFlashcardRepository, FlashcardRepository>();
+            builder.Services.AddScoped<IResultRepository, ResultRepository>();
             builder.Services.AddScoped<INoteRepository, NoteRepository>();
             builder.Services.AddScoped<ISetRepository, SetRepository>();
             builder.Services.AddScoped<IVideoRepository, VideoRepository>();

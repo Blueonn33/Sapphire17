@@ -11,5 +11,6 @@ namespace Sapphire17.Models
         [ForeignKey(nameof(DeckId))]
         public int DeckId { get; set; }
         public Deck Deck { get; set; }
+        public ICollection<Result> Results { get; set; }
     }
 }

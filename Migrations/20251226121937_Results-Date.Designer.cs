@@ -12,15 +12,15 @@ using Sapphire17.Data;
 namespace Sapphire17.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251224211723_AdminRole")]
-    partial class AdminRole
+    [Migration("20251226121937_Results-Date")]
+    partial class ResultsDate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.8")
+                .HasAnnotation("ProductVersion", "9.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -380,6 +380,30 @@ namespace Sapphire17.Migrations
                     b.ToTable("Notes", (string)null);
                 });
 
+            modelBuilder.Entity("Sapphire17.Models.Result", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DateAnswered")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FlashcardId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Points")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FlashcardId");
+
+                    b.ToTable("Results", (string)null);
+                });
+
             modelBuilder.Entity("Sapphire17.Models.Set", b =>
                 {
                     b.Property<int>("Id")
@@ -548,6 +572,17 @@ namespace Sapphire17.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Sapphire17.Models.Result", b =>
+                {
+                    b.HasOne("Sapphire17.Models.Flashcard", "Flashcard")
+                        .WithMany("Results")
+                        .HasForeignKey("FlashcardId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Flashcard");
+                });
+
             modelBuilder.Entity("Sapphire17.Models.Set", b =>
                 {
                     b.HasOne("Sapphire17.Areas.Identity.Data.User", "User")
@@ -584,6 +619,11 @@ namespace Sapphire17.Migrations
             modelBuilder.Entity("Sapphire17.Models.Deck", b =>
                 {
                     b.Navigation("Flashcards");
+                });
+
+            modelBuilder.Entity("Sapphire17.Models.Flashcard", b =>
+                {
+                    b.Navigation("Results");
                 });
 
             modelBuilder.Entity("Sapphire17.Models.Set", b =>
