@@ -1,4 +1,5 @@
-﻿@model Sapphire17.Models.Flashcard;
+﻿@* @model Sapphire17.Models.Flashcard; *@
+@model Sapphire17.ViewModels.FlashcardDetailsViewModel
 @{
     ViewData["Title"] = "Флашкарта";
 }
@@ -8,21 +9,116 @@
     <link href="~/css/site.css" rel="stylesheet" />
 </head>
 <body>
-<div>
-    <div class="container">
-        <div class="flashcard-info">
-            <p>Колекция: </p>
-            <p>Тесте: </p>
-            <p>Въпрос №: </p>
-            <div class="current-flashcard-container mt-5">
-                <div class="current-flashcard">
-                    <p class="current-flashcard-question">@Model.Question</p>
-                    <div class="btn-show-answer-container mt-5">
-                        <a class="btn btn-lg btn-show-answer">Покажи отговора</a>
+    <div>
+        <div class="container">
+            <a class="btn btn-light mb-5" asp-action="Index" asp-controller="Flashcard" asp-route-deckId="@Model.Flashcard.DeckId">Назад</a>
+            <div class="flashcard-info">
+                <h4 class="text-light"><span class="flashcard-info-title">Колекция: </span>@ViewBag.setName</h4>
+                <h4 class="text-light"><span class="flashcard-info-title">Тесте: </span>@ViewBag.deckName</h4>
+                <div class="current-flashcard-container mt-5">
+                    <div class="current-flashcard">
+                        <p class="current-flashcard-question mt-3">@Model.Flashcard.Question</p>
+                        <div class="btn-show-answer-container mt-5">
+                            <a class="btn btn-lg btn-show-answer" onclick="showAnswer()">Покажи отговора</a>
+                        </div>
+                        <div class="current-flashcard-answer-container">
+                            <div class="current-flashcard-answer mt-4">
+                                <h3 class="py-3 px-3 m-0">@Model.Flashcard.Answer</h3>
+                            </div>
+                            <div class="points-flex-container mb-3">
+                                <div class="points-container">
+                                    <div class="point" onclick="sendResult(1)">
+                                        <img src="/Images/1.png" /><br />
+                                        <h5>Не го знам</h5>
+                                    </div>
+                                    <div class="point" onclick="sendResult(2)">
+                                        <img src="/Images/2.png" />
+                                    </div>
+                                    <div class="point" onclick="sendResult(3)">
+                                        <img src="/Images/3.png" />
+                                    </div>
+                                    <div class="point" onclick="sendResult(4)">
+                                        <img src="/Images/4.png" />
+                                    </div>
+                                    <div class="point" onclick="sendResult(5)">
+                                        <img src="/Images/5.png" /><br />
+                                        <h5>Знам го</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            @if (Model.Results.Any())
+            {
+                <div class="mt-5 table-results">
+                    <h4 class="text-light">История на отговорите</h4>
+                    <table class="table">
+                        <thead class="table-head-results">
+                            <tr>
+                                <th>Точки</th>
+                                <th>Дата</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-results-body">
+                            @foreach (var r in Model.Results)
+                            {
+                                <tr class="table-primary">
+                                    <td>@r.Points</td>
+                                    <td>@r.DateAnswered.ToString("dd.MM.yyyy HH:mm")</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
         </div>
     </div>
-</div>
 </body>
+
+@section Scripts
+{
+    <script>
+
+        function showAnswer() {
+            const answerContainer = document.querySelector('.current-flashcard-answer-container');
+            answerContainer.style.display = 'block';
+            const showAnswerBtn = document.querySelector('.btn-show-answer');
+            showAnswerBtn.style.display = 'none';
+        }
+
+        function sendResult(points) {
+            fetch('/Result/Create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    flashcardId: @Model.Flashcard.Id,
+                    points: points,
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                const table = document.querySelector('.table-results');
+                table.style.display = 'block';
+
+                const tbody = document.querySelector('.table-results-body');
+
+                const row = document.createElement('tr');
+                row.classList.add('table-primary');
+
+                row.innerHTML = `
+                    <td>${data.points}</td>
+                    <td>${data.dateAnswered}</td>
+                `;
+
+                tbody.prepend(row);
+
+                const pointsContainer = document.querySelector('.points-container');
+                pointsContainer.classList.add('points-disabled');
+            });
+        }
+    </script>
+}

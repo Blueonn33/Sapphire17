@@ -32,7 +32,8 @@ namespace Sapphire17.Repositories
                 throw new ArgumentNullException(nameof(deckId));
             }
 
-            var deck = await _context.Decks.FindAsync(deckId);
+            var deck = await _context.Decks.Include(d => d.Set)
+                .FirstOrDefaultAsync(d => d.Id == deckId); ;
             return deck;
         }
 

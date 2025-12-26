@@ -18,6 +18,11 @@ namespace Sapphire17.Data.EntityConfigurations
                 .WithMany(d => d.Flashcards)
                 .HasForeignKey(f => f.DeckId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasMany(d => d.Results)
+                .WithOne(f => f.Flashcard)
+                .HasForeignKey(f => f.FlashcardId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

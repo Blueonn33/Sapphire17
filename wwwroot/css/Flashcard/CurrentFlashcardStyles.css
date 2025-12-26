@@ -10,16 +10,17 @@
     background-color: #0F52BA !important;
 }
 
-.nav-item:hover {
-    background-color: rgba(255, 255, 255, 0.3) !important;
-}
+    .nav-item:hover {
+        background-color: rgba(255, 255, 255, 0.3) !important;
+    }
 
 .current-flashcard-container {
     background-color: #184081;
     border-radius: 20px;
     display: grid;
     align-items: center;
-    height: 400px;
+    min-height: 400px;
+    height: auto;
 }
 
 .current-flashcard-question {
@@ -28,7 +29,7 @@
     text-align: center;
 }
 
-.btn-show-answer-container{
+.btn-show-answer-container {
     display: flex;
     justify-content: center;
     align-content: center;
@@ -44,7 +45,70 @@
     cursor: pointer;
 }
 
-.btn-show-answer:hover {
-    background-color: #1C4A8B;
+    .btn-show-answer:hover {
+        background-color: #1C4A8B;
+        color: white;
+    }
+
+.current-flashcard-answer {
+    display: flex;
+    justify-content: center;
+    color: #1C4A8B;
+    background-color: #FFFFFF;
+    width: 80%;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.current-flashcard-answer h3 {
+    text-align: left;
+}
+
+.current-flashcard-answer-container {
+    display: none;
+}
+
+.points-flex-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.points-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 50px;
+}
+
+.point img {
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+}
+
+.point h5 {
+    margin-top: 10px;
     color: white;
+}
+
+.point {
+    text-align: center;
+}
+
+.flashcard-info-title {
+    color: #1C4A8B;
+}
+
+.table-results{
+    display: none;
+    margin-bottom: 10vh;
+}
+.table-head-results {
+    background-color: #184081 !important;
+    color: white;
+}
+.points-disabled {
+    pointer-events: none;
+    opacity: 0.4;
+    filter: grayscale(100%);
 }

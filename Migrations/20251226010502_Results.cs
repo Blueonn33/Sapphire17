@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Sapphire17.Migrations
 {
     /// <inheritdoc />
-    public partial class AdminRole : Migration
+    public partial class Results : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -300,6 +300,26 @@ namespace Sapphire17.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Results",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Points = table.Column<int>(type: "int", nullable: false),
+                    FlashcardId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Results", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Results_Flashcards_FlashcardId",
+                        column: x => x.FlashcardId,
+                        principalTable: "Flashcards",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Advices_UserId",
                 table: "Advices",
@@ -360,6 +380,11 @@ namespace Sapphire17.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Results_FlashcardId",
+                table: "Results",
+                column: "FlashcardId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Sets_UserId",
                 table: "Sets",
                 column: "UserId");
@@ -392,16 +417,19 @@ namespace Sapphire17.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Flashcards");
+                name: "Notes");
 
             migrationBuilder.DropTable(
-                name: "Notes");
+                name: "Results");
 
             migrationBuilder.DropTable(
                 name: "Videos");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Flashcards");
 
             migrationBuilder.DropTable(
                 name: "Decks");
