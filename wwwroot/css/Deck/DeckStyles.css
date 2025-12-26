@@ -43,3 +43,8 @@
 .deck-open-arrow{
     width: 60px;
 }
+.deck-header-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
