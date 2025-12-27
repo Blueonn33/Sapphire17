@@ -25,6 +25,14 @@
                         <input asp-for="Name" class="form-control create-input" />
                     </div>
                     <div class="mb-3">
+                        <label asp-for="Name" class="form-label text-light fs-3">Тип</label>
+                        <select class="form-select form-select-lg" asp-for="Type">
+                            <option value="" selected>Избери</option>
+                            <option value="Статия">Статия</option>
+                            <option value="Видео">Видео</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label asp-for="Value" class="form-label text-light fs-3">Връзка</label>
                         <input asp-for="Value" class="form-control create-input" />
                     </div>
