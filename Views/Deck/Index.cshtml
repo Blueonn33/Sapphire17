@@ -10,8 +10,9 @@
 <body>
     <div>
         <div class="container mt-5">
-            <section>
+            <section class="deck-header-buttons">
                 <a class="btn btn-lg btn-light" asp-action="Create" asp-controller="Deck" asp-route-setId="@ViewBag.setId">Създаване</a>
+                <a class="btn btn-primary" asp-action="Index" asp-controller="Set" asp-route-setId="@ViewBag.setId">Назад</a>
             </section>
             <section class="decks-container mt-5">
                 @foreach (var deck in Model)
@@ -19,7 +20,7 @@
                     <div class="deck-content-container mb-5">
                         <div class="deck-image-container mt-3 m-5">
                             <img src="@Url.Action("GetDeckImage", "Deck", new { deckId = deck.Id })"
-                                 class="img-fluid deck-image p-3" />
+                                 class="img-fluid deck-image p-3"/>
                         </div>
                         <div class="ms-3 mt-5 deck-text-container mb-5">
                             <p class="fs-2 fw-bold m-0 deck-name">@deck.Name</p>
@@ -31,13 +32,13 @@
                         @if (deck.Visible == true)
                         {
                             <div class="deck-img-button">
-                                <img src="Images/worldwide.png" class="img-fluid" />
+                                <img src="Images/worldwide.png" class="img-fluid"/>
                             </div>
                         }
                         else
                         {
                             <div class="deck-img-button">
-                                <img src="Images/padlock.png" class="img-fluid" />
+                                <img src="Images/padlock.png" class="img-fluid"/>
                             </div>
                         }
                     </div>

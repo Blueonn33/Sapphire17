@@ -1,10 +1,20 @@
-﻿.menu-container{
+﻿.menu-container {
     position: relative;
 }
 .menu-item {
     width: 100%;
-    text-align: center;
     border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.menu-item-image-container{
+    display: grid;
+    justify-content: end;
+}
+.menu-item-link-container {
+    display: grid;
+    align-items: center;
+    padding-left: 15px;
 }
 .menu-sets {
     background-color: #90B3F2;
@@ -13,10 +23,10 @@
     background-color: #431264;
 }
 .menu-tests {
-    background-color: #90B3F2;
+    background-color: #C0F5C0;
 }
 .menu-videos {
-    background-color: #375C94;
+    background-color: #FF6363;
 }
 .menu-notes {
     background-color: #855050;
@@ -40,4 +50,7 @@
     left: 10px;
     width: 50%;
     margin-bottom: 5vh;
+}
+.menu-item-image{
+    width: 130px;
 }

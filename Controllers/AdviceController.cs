@@ -45,30 +45,34 @@ namespace Sapphire17.Controllers
                 throw new Exception("User not found");
             }
 
-
-            if (adviceViewModel.ImageFile != null && adviceViewModel.ImageFile.Length > 0)
+            if (ModelState.IsValid)
             {
-                using (var ms = new MemoryStream())
+                if (adviceViewModel.ImageFile != null && adviceViewModel.ImageFile.Length > 0)
                 {
-                    await adviceViewModel.ImageFile.CopyToAsync(ms);
-                    adviceViewModel.ImageData = ms.ToArray();
-                    adviceViewModel.ImageMimeType = adviceViewModel.ImageFile.ContentType;
+                    using (var ms = new MemoryStream())
+                    {
+                        await adviceViewModel.ImageFile.CopyToAsync(ms);
+                        adviceViewModel.ImageData = ms.ToArray();
+                        adviceViewModel.ImageMimeType = adviceViewModel.ImageFile.ContentType;
+                    }
                 }
+
+                var advice = new Advice
+                {
+                    Name = adviceViewModel.Name,
+                    Value = adviceViewModel.Value,
+                    UserId = user.Id,
+                    User = user,
+                    ImageData = adviceViewModel.ImageData,
+                    ImageMimeType = adviceViewModel.ImageMimeType,
+                    Type = adviceViewModel.Type
+                };
+
+                await _adviceRepository.CreateAdviceAsync(advice);
+                return RedirectToAction("Index");
             }
 
-            var advice = new Advice
-            {
-                Name = adviceViewModel.Name,
-                Value = adviceViewModel.Value,
-                UserId = user.Id,
-                User = user,
-                ImageData = adviceViewModel.ImageData,
-                ImageMimeType = adviceViewModel.ImageMimeType,
-                Type = adviceViewModel.Type
-            };
-
-            await _adviceRepository.CreateAdviceAsync(advice);
-            return RedirectToAction("Index");
+            return View("Create", adviceViewModel);
         }
 
         [HttpGet]
