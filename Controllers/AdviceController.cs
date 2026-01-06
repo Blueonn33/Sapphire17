@@ -87,5 +87,19 @@ namespace Sapphire17.Controllers
 
             return File(advice.ImageData, advice.ImageMimeType);
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAdvice(int adviceId)
+        {
+            var advice = await _adviceRepository.GetAdviceByIdAsync(adviceId);
+
+            if (advice == null)
+            {
+                return NotFound();
+            }
+
+            await _adviceRepository.DeleteAdviceAsync(adviceId);
+            return Ok();
+        }
     }
 }
