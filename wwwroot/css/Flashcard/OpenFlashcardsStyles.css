@@ -27,3 +27,7 @@
     border-left: 6px solid white;
     height: 100%;
 }
+
+.open-flashcards-container {
+    margin-bottom: 10vh;
+}
