@@ -31,18 +31,15 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav nav-home flex-grow-1">
                         <li class="nav-item me-3">
-                            <a class="nav-link text-light fs-4" asp-controller="Home" asp-action="Index">Начало</a>
                         </li>
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <li class="nav-item me-3">
-                                <a class="nav-link text-light fs-4" asp-controller="Menu" asp-action="Index">Меню</a>
                             </li>
                         }
                         @if (User.IsInRole(Roles.Admin))
                         {
                             <li class="nav-item me-3">
-                                <a class="nav-link text-light fs-4" asp-controller="Users" asp-action="Index">Потребители</a>
                             </li>
                         }
                     </ul>
@@ -59,6 +56,7 @@
     <footer class="footer">
         <div class="container fs-4 text-light">
             &copy; 2025 Мартин Маринов 🖋️
+            &copy; 2026 Мартин Маринов 🖋️
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
