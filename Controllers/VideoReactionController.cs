@@ -66,13 +66,20 @@ namespace Sapphire17.Controllers
             }
 
             string userId = await _userManager.GetUserIdAsync(user);
+            var video = await _videoRepository.GetVideoByIdAsync(reactionViewModel.VideoId);
 
             var videoReaction = new VideoReaction
             {
                 Reaction = reactionViewModel.Reaction,
+                Video = video,
+                VideoId = reactionViewModel.VideoId,
                 User = user,
-                UserId = userId,
-            }
+                UserId = userId
+            };
+
+            await _reactionRepository.CreateReactionAsync(videoReaction);
+
+            return RedirectToAction("Index");
         }
     }
 }
