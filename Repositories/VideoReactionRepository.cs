@@ -8,6 +8,12 @@ namespace Sapphire17.Repositories
     public class VideoReactionRepository : IVideoReactionRepository
     {
         private readonly ApplicationDbContext _context;
+
+        public VideoReactionRepository(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public async Task<IEnumerable<VideoReaction>> GetAllReactionsByVideoIdAsync(int videoId)
         {
             if (videoId == 0)

@@ -6,9 +6,5 @@
         {
             get; set;
         }
-        public int VideoId
-        {
-            get; set;
-        }
     }
 }

@@ -20,38 +20,8 @@ namespace Sapphire17.Controllers
             _userManager = userManager;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Index(int videoId)
-        {
-            if (videoId == 0)
-            {
-                throw new Exception("Video not found");
-            }
-
-            var reactions = await _reactionRepository.GetAllReactionsByVideoIdAsync(videoId);
-
-            if (reactions == null)
-            {
-                throw new Exception("This video does not have reactions");
-            }
-
-            return View(reactions);
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Create(int videoId)
-        {
-            if (videoId == 0)
-            {
-                throw new Exception("Video not found");
-            }
-
-            var video = _videoRepository.GetVideoByIdAsync(videoId);
-            return View(video);
-        }
-
         [HttpPost]
-        public async Task<IActionResult> CreateReaction(VideoReactionViewModel reactionViewModel)
+        public async Task<IActionResult> Create(int videoId, VideoReactionViewModel reactionViewModel)
         {
             if (reactionViewModel == null)
             {
@@ -66,20 +36,20 @@ namespace Sapphire17.Controllers
             }
 
             string userId = await _userManager.GetUserIdAsync(user);
-            var video = await _videoRepository.GetVideoByIdAsync(reactionViewModel.VideoId);
+            var video = await _videoRepository.GetVideoByIdAsync(videoId);
 
             var videoReaction = new VideoReaction
             {
                 Reaction = reactionViewModel.Reaction,
                 Video = video,
-                VideoId = reactionViewModel.VideoId,
+                VideoId = videoId,
                 User = user,
                 UserId = userId
             };
 
             await _reactionRepository.CreateReactionAsync(videoReaction);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Video");
         }
     }
 }

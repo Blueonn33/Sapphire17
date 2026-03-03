@@ -12,21 +12,55 @@
     <div class="">
         <header class="mt-5">
             <div class="header-buttons-container">
-                <a style="text-transform:uppercase;" class="btn btn-lg btn-light btn-create-video header-button-video fs-5 mx-3" 
+                <a style="text-transform:uppercase;" class="btn btn-lg btn-light btn-create-video header-button-video fs-5 mx-3"
                    asp-action="Create"
                    asp-controller="Video">+ Ново видео</a>
             </div>
             <div class="videos-container m-4">
                 @foreach (var video in Model)
                 {
-                    <iframe
-                        class="video-frame col-lg-3 col-md-4"
-                        src="@video.Url"
-                        title="Video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
+                    <div class="video-flex-container">
+                        <iframe class="video-frame"
+                                src="@video.Url"
+                                title="Video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen>
+                        </iframe>
+                        <div class="video-content-container mt-3">
+                            <div>
+                                <h3>@video.Title</h3>
+                            </div>
+                            @* <div class="reactions-container">
+                                <div class="reaction">
+                                    <img src="Images/like.png" class="reaction-icon" />
+                                    <span class="reaction-count">12</span>
+                                </div>
+
+                                <div class="reaction">
+                                    <img src="Images/dislike.png" class="reaction-icon" />
+                                    <span class="reaction-count">3</span>
+                                </div>
+                            </div> *@
+                            <div class="reactions-container">
+                                <form method="post" asp-action="Create" asp-controller="VideoReaction">
+                                    <input type="hidden" name="videoId" value="@video.Id" />
+                                    <button type="submit" name="Reaction" value="Like" class="buttonReaction">
+                                        <img src="Images/like.png" class="reaction-icon" />
+                                    </button>
+                                    <span class="reaction-count" id="videoLike-@video.Id">
+                                        @video.VideoReactions.Count(r => r.Reaction == "Like")
+                                    </span>
+                                    <button type="submit" name="Reaction" value="Dislike" class="buttonReaction">
+                                        <img src="Images/dislike.png" class="reaction-icon" />
+                                    </button>
+                                    <span class="reaction-count" id="videoDislike-@video.Id">
+                                        @video.VideoReactions.Count(r => r.Reaction == "Dislike")
+                                    </span>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 }
             </div>
         </header>
