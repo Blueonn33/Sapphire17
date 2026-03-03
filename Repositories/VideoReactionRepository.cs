@@ -51,7 +51,16 @@ namespace Sapphire17.Repositories
             await _context.AddAsync(videoReaction);
             await _context.SaveChangesAsync();
         }
-
+        public async Task<VideoReaction?> GetUserReactionAsync(string userId, int videoId)
+        {
+            return await _context.VideoReactions
+                .FirstOrDefaultAsync(r => r.UserId == userId && r.VideoId == videoId);
+        }
+        public async Task<int> CountReactions(int videoId, string reactionType)
+        {
+            return await _context.VideoReactions
+                .CountAsync(r => r.VideoId == videoId && r.Reaction == reactionType);
+        }
         public Task UpdateReactionAsync(VideoReaction videoReaction)
         {
             throw new NotImplementedException();

@@ -21,35 +21,37 @@ namespace Sapphire17.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(int videoId, VideoReactionViewModel reactionViewModel)
+        public async Task<IActionResult> Create([FromBody] VideoReactionViewModel request)
         {
-            if (reactionViewModel == null)
-            {
-                throw new Exception("Reaction not found");
-            }
-
-            User user = await _userManager.GetUserAsync(User);
-
+            var user = await _userManager.GetUserAsync(User);
             if (user == null)
+                return Unauthorized();
+
+            var existing = await _reactionRepository.GetUserReactionAsync(user.Id, request.VideoId);
+            if (existing != null)
             {
-                throw new Exception("User not found");
+                return Json(new
+                {
+                    success = false,
+                    message = "already-reacted"
+                });
             }
 
-            string userId = await _userManager.GetUserIdAsync(user);
-            var video = await _videoRepository.GetVideoByIdAsync(videoId);
-
-            var videoReaction = new VideoReaction
+            var reaction = new VideoReaction
             {
-                Reaction = reactionViewModel.Reaction,
-                Video = video,
-                VideoId = videoId,
-                User = user,
-                UserId = userId
+                VideoId = request.VideoId,
+                Reaction = request.Reaction,
+                UserId = user.Id
             };
 
-            await _reactionRepository.CreateReactionAsync(videoReaction);
+            await _reactionRepository.CreateReactionAsync(reaction);
 
-            return RedirectToAction("Index", "Video");
+            return Json(new
+            {
+                success = true,
+                likes = await _reactionRepository.CountReactions(request.VideoId, "Like"),
+                dislikes = await _reactionRepository.CountReactions(request.VideoId, "Dislike")
+            });
         }
     }
 }

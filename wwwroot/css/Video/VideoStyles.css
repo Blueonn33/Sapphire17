@@ -88,3 +88,11 @@
     font-size: 18px;
     font-weight: bold;
 }
+.buttonReaction{
+    background-color: transparent;
+    border: none;
+}
+.reacted {
+    color: white !important;
+    font-weight: bold;
+}

@@ -31,33 +31,16 @@
                             <div>
                                 <h3>@video.Title</h3>
                             </div>
-                            @* <div class="reactions-container">
-                                <div class="reaction">
-                                    <img src="Images/like.png" class="reaction-icon" />
-                                    <span class="reaction-count">12</span>
-                                </div>
-
-                                <div class="reaction">
-                                    <img src="Images/dislike.png" class="reaction-icon" />
-                                    <span class="reaction-count">3</span>
-                                </div>
-                            </div> *@
                             <div class="reactions-container">
-                                <form method="post" asp-action="Create" asp-controller="VideoReaction">
-                                    <input type="hidden" name="videoId" value="@video.Id" />
-                                    <button type="submit" name="Reaction" value="Like" class="buttonReaction">
-                                        <img src="Images/like.png" class="reaction-icon" />
-                                    </button>
-                                    <span class="reaction-count" id="videoLike-@video.Id">
-                                        @video.VideoReactions.Count(r => r.Reaction == "Like")
-                                    </span>
-                                    <button type="submit" name="Reaction" value="Dislike" class="buttonReaction">
-                                        <img src="Images/dislike.png" class="reaction-icon" />
-                                    </button>
-                                    <span class="reaction-count" id="videoDislike-@video.Id">
-                                        @video.VideoReactions.Count(r => r.Reaction == "Dislike")
-                                    </span>
-                                </form>
+                                <button class="buttonReaction" onclick="react(@video.Id, 'Like')">
+                                    <img src="Images/like.png" class="reaction-icon" />
+                                </button>
+                                <span id="like-@video.Id">@video.VideoReactions.Count(r => r.Reaction == "Like")</span>
+
+                                <button class="buttonReaction" onclick="react(@video.Id, 'Dislike')">
+                                    <img src="Images/dislike.png" class="reaction-icon" />
+                                </button>
+                                <span id="dislike-@video.Id">@video.VideoReactions.Count(r => r.Reaction == "Dislike")</span>
                             </div>
                         </div>
                     </div>
@@ -70,6 +53,31 @@
 @section Scripts
 {
     <script>
+        async function react(videoId, reaction) {
+            const response = await fetch('/VideoReaction/Create', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ videoId: videoId, reaction: reaction })
+            });
 
+            const result = await response.json();
+
+            if (result.success === false && result.message === "already-reacted") {
+                return;
+            }
+
+            if (reaction === "Like") {
+                document.getElementById(`like-${videoId}`).classList.add("reacted");
+            } else {
+                document.getElementById(`dislike-${videoId}`).classList.add("reacted");
+            }
+
+
+            document.getElementById(`like-${videoId}`).innerText = result.likes;
+            document.getElementById(`dislike-${videoId}`).innerText = result.dislikes;
+
+            document.querySelectorAll(`button[onclick*='${videoId}']`)
+                .forEach(btn => btn.disabled = true);
+        }
     </script>
 }
