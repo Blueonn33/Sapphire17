@@ -1,34 +1,32 @@
 ﻿using Sapphire17.Areas.Identity.Data;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Sapphire17.Models
 {
-    public class Video
+    public class VideoReaction
     {
         public int Id
         {
             get; set;
         }
-        public string Url
-        {
-            get; set;
-        }
-        public string Title
+        public string Reaction
         {
             get; set;
         }
 
-        [ForeignKey(nameof(UserId))]
-        public string UserId
+        public Video Video
         {
             get; set;
         }
+        public int VideoId
+        {
+            get; set;
+        }
+
         public User User
         {
             get; set;
         }
-
-        public ICollection<VideoReaction> VideoReactions
+        public string UserId
         {
             get; set;
         }

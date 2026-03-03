@@ -18,6 +18,11 @@ namespace Sapphire17.Data.EntityConfigurations
                 .WithMany(u => u.Videos)
                 .HasForeignKey(u => u.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasMany(vr => vr.VideoReactions)
+                .WithOne(v => v.Video)
+                .HasForeignKey(f => f.VideoId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

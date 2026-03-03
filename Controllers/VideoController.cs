@@ -51,7 +51,7 @@ namespace Sapphire17.Controllers
 
             Video video = new Video
             {
-                Url = videoViewModel.Url,
+                Url = ConvertToEmbedUrl(videoViewModel.Url),
                 Title = videoViewModel.Title,
                 User = user,
                 UserId = userId
@@ -60,5 +60,17 @@ namespace Sapphire17.Controllers
             await _videoRepository.CreateVideoAsync(video);
             return RedirectToAction("Index");
         }
+
+        public string ConvertToEmbedUrl(string url)
+        {
+            if (url.Contains("watch?v="))
+            {
+                var id = url.Split(new[] { "watch?v=" }, StringSplitOptions.None)[1];
+                return $"https://www.youtube.com/embed/{id}";
+            }
+
+            return url;
+        }
+
     }
 }

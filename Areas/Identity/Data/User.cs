@@ -6,10 +6,29 @@ namespace Sapphire17.Areas.Identity.Data
     public class User : IdentityUser
     {
         [PersonalData]
-        public string Name { get; set; }
-        public ICollection<Set> Sets { get; set; }
-        public ICollection<Advice> Advices { get; set; }
-        public ICollection<Note> Notes { get; set; }
-        public ICollection<Video> Videos { get; set; }
+        public string Name
+        {
+            get; set;
+        }
+        public ICollection<Set> Sets
+        {
+            get; set;
+        }
+        public ICollection<Advice> Advices
+        {
+            get; set;
+        }
+        public ICollection<Note> Notes
+        {
+            get; set;
+        }
+        public ICollection<Video> Videos
+        {
+            get; set;
+        }
+        public ICollection<VideoReaction> VideoReactions
+        {
+            get; set;
+        }
     }
 }

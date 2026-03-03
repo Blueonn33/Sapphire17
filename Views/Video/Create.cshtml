@@ -1,1 +1,39 @@
-﻿
+﻿@model Sapphire17.ViewModels.VideoViewModel;
+@{
+    ViewData["Title"] = "Създаване";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Video/VideoCreateStyles.css" />
+    <link rel="stylesheet" href="~/css/Video/VideoStyles.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div>
+        <div class="container mt-5">
+            <header>
+                <h1 class="text-light video-create-heading">Създаване на видео</h1>
+            </header>
+            <div class="video-create-container mt-5">
+                <form method="post" asp-action="CreateVideo" asp-controller="Video" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label asp-for="Url" class="form-label text-light fs-3">Връзка</label>
+                        <input asp-for="Url" class="form-control create-input" />
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Title" class="form-label text-light fs-3">Заглавие</label>
+                        <input asp-for="Title" class="form-control create-input" />
+                    </div>
+                    <div class="video-create-buttons-container mt-5">
+                        <a class="btn btn-lg btn-back" asp-action="Index" asp-controller="Video">
+                            Назад
+                        </a>
+                        <button type="submit" class="btn btn-lg btn-submit btn-submit-video">
+                            Създай
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

@@ -10,19 +10,26 @@
 </head>
 <body>
     <div class="">
-        <header class="mt-5 container">
+        <header class="mt-5">
             <div class="header-buttons-container">
-                <a style="text-transform:uppercase;" class="btn btn-lg btn-light btn-create-video header-button-video fs-5" asp-action="Create"
+                <a style="text-transform:uppercase;" class="btn btn-lg btn-light btn-create-video header-button-video fs-5 mx-3" 
+                   asp-action="Create"
                    asp-controller="Video">+ Ново видео</a>
-                <a style="text-transform:uppercase;" class="btn btn-lg btn-light btn-sort-videos header-button-video">Сортирай</a>
             </div>
-            <div class="header-title-video-container">
-                <h1 class="text-light mt-5 header-title-video">Видеа</h1>
+            <div class="videos-container m-4">
+                @foreach (var video in Model)
+                {
+                    <iframe
+                        class="video-frame col-lg-3 col-md-4"
+                        src="@video.Url"
+                        title="Video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                }
             </div>
         </header>
-        <section class="videos-container mt-5 container videos-unfinished-container">
-            
-        </section>
     </div>
 </body>
 

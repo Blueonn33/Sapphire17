@@ -1,1 +1,53 @@
-﻿
+﻿body {
+    background-color: #FF6363 !important;
+}
+
+.navbar {
+    background-color: transparent !important;
+}
+
+.nav-item, .nav-profile, footer {
+    background-color: #8B0000 !important;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #A16363;
+    border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #CAA7A7;
+}
+
+.videos-container{
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.videos-container iframe {
+    flex: 1;
+    max-width: 700px;
+    aspect-ratio: 16/9;
+    border: 5px solid #FF8787;
+    border-radius: 10px;
+}
+
+.header-buttons-container {
+    display: flex;
+    justify-content: flex-end;
+}
