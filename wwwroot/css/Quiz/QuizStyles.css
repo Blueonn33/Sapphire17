@@ -7,3 +7,36 @@
 .nav-item, .nav-profile, footer {
     background-color: #0A3F0A !important;
 }
+.quiz-add-btn {
+    text-transform: uppercase;
+    background-color: #51A051;
+    color: white;
+}
+.quizzes-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.quiz-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    background-color: #51A051;
+    border: 5px solid white;
+    border-radius: 10px;
+}
+.quiz-image{
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+.quiz-img-edit{
+    width: 50px;
+    height: auto;
+}
+.quiz-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
