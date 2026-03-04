@@ -1,0 +1,9 @@
+﻿body {
+    background-color: #C0F5C0;
+}
+.navbar {
+    background-color: transparent !important;
+}
+.nav-item, .nav-profile, footer {
+    background-color: #0A3F0A !important;
+}
