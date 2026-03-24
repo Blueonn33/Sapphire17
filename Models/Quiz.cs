@@ -4,13 +4,32 @@ namespace Sapphire17.Models
 {
     public class Quiz
     {
-        public int Id { get; set; }
-        public string Question { get; set; }
-        public string Answer { get; set; }
+        public int Id
+        {
+            get; set;
+        }
+        public string Question
+        {
+            get; set;
+        }
+        public string Answer
+        {
+            get; set;
+        }
 
-        [ForeignKey(nameof(QuizCollectionId))] 
-        public int QuizCollectionId { get; set; }
+        [ForeignKey(nameof(QuizCollectionId))]
+        public int QuizCollectionId
+        {
+            get; set;
+        }
 
-        public QuizCollection QuizCollection { get; set; }
+        public QuizCollection QuizCollection
+        {
+            get; set;
+        }
+        public ICollection<QuizResult> QuizResults
+        {
+            get; set;
+        }
     }
 }
