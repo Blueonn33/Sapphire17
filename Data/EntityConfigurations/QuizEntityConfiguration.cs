@@ -18,11 +18,6 @@ namespace Sapphire17.Data.EntityConfigurations
                 .WithMany(u => u.Quizzes)
                 .HasForeignKey(u => u.QuizCollectionId)
                 .OnDelete(DeleteBehavior.Cascade);
-
-            builder.HasMany(q => q.QuizResults)
-                .WithOne(qr => qr.Quiz)
-                .HasForeignKey(qr => qr.QuizId)
-                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

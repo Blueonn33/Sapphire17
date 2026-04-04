@@ -27,9 +27,5 @@ namespace Sapphire17.Models
         {
             get; set;
         }
-        public ICollection<QuizResult> QuizResults
-        {
-            get; set;
-        }
     }
 }
