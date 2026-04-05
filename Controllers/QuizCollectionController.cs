@@ -2,7 +2,7 @@
 
 namespace Sapphire17.Controllers
 {
-    public class QuizController : Controller
+    public class QuizCollectionController : Controller
     {
         public IActionResult Index()
         {
