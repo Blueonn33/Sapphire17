@@ -41,15 +41,13 @@
     grid-row: 2/3;
     grid-column: 1/4;
 }
-.quiz-img-edit{
-    width: 50px;
-    height: auto;
-}
+
 .quiz-collection-open {
     display: grid;
     align-content: center;
     grid-column: 3/4;
     grid-row: 1/2;
+    text-align: right;
 }
 
 /* width */
