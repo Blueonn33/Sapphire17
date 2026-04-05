@@ -1,15 +1,16 @@
 ﻿@{
     ViewData["Title"] = "Тестове";
 }
+@model IEnumerable<QuizCollection>;
 
 <head>
     <link href="css/site.css" rel="stylesheet" />
-    <link href="css/Quiz/QuizCollectionStyles.css" rel="stylesheet" />
+    <link href="css/QuizCollection/QuizCollectionStyles.css" rel="stylesheet" />
 </head>
 <body>
     <div>
         <section class="quiz-content-container container mt-5">
-            <a class="quiz-add-btn btn fs-4">+ нов тест</a>
+            <a class="quiz-add-btn btn fs-4" asp-action="Create" asp-controller="QuizCollection">+ нов тест</a>
             <div class="quizzes-container">
                 <div class="quiz-container m-3 px-5 py-3">
                     <div class="quiz-image">

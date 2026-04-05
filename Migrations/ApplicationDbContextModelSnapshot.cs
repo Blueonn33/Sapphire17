@@ -377,6 +377,59 @@ namespace Sapphire17.Migrations
                     b.ToTable("Notes", (string)null);
                 });
 
+            modelBuilder.Entity("Sapphire17.Models.Quiz", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Answer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Question")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("QuizCollectionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuizCollectionId");
+
+                    b.ToTable("Quiz");
+                });
+
+            modelBuilder.Entity("Sapphire17.Models.QuizCollection", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("ImageData")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("ImageMimeType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("QuizCollections", (string)null);
+                });
+
             modelBuilder.Entity("Sapphire17.Models.Result", b =>
                 {
                     b.Property<int>("Id")
@@ -588,6 +641,17 @@ namespace Sapphire17.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Sapphire17.Models.Quiz", b =>
+                {
+                    b.HasOne("Sapphire17.Models.QuizCollection", "QuizCollection")
+                        .WithMany("Quizzes")
+                        .HasForeignKey("QuizCollectionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("QuizCollection");
+                });
+
             modelBuilder.Entity("Sapphire17.Models.Result", b =>
                 {
                     b.HasOne("Sapphire17.Models.Flashcard", "Flashcard")
@@ -661,6 +725,11 @@ namespace Sapphire17.Migrations
             modelBuilder.Entity("Sapphire17.Models.Flashcard", b =>
                 {
                     b.Navigation("Results");
+                });
+
+            modelBuilder.Entity("Sapphire17.Models.QuizCollection", b =>
+                {
+                    b.Navigation("Quizzes");
                 });
 
             modelBuilder.Entity("Sapphire17.Models.Set", b =>
