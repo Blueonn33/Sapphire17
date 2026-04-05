@@ -13,6 +13,7 @@ namespace Sapphire17.Models
         {
             get; set;
         }
+
         public DateTime DateCompleted { get; set; } = DateTime.Now;
 
         [ForeignKey(nameof(UserId))]
