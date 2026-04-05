@@ -10,25 +10,26 @@
 .nav-item:hover {
     background-color: rgba(0, 0, 0, 0.2) !important;
 }
-.quiz-add-btn {
+.quiz-collection-add-btn {
     text-transform: uppercase;
     background-color: #51A051;
     color: white;
 }
-.quizzes-container{
+.quiz-collections-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 30px;
 }
-.quiz-container {
+.quiz-collection-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 20% 40%;
     gap: 20px;
     background-color: #51A051;
     border: 5px solid white;
     border-radius: 10px;
 }
-.quiz-image{
+.quiz-collection-image {
     background-color: white;
     border-radius: 20px;
     display: flex;
@@ -36,21 +37,17 @@
     display: grid;
     grid-row: 1 / 2;
 }
-.quiz-text{
-    grid-column: 2/4;
+.quiz-collection-text-container {
+    grid-row: 2/3;
+    grid-column: 1/4;
 }
 .quiz-img-edit{
     width: 50px;
     height: auto;
 }
-.quiz-buttons {
+.quiz-collection-open {
     display: grid;
+    align-content: center;
     grid-column: 3/4;
-    grid-row: 3/4;
-}
-.quiz-buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
+    grid-row: 1/2;
 }

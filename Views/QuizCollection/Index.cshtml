@@ -10,11 +10,11 @@
 <body>
     <div>
         <section class="quiz-content-container container mt-5">
-            <a class="quiz-add-btn btn fs-4" asp-action="Create" asp-controller="QuizCollection">+ нов тест</a>
-            <div class="quizzes-container">
+            <a class="quiz-collection-add-btn btn fs-4" asp-action="Create" asp-controller="QuizCollection">+ нов тест</a>
+            <div class="quiz-collections-container">
                 @foreach (var quizCollection in Model)
                 {
-                    <div class="quiz-collection-content-container mb-5">
+                    <div class="quiz-collection-container my-5">
                         <div class="quiz-collection-image-container mt-3 m-5">
                             <img src="@Url.Action("GetQuizCollectionImage", "QuizCollection", new { quizCollectionId = quizCollection.Id })"
                                  class="img-fluid quiz-collection-image p-3" />
@@ -23,7 +23,7 @@
                             <p class="fs-2 fw-bold m-0 quiz-collection-name">@quizCollection.Name</p>
                             <p class="fs-3 m-0 quiz-collection-description">@quizCollection.Description</p>
                         </div>
-                        <div class="quiz-collection-open-container me-5">
+                        <div class="quiz-collection-open me-5">
                             <a class="btn btn-light btn-lg">Отвори</a>
                         </div>
                     </div>
