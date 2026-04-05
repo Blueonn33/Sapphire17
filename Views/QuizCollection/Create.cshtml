@@ -4,9 +4,17 @@
 }
 
 <head>
-    <link href="css/QuizCollection/QuizCollectionCreateStyles.css" rel="stylesheet"/>
+    <link href="css/QuizCollection/QuizCollectionCreateStyles.css" rel="stylesheet" />
     <link href="css/QuizCollection/QuizCollectionStyles.css" rel="stylesheet" />
 </head>
 <body>
-    
+    <div class="container">
+        <div class="quiz-collection-container">
+            <h3>Създаване на тест</h3>
+            <div class="mb-3">
+                <input asp-for="Name" class="form-control" />
+                <label asp-for="Name" class="form-control">Име</label>
+            </div>
+        </div>
+    </div>
 </body>
