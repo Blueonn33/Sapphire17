@@ -12,48 +12,22 @@
         <section class="quiz-content-container container mt-5">
             <a class="quiz-add-btn btn fs-4" asp-action="Create" asp-controller="QuizCollection">+ нов тест</a>
             <div class="quizzes-container">
-                <div class="quiz-container m-3 px-5 py-3">
-                    <div class="quiz-image">
-                        <img class="img-fluid" src="Images/barista.png"/>
-                    </div>
-                    <div class="quiz-text text-light">
-                        <h3>Тест - 3</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit. 
-                            Sit amet consectetur adipiscing elit quisque faucibus ex. 
-                            Adipiscing elit quisque faucibus ex sapien vitae pellentesque.
-                        </p>
-                    </div>
-                    <div class="quiz-buttons">
-                        <div>
-                            <img class="img-fluid quiz-img-edit" src="Images/pencil.png" />
+                @foreach (var quizCollection in Model)
+                {
+                    <div class="quiz-collection-content-container mb-5">
+                        <div class="quiz-collection-image-container mt-3 m-5">
+                            <img src="@Url.Action("GetQuizCollectionImage", "QuizCollection", new { quizCollectionId = quizCollection.Id })"
+                                 class="img-fluid quiz-collection-image p-3" />
                         </div>
-                        <div>
-                            <a class="btn btn-light quiz-open-btn">Отвори</a>
+                        <div class="ms-3 mt-5 quiz-collection-text-container mb-5">
+                            <p class="fs-2 fw-bold m-0 quiz-collection-name">@quizCollection.Name</p>
+                            <p class="fs-3 m-0 quiz-collection-description">@quizCollection.Description</p>
+                        </div>
+                        <div class="quiz-collection-open-container me-5">
+                            <a class="btn btn-light btn-lg">Отвори</a>
                         </div>
                     </div>
-                </div>
-                <div class="quiz-container m-3 px-5 py-3">
-                    <div class="quiz-image">
-                        <img class="img-fluid" src="Images/barista.png" />
-                    </div>
-                    <div class="quiz-text text-light">
-                        <h3>Тест - 3</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit.
-                            Sit amet consectetur adipiscing elit quisque faucibus ex.
-                            Adipiscing elit quisque faucibus ex sapien vitae pellentesque.
-                        </p>
-                    </div>
-                    <div class="quiz-buttons">
-                        @* <div>
-                            <img class="img-fluid quiz-img-edit" src="Images/pencil.png" />
-                        </div> *@
-                        <div>
-                            <a class="btn btn-light quiz-open-btn">Отвори</a>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </section>
     </div>
