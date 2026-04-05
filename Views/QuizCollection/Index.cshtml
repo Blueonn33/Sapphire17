@@ -8,16 +8,16 @@
     <link href="~/css/QuizCollection/QuizCollectionStyles.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
+    <div class="pb-5">
         <section class="quiz-content-container container mt-5">
             @if (User.IsInRole("Admin"))
             {
-                <a class="quiz-collection-add-btn btn fs-4" asp-action="Create" asp-controller="QuizCollection">+ нов тест</a>
+                <a class="quiz-collection-add-btn btn fs-4 mb-5" asp-action="Create" asp-controller="QuizCollection">+ нов тест</a>
             }
             <div class="quiz-collections-container">
                 @foreach (var quizCollection in Model)
                 {
-                    <div class="quiz-collection-container my-5">
+                    <div class="quiz-collection-container">
                         <div class="quiz-collection-image-container mt-3 m-5">
                             <img src="@Url.Action("GetQuizCollectionImage", "QuizCollection", new { quizCollectionId = quizCollection.Id })"
                                  class="img-fluid quiz-collection-image p-3"/>
