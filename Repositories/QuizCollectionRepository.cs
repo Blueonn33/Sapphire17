@@ -1,28 +1,58 @@
-﻿using Sapphire17.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Sapphire17.Data;
+using Sapphire17.Models;
 using Sapphire17.Repositories.Interfaces;
 
 namespace Sapphire17.Repositories
 {
     public class QuizCollectionRepository : IQuizCollectionRepository
     {
-        public Task CreateQuizCollection(QuizCollection quizCollection)
+        private readonly ApplicationDbContext _context;
+
+        public QuizCollectionRepository(ApplicationDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task DeleteQuizCollection(int quizCollectionId)
+        public async Task CreateQuizCollection(QuizCollection quizCollection)
         {
-            throw new NotImplementedException();
+            if (quizCollection == null)
+            {
+                throw new ArgumentNullException(nameof(quizCollection));
+            }
+
+            await _context.QuizCollections.AddAsync(quizCollection);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<QueryCollection>> GetAllQuizCollections()
+        public async Task DeleteQuizCollection(int quizCollectionId)
         {
-            throw new NotImplementedException();
+            var quizCollection = await _context.QuizCollections.FindAsync(quizCollectionId);
+
+            if (quizCollection == null)
+            {
+                throw new ArgumentNullException(nameof(quizCollection));
+            }
+
+            _context.QuizCollections.Remove(quizCollection);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<QuizCollectionRepository?> GetQuizCollectionById(int quizCollectionId)
+        public async Task<IEnumerable<QuizCollection>> GetAllQuizCollections()
         {
-            throw new NotImplementedException();
+            return await _context.QuizCollections.ToListAsync();
+        }
+
+        public async Task<QuizCollection?> GetQuizCollectionById(int quizCollectionId)
+        {
+            var quizCollection = await _context.QuizCollections.FindAsync(quizCollectionId);
+
+            if (quizCollection == null)
+            {
+                throw new ArgumentNullException(nameof(quizCollection));
+            }
+
+            return quizCollection;
         }
 
         public Task UpdateQuizCollection(QuizCollection quizCollection)
