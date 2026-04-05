@@ -13,5 +13,10 @@ namespace Sapphire17.Controllers
         {
             return View();
         }
+
+        public IActionResult CreateQuizCollection()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
