@@ -13,13 +13,43 @@ namespace Sapphire17.Data
         {
         }
 
-        public DbSet<Advice> Advices { get; set; }
-        public DbSet<Deck> Decks { get; set; }
-        public DbSet<Flashcard> Flashcards { get; set; }
-        public DbSet<Result> Results { get; set; }
-        public DbSet<Note> Notes { get; set; } 
-        public DbSet<Set> Sets { get; set; }
-        public DbSet<Video> Videos { get; set; }
+        public DbSet<Advice> Advices
+        {
+            get; set;
+        }
+        public DbSet<Deck> Decks
+        {
+            get; set;
+        }
+        public DbSet<Flashcard> Flashcards
+        {
+            get; set;
+        }
+        public DbSet<Result> Results
+        {
+            get; set;
+        }
+        public DbSet<Note> Notes
+        {
+            get; set;
+        }
+        public DbSet<Set> Sets
+        {
+            get; set;
+        }
+        public DbSet<Video> Videos
+        {
+            get; set;
+        }
+        public DbSet<VideoReaction> VideoReactions
+        {
+            get; set;
+        }
+
+        public DbSet<QuizCollection> QuizCollections
+        {
+            get; set;
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -32,7 +62,9 @@ namespace Sapphire17.Data
             builder.ApplyConfiguration(new NoteEntityConfiguration());
             builder.ApplyConfiguration(new SetEntityConfiguration());
             builder.ApplyConfiguration(new VideoEntityConfiguration());
+            builder.ApplyConfiguration(new VideoReactionEntityConfiguration());
             builder.ApplyConfiguration(new UserEntityConfiguration());
+            builder.ApplyConfiguration(new QuizCollectionEntityConfiguration());
         }
     }
 }

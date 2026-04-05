@@ -1,0 +1,98 @@
+﻿body {
+    background-color: #FF6363 !important;
+}
+
+.navbar {
+    background-color: transparent !important;
+}
+
+.nav-item, .nav-profile, footer {
+    background-color: #8B0000 !important;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #8B0000;
+    border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #9A3232;
+}
+
+.videos-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.videos-container iframe {
+    flex: 1;
+    max-width: 700px;
+    aspect-ratio: 16/9;
+    border: 5px solid #FF8787;
+    border-radius: 10px;
+}
+.header-buttons-container {
+    display: flex;
+    justify-content: flex-end;
+}
+.video-flex-container {
+    max-width: 700px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+/*    align-items: center;*/
+}
+.video-content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+/*    justify-content: flex-start;*/
+}
+.reactions-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 6px 12px;
+    background-color: #9A3232;
+    border-radius: 8px;
+}
+.reaction {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.reaction-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+.reaction-count {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+.buttonReaction{
+    background-color: transparent;
+    border: none;
+}
+.reacted {
+    color: white !important;
+    font-weight: bold;
+}

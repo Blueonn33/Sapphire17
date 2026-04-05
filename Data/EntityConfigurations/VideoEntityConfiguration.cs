@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Sapphire17.Models;
 
 namespace Sapphire17.Data.EntityConfigurations
@@ -12,15 +11,17 @@ namespace Sapphire17.Data.EntityConfigurations
             builder.ToTable("Videos");
 
             builder.HasKey(v => v.Id);
+            builder.Property(v => v.Url);
             builder.Property(v => v.Title);
-            builder.Property(v => v.Description);
-            builder.Property(v => v.Link);
-            builder.Property(v => v.ImageData);
-            builder.Property(v => v.ImageMimeType);
 
             builder.HasOne(v => v.User)
                 .WithMany(u => u.Videos)
                 .HasForeignKey(u => u.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasMany(vr => vr.VideoReactions)
+                .WithOne(v => v.Video)
+                .HasForeignKey(f => f.VideoId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

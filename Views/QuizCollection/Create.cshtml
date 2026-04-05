@@ -1,0 +1,39 @@
+﻿@model Sapphire17.ViewModels.QuizCollectionViewModel;
+@{
+    ViewData["Title"] = "Създаване на тест";
+}
+
+<head>
+    <link href="~/css/QuizCollection/QuizCollectionCreateStyles.css" rel="stylesheet" />
+    <link href="~/css/QuizCollection/QuizCollectionStyles.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="quiz-collection-create-container p-5">
+            <form method="post" asp-action="CreateQuizCollection" asp-controller="QuizCollection" enctype="multipart/form-data">
+                <h1 class="text-light">Създаване на тест</h1>
+                <hr />
+                <div class="mb-3">
+                    <label asp-for="ImageFile" class="form-label fs-4 text-light">Изображение</label>
+                    <input asp-for="ImageFile" class="form-control create-input" type="file" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label text-light fs-4">Име</label>
+                    <input asp-for="Name" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label text-light fs-4">Описание</label>
+                    <textarea asp-for="Description" class="form-control"></textarea>
+                </div>
+                <div class="quiz-collection-create-buttons-container mt-5">
+                    <a class="btn btn-lg btn-back" asp-action="Index" asp-controller="QuizCollection">
+                        Назад
+                    </a>
+                    <button type="submit" class="btn btn-lg btn-submit">
+                        Създай
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

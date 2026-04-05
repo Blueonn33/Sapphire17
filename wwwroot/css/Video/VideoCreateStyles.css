@@ -1,0 +1,28 @@
+﻿.video-create-heading {
+    text-align: center;
+}
+
+.video-create-container {
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+    background-color: #8B0000;
+    border-radius: 20px;
+}
+
+.video-create-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.btn-submit-video {
+    background-color: #FF8787 !important;
+    color: white;
+}
+
+.btn-submit-video:hover {
+    background-color: #FE5E5E !important;
+    color: white;
+}

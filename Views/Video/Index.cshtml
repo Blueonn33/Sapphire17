@@ -1,0 +1,83 @@
+﻿@using Microsoft.CodeAnalysis.Scripting
+@model IEnumerable<Video>;
+@{
+    ViewData["Title"] = "Видеа";
+}
+
+<head>
+    <link href="~/css/Video/VideoStyles.css" rel="stylesheet" />
+    <link href="~/css/Video/VideoCreateStyles.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <header class="mt-5">
+            <div class="header-buttons-container">
+                <a style="text-transform:uppercase;" class="btn btn-lg btn-light btn-create-video header-button-video fs-5 mx-3"
+                   asp-action="Create"
+                   asp-controller="Video">+ Ново видео</a>
+            </div>
+            <div class="videos-container m-4">
+                @foreach (var video in Model)
+                {
+                    <div class="video-flex-container">
+                        <iframe class="video-frame"
+                                src="@video.Url"
+                                title="Video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen>
+                        </iframe>
+                        <div class="video-content-container mt-3 mb-5">
+                            <div class="ms-3">
+                                <h3>@video.Title</h3>
+                            </div>
+                            <div class="reactions-container">
+                                <button class="buttonReaction" onclick="react(@video.Id, 'Like')">
+                                    <img src="Images/like.png" class="reaction-icon" />
+                                </button>
+                                <span id="like-@video.Id">@video.VideoReactions.Count(r => r.Reaction == "Like")</span>
+
+                                <button class="buttonReaction" onclick="react(@video.Id, 'Dislike')">
+                                    <img src="Images/dislike.png" class="reaction-icon" />
+                                </button>
+                                <span id="dislike-@video.Id">@video.VideoReactions.Count(r => r.Reaction == "Dislike")</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </header>
+    </div>
+</body>
+
+@section Scripts
+{
+    <script>
+        async function react(videoId, reaction) {
+            const response = await fetch('/VideoReaction/Create', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ videoId: videoId, reaction: reaction })
+            });
+
+            const result = await response.json();
+
+            if (result.success === false && result.message === "already-reacted") {
+                return;
+            }
+
+            if (reaction === "Like") {
+                document.getElementById(`like-${videoId}`).classList.add("reacted");
+            } else {
+                document.getElementById(`dislike-${videoId}`).classList.add("reacted");
+            }
+
+
+            document.getElementById(`like-${videoId}`).innerText = result.likes;
+            document.getElementById(`dislike-${videoId}`).innerText = result.dislikes;
+
+            document.querySelectorAll(`button[onclick*='${videoId}']`)
+                .forEach(btn => btn.disabled = true);
+        }
+    </script>
+}

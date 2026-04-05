@@ -1,12 +1,12 @@
 ﻿namespace Sapphire17.ViewModels
 {
-    public class VideoViewModel
+    public class VideoReactionViewModel
     {
-        public string Url
+        public int VideoId
         {
             get; set;
         }
-        public string Title
+        public string Reaction
         {
             get; set;
         }

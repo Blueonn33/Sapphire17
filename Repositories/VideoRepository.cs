@@ -16,23 +16,29 @@ namespace Sapphire17.Repositories
 
         public async Task<IEnumerable<Video>> GetAllVideosByUserIdAsync(string userId)
         {
-            if(userId == null)
+            if (userId == null)
             {
-                throw new ArgumentNullException(nameof(userId));    
+                throw new ArgumentNullException(nameof(userId));
             }
 
-            var videos = await _context.Videos.Where(v => v.UserId == userId).ToListAsync();
+            var videos = await _context.Videos.Where(v => v.UserId == userId)
+                .Include(a => a.VideoReactions)
+                .ToListAsync();
+
             return videos;
         }
 
         public async Task<Video?> GetVideoByIdAsync(int id)
         {
-            if(id == 0)
+            if (id == 0)
             {
                 throw new ArgumentNullException(nameof(id));
             }
 
-            var video = await _context.Videos.FindAsync(id);
+            var video = await _context.Videos
+                .Include(v => v.VideoReactions)
+                .FirstOrDefaultAsync(v => v.Id == id);
+
             return video;
         }
 

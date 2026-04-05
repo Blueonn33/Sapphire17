@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Sapphire17.Migrations
 {
     /// <inheritdoc />
-    public partial class Results : Migration
+    public partial class InitialCreation : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -49,6 +49,22 @@ namespace Sapphire17.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "QuizCollections",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageData = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    ImageMimeType = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_QuizCollections", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -237,11 +253,8 @@ namespace Sapphire17.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Url = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Link = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImageData = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
-                    ImageMimeType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
@@ -251,6 +264,27 @@ namespace Sapphire17.Migrations
                         name: "FK_Videos_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Quiz",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Question = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Answer = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    QuizCollectionId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Quiz", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Quiz_QuizCollections_QuizCollectionId",
+                        column: x => x.QuizCollectionId,
+                        principalTable: "QuizCollections",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -275,6 +309,32 @@ namespace Sapphire17.Migrations
                         name: "FK_Decks_Sets_SetId",
                         column: x => x.SetId,
                         principalTable: "Sets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "VideoReactions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Reaction = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    VideoId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VideoReactions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_VideoReactions_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_VideoReactions_Videos_VideoId",
+                        column: x => x.VideoId,
+                        principalTable: "Videos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -307,6 +367,7 @@ namespace Sapphire17.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Points = table.Column<int>(type: "int", nullable: false),
+                    DateAnswered = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FlashcardId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -380,6 +441,11 @@ namespace Sapphire17.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Quiz_QuizCollectionId",
+                table: "Quiz",
+                column: "QuizCollectionId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Results_FlashcardId",
                 table: "Results",
                 column: "FlashcardId");
@@ -388,6 +454,16 @@ namespace Sapphire17.Migrations
                 name: "IX_Sets_UserId",
                 table: "Sets",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VideoReactions_UserId",
+                table: "VideoReactions",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VideoReactions_VideoId",
+                table: "VideoReactions",
+                column: "VideoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Videos_UserId",
@@ -420,16 +496,25 @@ namespace Sapphire17.Migrations
                 name: "Notes");
 
             migrationBuilder.DropTable(
+                name: "Quiz");
+
+            migrationBuilder.DropTable(
                 name: "Results");
 
             migrationBuilder.DropTable(
-                name: "Videos");
+                name: "VideoReactions");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "QuizCollections");
+
+            migrationBuilder.DropTable(
                 name: "Flashcards");
+
+            migrationBuilder.DropTable(
+                name: "Videos");
 
             migrationBuilder.DropTable(
                 name: "Decks");
