@@ -12,7 +12,12 @@ namespace Sapphire17.Data.EntityConfigurations
 
             builder.HasKey(v => v.Id);
             builder.Property(v => v.Question);
-            builder.Property(v => v.Answer);
+            builder.Property(v => v.AnswerA);
+            builder.Property(v => v.AnswerB);
+            builder.Property(v => v.AnswerC);
+            builder.Property(v => v.AnswerD);
+            builder.Property(v => v.CorrectAnswer);
+            builder.Property(v => v.Points);
 
             builder.HasOne(v => v.QuizCollection)
                 .WithMany(u => u.Quizzes)

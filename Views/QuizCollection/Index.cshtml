@@ -29,9 +29,9 @@
                         <div class="quiz-collection-open me-5">
                             @if (User.IsInRole("Admin"))
                             {
-                                <a class="quiz-collection-edit-button pt-5 mb-3"><img src="Images/pencil.png" class="img-fluid" width="40"/></a>
+                                <a asp-action="Index" asp-controller="Quiz" class="quiz-collection-edit-button pt-5 mb-3" asp-route-quizCollectionId="@quizCollection.Id"><img src="Images/pencil.png" class="img-fluid" width="40"/></a>
                             }
-                            <a class="btn btn-light btn-lg">Отвори</a>
+                            <a class="btn btn-light btn-lg">Започни теста</a>
                         </div>
                     </div>
                 }

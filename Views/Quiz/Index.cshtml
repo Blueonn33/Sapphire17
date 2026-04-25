@@ -1,1 +1,89 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Добавяне на въпроси";
+}
+@model IEnumerable<Quiz>;
+
+<head>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/Quiz/QuizStyles.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="pb-5">
+        <section class="quiz-content-container container mt-5">
+            <h1 class="mt-5 mb-5">Добавяне на въпрос</h1>
+            <form method="post" asp-action="CreateQuiz" asp-controller="Quiz">
+                <div class="quiz-input-container px-5 py-3">
+                    <input type="hidden" name="quizCollectionId" value="@ViewBag.QuizCollectionId"/>
+                    <div class="mb-3">
+                        <label for="Question" class="form-label fs-4 fw-bold">Въпрос</label>
+                        <input name="Question" class="form-control"/>
+                    </div>
+                    <div class="question-answers-container">
+                        <div class="mb-3 grid-group">
+                            <label for="AnswerA" class="form-label fs-4 fw-bold">А</label>
+                            <input name="AnswerA" class="form-control"/>
+                        </div>
+                        <div class="mb-3 grid-group">
+                            <label for="AnswerB" class="form-label fs-4 fw-bold">Б</label>
+                            <input name="AnswerB" class="form-control"/>
+                        </div>
+                        <div class="mb-3 gridGroup">
+                            <label for="AnswerC" class="form-label fs-4 fw-bold">В</label>
+                            <input name="AnswerC" class="form-control"/>
+                        </div>
+                        <div class="mb-3 grid-group">
+                            <label for="AnswerD" class="form-label fs-4 fw-bold">Г</label>
+                            <input name="AnswerD" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="mb-3 grid-group">
+                        <label for="CorrectAnswer" class="form-label fs-4 fw-bold">Верен отговор</label>
+                        <input name="CorrectAnswer" class="form-control"/>
+                    </div>
+                    <div class="mb-3 grid-group">
+                        <label for="Points" class="form-label fs-4 fw-bold">Точки</label>
+                        <input type="number" name="Points" class="form-control" min="1" max="3"/>
+                    </div>
+                    <div class="quiz-submit-container mt-5">
+                        <button type="submit" class="btn btn-lg btn-submit">Добави</button>
+                    </div>
+                </div>
+            </form>
+            <h2 class="mt-5 mb-5">Списък с въпроси</h2>
+            <div class="quiz-questions-container mt-5">
+                @foreach (var quiz in Model)
+                {
+                    <div class="quiz-element px-5 mb-5">
+                        <p class="question-text fs-2 fw-bold">@quiz.Question</p>
+                        <div class="question-answers-container">
+                            <button class="question-answer text-dark fs-5">
+                                <span class="question-letter me-2 px-2 mt-1">А</span>
+                                @quiz.AnswerA
+                            </button>
+                            <button class="question-answer text-dark fs-5">
+                                <span class="question-letter me-2 px-2 mt-1">Б</span>
+                                @quiz.AnswerB
+                            </button>
+                            <button class="question-answer text-dark fs-5">
+                                <span class="question-letter me-2 px-2 mt-1">В</span>
+                                @quiz.AnswerC
+                            </button>
+                            <button class="question-answer text-dark fs-5">
+                                <span class="question-letter me-2 px-2 mt-1">Г</span>
+                                @quiz.AnswerD
+                            </button>
+                        </div>
+                        <p class="question-right-answer fs-4 mt-2 mb-0">
+                            <span class="question-right-answer-span">Верен отговор:</span>
+                            <strong class="text-light">@quiz.CorrectAnswer</strong>
+                        </p>
+                        <p class="question-points fs-4">
+                            <span class="question-points-span">Точки:</span>
+                            <strong class="text-light">@quiz.Points</strong>
+                        </p>
+                    </div>
+                }
+            </div>
+        </section>
+    </div>
+</body>

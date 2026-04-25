@@ -26,5 +26,9 @@
         {
             get; set;
         }
+        public ICollection<QuizResult> QuizResults
+        {
+            get; set;
+        }
     }
 }

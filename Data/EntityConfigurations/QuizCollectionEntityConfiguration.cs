@@ -21,6 +21,11 @@ namespace Sapphire17.Data.EntityConfigurations
                 .WithOne(qc => qc.QuizCollection)
                 .HasForeignKey(q => q.QuizCollectionId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasMany(q => q.QuizResults)
+                .WithOne(qc => qc.QuizCollection)
+                .HasForeignKey(q => q.QuizCollectionId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

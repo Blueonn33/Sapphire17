@@ -1,13 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Sapphire17.Models
+﻿namespace Sapphire17.ViewModels
 {
-    public class Quiz
+    public class QuizViewModel
     {
-        public int Id
-        {
-            get; set;
-        }
         public string Question
         {
             get; set;
@@ -37,15 +31,9 @@ namespace Sapphire17.Models
         public int Points
         {
             get; set;
-        }
+        } = 0;
 
-        [ForeignKey(nameof(QuizCollectionId))]
         public int QuizCollectionId
-        {
-            get; set;
-        }
-
-        public QuizCollection QuizCollection
         {
             get; set;
         }

@@ -51,6 +51,16 @@ namespace Sapphire17.Data
             get; set;
         }
 
+        public DbSet<QuizResult> QuizResults
+        {
+            get; set;
+        }
+
+        public DbSet<Quiz> Quizzes
+        {
+            get; set;
+        }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -65,6 +75,8 @@ namespace Sapphire17.Data
             builder.ApplyConfiguration(new VideoReactionEntityConfiguration());
             builder.ApplyConfiguration(new UserEntityConfiguration());
             builder.ApplyConfiguration(new QuizCollectionEntityConfiguration());
+            builder.ApplyConfiguration(new QuizResultEntityConfiguration());
+            builder.ApplyConfiguration(new QuizEntityConfiguration());
         }
     }
 }
