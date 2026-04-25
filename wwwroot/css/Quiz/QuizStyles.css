@@ -40,7 +40,7 @@
 }
 
 
-.quiz-questions-container {
+.quiz-element {
     border-radius: 20px;
     border: medium solid white;
     background-color: #51A051;
@@ -64,6 +64,11 @@
     justify-self: flex-start;
     background-color: #51A051;
     border-radius: 10px;
-/*    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;*/
+}
+.quiz-submit-container{
+    display: flex;
+    justify-content: center;
+}
+.question-text, .question-right-answer, .question-points {
+    color: #0F3A0F;
 }
