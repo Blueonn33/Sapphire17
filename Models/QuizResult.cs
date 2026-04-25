@@ -14,6 +14,11 @@ namespace Sapphire17.Models
             get; set;
         }
 
+        public int TotalScore
+        {
+            get;
+            set;
+        }
         public DateTime DateCompleted { get; set; } = DateTime.Now;
 
         [ForeignKey(nameof(UserId))]
