@@ -1,41 +1,83 @@
 ﻿@{
     ViewData["Title"] = "Добавяне на въпроси";
 }
-@model IEnumerable<Quizzes>;
+@model IEnumerable<Quiz>;
 
 <head>
     <link href="~/css/site.css" rel="stylesheet" />
-    <link href="~/css/QuizCollection/QuizCollectionStyles.css" rel="stylesheet" />
+    <link href="~/css/Quiz/QuizStyles.css" rel="stylesheet" />
 </head>
 <body>
-<div class="pb-5">
-    <section class="quiz-content-container container mt-5">
-        @if (User.IsInRole("Admin"))
-        {
-            <a class="quiz-collection-add-btn btn fs-4 mb-5" asp-action="Create" asp-controller="QuizCollection">+ нов тест</a>
-        }
-        <div class="quiz-collections-container">
-            @foreach (var quizCollection in Model)
-            {
-                <div class="quiz-collection-container">
-                    <div class="quiz-collection-image-container mt-3 m-5">
-                        <img src="@Url.Action("GetQuizCollectionImage", "QuizCollection", new { quizCollectionId = quizCollection.Id })"
-                             class="img-fluid quiz-collection-image p-3"/>
-                    </div>
-                    <div class="ms-3 mt-5 quiz-collection-text-container mb-5">
-                        <p class="fs-2 fw-bold m-0 quiz-collection-name">@quizCollection.Name</p>
-                        <p class="fs-3 m-0 quiz-collection-description">@quizCollection.Description</p>
-                    </div>
-                    <div class="quiz-collection-open me-5">
-                        @if (User.IsInRole("Admin"))
+    <div class="pb-5">
+        <section class="quiz-content-container container mt-5">
+                <h1 class="mt-5 mb-5 text-light">Въпроси за теста</h1>
+                <div class="quiz-questions-container">
+                    <form method="post" asp-action="Create" asp-controller="Quiz">
+                        <div class="mb-3">
+                            <label for="Question" class="form-label fs-4 text-light">Въпрос</label>
+                            <input name="Question" class="form-control" />
+                        </div>
+                        <div class="mb-3 grid-group">
+                            <label for="AnswerA" class="form-label fs-4 fw-bold">A</label>
+                            <input name="AnswerA" class="form-control" />
+                        </div>
+                        <div class="mb-3 grid-group">
+                            <label for="AnswerB" class="form-label fs-4 fw-bold">B</label>
+                            <input name="AnswerB" class="form-control" />
+                        </div>
+                        <div class="mb-3 gridGroup">
+                            <label for="AnswerC" class="form-label fs-4 fw-bold">C</label>
+                            <input name="AnswerC" class="form-control" />
+                        </div>
+                        <div class="mb-3 grid-group">
+                            <label for="AnswerD" class="form-label fs-4 fw-bold">D</label>
+                            <input name="AnswerD" class="form-control" />
+                        </div>
+                        <div class="mb-3 grid-group">
+                            <label for="CorrectAnswer" class="form-label fs-4 fw-bold">Верен отговор</label>
+                            <input name="CorrectAnswer" class="form-control" />
+                        </div>
+                        <div class="mb-3 grid-group">
+                            <label for="Points" class="form-label fs-4 fw-bold">Точки</label>
+                            <input name="Points" class="form-control" />
+                        </div>
+                        <div class="quiz-submit-container mt-5">
+                            <button type="submit" class="btn btn-lg btn-submit">Създай</button>
+                        </div>
+                    </form>
+                    <div class="quiz-content-container mt-5">
+                        @foreach (var quiz in Model)
                         {
-                            <a asp-action="Create" asp-controller="Quiz" class="quiz-collection-edit-button pt-5 mb-3"><img src="Images/pencil.png" class="img-fluid" width="40"/></a>
+                            <div class="quiz-element px-5 mb-5">
+                                <p class="question-text fs-3">@quiz.Question</p>
+                                <p class="question-answer text-light fs-5">
+                                    <span class="question-letter me-2">A:</span>
+                                    @quiz.AnswerA
+                                </p>
+                                <p class="question-answer text-light fs-5">
+                                    <span class="question-letter me-2">B:</span>
+                                    @quiz.AnswerB
+                                </p>
+                                <p class="question-answer text-light fs-5">
+                                    <span class="question-letter me-2">C:</span>
+                                    @quiz.AnswerC
+                                </p>
+                                <p class="question-answer text-light fs-5">
+                                    <span class="question-letter me-2">D:</span>
+                                    @quiz.AnswerD
+                                </p>
+                                <p class="question-right-answer text-light fs-5">
+                                    <span class="question-right-answer-span">Верен отговор:</span>
+                                    <strong>@quiz.CorrectAnswer</strong>
+                                </p>
+                                <p class="question-points text-light fs-5">
+                                    <span class="question-points-span">Точки:</span>
+                                    <strong>@quiz.Points</strong>
+                                </p>
+                            </div>
                         }
-                        <a class="btn btn-light btn-lg">Започни теста</a>
                     </div>
                 </div>
-            }
-        </div>
-    </section>
-</div>
+        </section>
+    </div>
 </body>
