@@ -34,6 +34,7 @@ namespace Sapphire17
             builder.Services.AddScoped<IVideoReactionRepository, VideoReactionRepository>();
             builder.Services.AddScoped<IQuizCollectionRepository, QuizCollectionRepository>();
             builder.Services.AddScoped<IQuizRepository, QuizRepository>();
+            builder.Services.AddScoped<IQuizResultRepository, QuizResultRepository>();
 
             var app = builder.Build();
 
