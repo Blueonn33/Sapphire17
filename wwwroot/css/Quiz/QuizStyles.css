@@ -29,3 +29,20 @@
     background: #0A3F0A;
     background: #51A051;
 }
+.quiz-questions-container {
+    border-radius: 20px;
+    border: medium solid white;
+    background-color: #51A051;
+}
+.question-answers-container{
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 500px 500px;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 50px;
+    grid-row-gap: 20px;
+}
+.question-answer {
+    background-color: white;
+}

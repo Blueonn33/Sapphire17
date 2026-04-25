@@ -10,10 +10,10 @@
 <body>
     <div class="pb-5">
         <section class="quiz-content-container container mt-5">
-            <h1 class="mt-5 mb-5 text-light">Въпроси за теста</h1>
-            <div class="quiz-questions-container">
-                <form method="post" asp-action="CreateQuiz" asp-controller="Quiz">
-                    <input type="hidden" name="quizCollectionId" value="@ViewBag.QuizCollectionId" />
+            <h1 class="mt-5 mb-5">Въпроси за теста</h1>
+            <form method="post" asp-action="CreateQuiz" asp-controller="Quiz">
+                <div class="quiz-input-container">
+                    <input type="hidden" name="quizCollectionId" value="@ViewBag.QuizCollectionId"/>
                     <div class="mb-3">
                         <label for="Question" class="form-label fs-4 text-light">Въпрос</label>
                         <input name="Question" class="form-control"/>
@@ -45,39 +45,41 @@
                     <div class="quiz-submit-container mt-5">
                         <button type="submit" class="btn btn-lg btn-submit">Създай</button>
                     </div>
-                </form>
-                <div class="quiz-content-container mt-5">
-                    @foreach (var quiz in Model)
-                    {
-                        <div class="quiz-element px-5 mb-5">
-                            <p class="question-text fs-3">@quiz.Question</p>
-                            <p class="question-answer text-light fs-5">
+                </div>
+            </form>
+            <div class="quiz-questions-container mt-5">
+                @foreach (var quiz in Model)
+                {
+                    <div class="quiz-element px-5 mb-5">
+                        <p class="question-text fs-3 text-light">@quiz.Question</p>
+                        <div class="question-answers-container">
+                            <button class="question-answer text-dark fs-5">
                                 <span class="question-letter me-2">A:</span>
                                 @quiz.AnswerA
-                            </p>
-                            <p class="question-answer text-light fs-5">
+                            </button>
+                            <button class="question-answer text-dark fs-5">
                                 <span class="question-letter me-2">B:</span>
                                 @quiz.AnswerB
-                            </p>
-                            <p class="question-answer text-light fs-5">
+                            </button>
+                            <button class="question-answer text-dark fs-5">
                                 <span class="question-letter me-2">C:</span>
                                 @quiz.AnswerC
-                            </p>
-                            <p class="question-answer text-light fs-5">
+                            </button>
+                            <button class="question-answer text-dark fs-5">
                                 <span class="question-letter me-2">D:</span>
                                 @quiz.AnswerD
-                            </p>
-                            <p class="question-right-answer text-light fs-5">
-                                <span class="question-right-answer-span">Верен отговор:</span>
-                                <strong>@quiz.CorrectAnswer</strong>
-                            </p>
-                            <p class="question-points text-light fs-5">
-                                <span class="question-points-span">Точки:</span>
-                                <strong>@quiz.Points</strong>
-                            </p>
+                            </button>
                         </div>
-                    }
-                </div>
+                        <p class="question-right-answer text-dark fs-5">
+                            <span class="question-right-answer-span">Верен отговор:</span>
+                            <strong>@quiz.CorrectAnswer</strong>
+                        </p>
+                        <p class="question-points text-light fs-5">
+                            <span class="question-points-span">Точки:</span>
+                            <strong>@quiz.Points</strong>
+                        </p>
+                    </div>
+                }
             </div>
         </section>
     </div>
