@@ -30,5 +30,9 @@ namespace Sapphire17.Areas.Identity.Data
         {
             get; set;
         }
+        public ICollection<QuizResult> QuizResults
+        {
+            get; set;
+        }
     }
 }

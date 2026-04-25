@@ -12,12 +12,18 @@ namespace Sapphire17.Data.EntityConfigurations
 
             builder.HasKey(v => v.Id);
             builder.Property(v => v.Score);
+            builder.Property(v => v.TotalScore);
             builder.Property(v => v.DateCompleted);
 
             builder.HasOne(v => v.QuizCollection)
                 .WithMany(u => u.QuizResults)
                 .HasForeignKey(u => u.QuizCollectionId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(qr => qr.User)
+                .WithMany(u => u.QuizResults)
+                .HasForeignKey(qr => qr.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
