@@ -15,21 +15,22 @@ namespace Sapphire17.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int quizCollectionId)
         {
-            var quizzes = await _quizRepository.GetAllQuizzesAsync();
+            ViewBag.QuizCollectionId = quizCollectionId;
+
+            var quizzes = await _quizRepository.GetAllQuizzesAsync(quizCollectionId);
             return View(quizzes);
         }
 
-        [HttpGet]
-        public IActionResult Create()
-        {
-            return View();
-        }
-
         [HttpPost]
-        public async Task<IActionResult> CreateQuiz(QuizViewModel quizViewModel)
+        public async Task<IActionResult> CreateQuiz(int quizCollectionId, QuizViewModel quizViewModel)
         {
+            if (quizCollectionId == 0)
+            {
+                return RedirectToAction("Index", "QuizCollection");
+            }
+
             Quiz quiz = new Quiz
             {
                 Question = quizViewModel.Question,
@@ -39,11 +40,15 @@ namespace Sapphire17.Controllers
                 AnswerD = quizViewModel.AnswerD,
                 CorrectAnswer = quizViewModel.CorrectAnswer,
                 Points = quizViewModel.Points,
-                QuizCollectionId = quizViewModel.QuizCollectionId
+                QuizCollectionId = quizCollectionId
             };
 
             await _quizRepository.CreateQuiz(quiz);
-            return RedirectToAction("Index");
+            ViewBag.QuizCollectionId = quizCollectionId;
+            return RedirectToAction("Index", "Quiz", new
+            {
+                QuizCollectionId = quizCollectionId
+            });
         }
     }
 }

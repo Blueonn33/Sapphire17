@@ -38,9 +38,9 @@ namespace Sapphire17.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Quiz>> GetAllQuizzesAsync()
+        public async Task<IEnumerable<Quiz>> GetAllQuizzesAsync(int quizCollectionId)
         {
-            return await _context.Quizzes.ToListAsync();
+            return await _context.Quizzes.Where(q => q.QuizCollectionId == quizCollectionId).ToListAsync();
         }
 
         public async Task<Quiz?> GetQuizByIdAsync(int quizId)

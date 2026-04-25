@@ -10,74 +10,75 @@
 <body>
     <div class="pb-5">
         <section class="quiz-content-container container mt-5">
-                <h1 class="mt-5 mb-5 text-light">Въпроси за теста</h1>
-                <div class="quiz-questions-container">
-                    <form method="post" asp-action="Create" asp-controller="Quiz">
-                        <div class="mb-3">
-                            <label for="Question" class="form-label fs-4 text-light">Въпрос</label>
-                            <input name="Question" class="form-control" />
-                        </div>
-                        <div class="mb-3 grid-group">
-                            <label for="AnswerA" class="form-label fs-4 fw-bold">A</label>
-                            <input name="AnswerA" class="form-control" />
-                        </div>
-                        <div class="mb-3 grid-group">
-                            <label for="AnswerB" class="form-label fs-4 fw-bold">B</label>
-                            <input name="AnswerB" class="form-control" />
-                        </div>
-                        <div class="mb-3 gridGroup">
-                            <label for="AnswerC" class="form-label fs-4 fw-bold">C</label>
-                            <input name="AnswerC" class="form-control" />
-                        </div>
-                        <div class="mb-3 grid-group">
-                            <label for="AnswerD" class="form-label fs-4 fw-bold">D</label>
-                            <input name="AnswerD" class="form-control" />
-                        </div>
-                        <div class="mb-3 grid-group">
-                            <label for="CorrectAnswer" class="form-label fs-4 fw-bold">Верен отговор</label>
-                            <input name="CorrectAnswer" class="form-control" />
-                        </div>
-                        <div class="mb-3 grid-group">
-                            <label for="Points" class="form-label fs-4 fw-bold">Точки</label>
-                            <input name="Points" class="form-control" />
-                        </div>
-                        <div class="quiz-submit-container mt-5">
-                            <button type="submit" class="btn btn-lg btn-submit">Създай</button>
-                        </div>
-                    </form>
-                    <div class="quiz-content-container mt-5">
-                        @foreach (var quiz in Model)
-                        {
-                            <div class="quiz-element px-5 mb-5">
-                                <p class="question-text fs-3">@quiz.Question</p>
-                                <p class="question-answer text-light fs-5">
-                                    <span class="question-letter me-2">A:</span>
-                                    @quiz.AnswerA
-                                </p>
-                                <p class="question-answer text-light fs-5">
-                                    <span class="question-letter me-2">B:</span>
-                                    @quiz.AnswerB
-                                </p>
-                                <p class="question-answer text-light fs-5">
-                                    <span class="question-letter me-2">C:</span>
-                                    @quiz.AnswerC
-                                </p>
-                                <p class="question-answer text-light fs-5">
-                                    <span class="question-letter me-2">D:</span>
-                                    @quiz.AnswerD
-                                </p>
-                                <p class="question-right-answer text-light fs-5">
-                                    <span class="question-right-answer-span">Верен отговор:</span>
-                                    <strong>@quiz.CorrectAnswer</strong>
-                                </p>
-                                <p class="question-points text-light fs-5">
-                                    <span class="question-points-span">Точки:</span>
-                                    <strong>@quiz.Points</strong>
-                                </p>
-                            </div>
-                        }
+            <h1 class="mt-5 mb-5 text-light">Въпроси за теста</h1>
+            <div class="quiz-questions-container">
+                <form method="post" asp-action="CreateQuiz" asp-controller="Quiz">
+                    <input type="hidden" name="quizCollectionId" value="@ViewBag.QuizCollectionId" />
+                    <div class="mb-3">
+                        <label for="Question" class="form-label fs-4 text-light">Въпрос</label>
+                        <input name="Question" class="form-control"/>
                     </div>
+                    <div class="mb-3 grid-group">
+                        <label for="AnswerA" class="form-label fs-4 fw-bold">A</label>
+                        <input name="AnswerA" class="form-control"/>
+                    </div>
+                    <div class="mb-3 grid-group">
+                        <label for="AnswerB" class="form-label fs-4 fw-bold">B</label>
+                        <input name="AnswerB" class="form-control"/>
+                    </div>
+                    <div class="mb-3 gridGroup">
+                        <label for="AnswerC" class="form-label fs-4 fw-bold">C</label>
+                        <input name="AnswerC" class="form-control"/>
+                    </div>
+                    <div class="mb-3 grid-group">
+                        <label for="AnswerD" class="form-label fs-4 fw-bold">D</label>
+                        <input name="AnswerD" class="form-control"/>
+                    </div>
+                    <div class="mb-3 grid-group">
+                        <label for="CorrectAnswer" class="form-label fs-4 fw-bold">Верен отговор</label>
+                        <input name="CorrectAnswer" class="form-control"/>
+                    </div>
+                    <div class="mb-3 grid-group">
+                        <label for="Points" class="form-label fs-4 fw-bold">Точки</label>
+                        <input name="Points" class="form-control"/>
+                    </div>
+                    <div class="quiz-submit-container mt-5">
+                        <button type="submit" class="btn btn-lg btn-submit">Създай</button>
+                    </div>
+                </form>
+                <div class="quiz-content-container mt-5">
+                    @foreach (var quiz in Model)
+                    {
+                        <div class="quiz-element px-5 mb-5">
+                            <p class="question-text fs-3">@quiz.Question</p>
+                            <p class="question-answer text-light fs-5">
+                                <span class="question-letter me-2">A:</span>
+                                @quiz.AnswerA
+                            </p>
+                            <p class="question-answer text-light fs-5">
+                                <span class="question-letter me-2">B:</span>
+                                @quiz.AnswerB
+                            </p>
+                            <p class="question-answer text-light fs-5">
+                                <span class="question-letter me-2">C:</span>
+                                @quiz.AnswerC
+                            </p>
+                            <p class="question-answer text-light fs-5">
+                                <span class="question-letter me-2">D:</span>
+                                @quiz.AnswerD
+                            </p>
+                            <p class="question-right-answer text-light fs-5">
+                                <span class="question-right-answer-span">Верен отговор:</span>
+                                <strong>@quiz.CorrectAnswer</strong>
+                            </p>
+                            <p class="question-points text-light fs-5">
+                                <span class="question-points-span">Точки:</span>
+                                <strong>@quiz.Points</strong>
+                            </p>
+                        </div>
+                    }
                 </div>
+            </div>
         </section>
     </div>
 </body>
