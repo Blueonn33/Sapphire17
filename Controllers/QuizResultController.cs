@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Sapphire17.Areas.Identity.Data;
+using Sapphire17.Models;
 using Sapphire17.Repositories.Interfaces;
+using Sapphire17.ViewModels;
 
 namespace Sapphire17.Controllers
 {
@@ -29,5 +31,27 @@ namespace Sapphire17.Controllers
             return View(latestResult);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Create(int quizCollectionId, QuizResultViewModel quizResultViewModel)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            string userId = user.Id;
+
+            QuizResult quizResult = new QuizResult
+            {
+                Score = quizResultViewModel.Score,
+                TotalScore = quizResultViewModel.TotalScore,
+                QuizCollectionId = quizCollectionId,
+                UserId = userId
+            };
+
+            await _quizResultRepository.CreateQuizResult(quizResult);
+            ViewBag.QuizCollectionId = quizCollectionId;
+
+            return RedirectToAction("Index", new
+            {
+                quizCollectionId = quizCollectionId
+            });
+        }
     }
 }
