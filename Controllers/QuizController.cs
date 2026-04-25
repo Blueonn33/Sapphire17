@@ -50,5 +50,11 @@ namespace Sapphire17.Controllers
                 QuizCollectionId = quizCollectionId
             });
         }
+
+        [HttpGet]
+        public async Task<IActionResult> StartTest()
+        {
+
+        }
     }
 }
