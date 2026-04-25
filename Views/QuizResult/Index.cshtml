@@ -7,17 +7,18 @@
     <link href="~/css/QuizResult/QuizResultStyles.css" rel="stylesheet" />
 </head>
 <body>
-<header class="mt-5 mb-5">
-    <div class="testOverHeadingContainer">
-        <h1 class="testOverHeading">Тестът приключи</h1>
-        <p class="testResultText fs-1">Резултат: <span class="testResult">@Model.Score / @Model.TotalScore</span></p>
-    </div>
-</header>
-<section class="awardImageContainer">
-    <img src="~/Images/award.png" class="img-fluid awardImage"/>
-</section>
-<section class="testResultButtonsContainer mt-5">
-    <a class="btn btn-lg btn-startTest" asp-action="StartTest" asp-controller="Quiz" asp-route-quizCollectionId="@Model.QuizCollectionId">Започни нов</a>
-    <a class="btn btn-lg btn-exitTest" asp-action="Index" asp-controller="Quiz">Изход</a>
-</section>
+    <header class="mt-5 mb-5">
+        <div class="test-over-heading-container">
+            <h1 class="test-over-heading">Тестът приключи</h1>
+            <p class="test-result-text fs-1">Резултат: 
+                <span class="test-result">@Model.Score / @Model.TotalScore</span>
+            </p>
+        </div>
+    </header>
+    <section class="award-image-container">
+        <img src="~/Images/award.png" class="img-fluid award-image"/>
+    </section>
+    <section class="test-result-button-container mt-5">
+        <a class="btn btn-lg btn-exit-test" asp-action="Index" asp-controller="QuizCollection">Изход</a>
+    </section>
 </body>
