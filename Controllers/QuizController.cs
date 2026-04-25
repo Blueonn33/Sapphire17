@@ -52,9 +52,15 @@ namespace Sapphire17.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> StartTest()
+        public async Task<IActionResult> StartTest(int quizCollectionId)
         {
-            return View();
+            var quizzes = await _quizRepository.GetAllQuizzesAsync(quizCollectionId);
+
+            if (quizzes == null || !quizzes.Any())
+                return RedirectToAction("Index", "QuizCollection");
+
+            return View(quizzes);
         }
+
     }
 }

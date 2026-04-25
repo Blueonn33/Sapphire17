@@ -1,67 +1,74 @@
 ﻿@{
     ViewData["Title"] = "Започни теста";
 }
-@model IEnumerable<Quiz>;
+@model IEnumerable<Quiz>
 
 <head>
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/QuizQuestion/QuizQuestionStyles.css" />
-    <link rel="stylesheet" href="~/css/QuizQuestion/StartTestStyles.css" />
+    <link rel="stylesheet" href="~/css/Quiz/QuizStartTestStyles.css" />
 </head>
+
 <body>
-    <div class="startQuizContainer container mt-5">
+    <div class="start-quiz-container container mt-5">
         @foreach (var quiz in Model)
         {
-            <div class="startQuizForm mb-5" data-quiz-id="@quiz.QuizCollectionId">
-                <div class="startQuizElement" id="quizContainer-@quiz.Id">
+            <div class="start-quiz-form mb-5" data-quiz-id="@quiz.QuizCollectionId" data-points="@quiz.Points">
+                <div class="start-quiz-element" id="quiz-container-@quiz.Id">
                     <header>
-                        <h3 class="pt-3 fs-1" id="quizQuestionText-@quiz.Id">@quiz.Question</h3>
-                        <hr class="quizLine" />
+                        <h3 class="pt-3 fs-1" id="quiz-question-text-@quiz.Id">@quiz.Question</h3>
+                        <hr class="quiz-line" />
                     </header>
-                    <div class="quizGetAnswerContainer me-5">
-                        <div class="quizQuestionContainer">
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#showAnswerModal-@quiz.Id">
+
+                    <div class="quiz-get-answer-container me-5">
+                        <div class="quiz-question-container">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#show-answer-modal-@quiz.Id">
                                 <img src="~/Images/question.png" width="50" class="p-1" />
                             </button>
                         </div>
                     </div>
-                    <div class="quizAnswersContainer mx-5 mt-5" data-correct-answer="@quiz.CorrectAnswer">
-                        <div class="quizOptionContainer">
-                            <div class="quizOptionLetterContainer m-3">
-                                <p class="quizOptionLetter text-light fs-3 m-0">A</p>
+
+                    <div class="quiz-answers-container mx-5 mt-5" data-correct-answer="@quiz.CorrectAnswer">
+                        <div class="quiz-option-container">
+                            <div class="quiz-option-letter-container m-3">
+                                <p class="quiz-option-letter text-light fs-3 m-0">A</p>
                             </div>
-                            <button class="btn btn-lg btn-light m-3 quizOptionButton">@quiz.AnswerA</button>
+                            <button class="btn btn-lg btn-light m-3 quiz-option-button">@quiz.AnswerA</button>
                         </div>
-                        <div class="quizOptionContainer">
-                            <div class="quizOptionLetterContainer m-3">
-                                <p class="quizOptionLetter text-light fs-3 m-0">B</p>
+
+                        <div class="quiz-option-container">
+                            <div class="quiz-option-letter-container m-3">
+                                <p class="quiz-option-letter text-light fs-3 m-0">B</p>
                             </div>
-                            <button class="btn btn-lg btn-light m-3 quizOptionButton">@quiz.AnswerB</button>
+                            <button class="btn btn-lg btn-light m-3 quiz-option-button">@quiz.AnswerB</button>
                         </div>
-                        <div class="quizOptionContainer">
-                            <div class="quizOptionLetterContainer m-3">
-                                <p class="quizOptionLetter text-light fs-3 m-0">C</p>
+
+                        <div class="quiz-option-container">
+                            <div class="quiz-option-letter-container m-3">
+                                <p class="quiz-option-letter text-light fs-3 m-0">C</p>
                             </div>
-                            <button class="btn btn-lg btn-light m-3 quizOptionButton">@quiz.AnswerC</button>
+                            <button class="btn btn-lg btn-light m-3 quiz-option-button">@quiz.AnswerC</button>
                         </div>
-                        <div class="quizOptionContainer">
-                            <div class="quizOptionLetterContainer m-3">
-                                <p class="quizOptionLetter text-light fs-3 m-0">D</p>
+
+                        <div class="quiz-option-container">
+                            <div class="quiz-option-letter-container m-3">
+                                <p class="quiz-option-letter text-light fs-3 m-0">D</p>
                             </div>
-                            <button class="btn btn-lg btn-light m-3 quizOptionButton">@quiz.AnswerD</button>
+                            <button class="btn btn-lg btn-light m-3 quiz-option-button">@quiz.AnswerD</button>
                         </div>
                     </div>
                 </div>
-                <div class="quizButtonsContainer container my-5">
+
+                <div class="quiz-buttons-container container my-5">
                     <a asp-action="Index" asp-controller="Quiz" class="btn btn-lg btn-info ms-5">Край на теста</a>
-                    <a class="btn btn-lg btn-light me-5 btnNextQuestion">Следващ въпрос</a>
+                    <a class="btn btn-lg btn-light me-5 btn-next-question">Следващ въпрос</a>
                 </div>
-                <div class="modal fade" id="showAnswerModal-@quiz.Id" tabindex="-1" aria-labelledby="showAnswerModalLabel" aria-hidden="true">
+
+                <div class="modal fade" id="show-answer-modal-@quiz.Id" tabindex="-1" aria-labelledby="showAnswerModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5 text-light" id="showAnswerModalLabel">Отговор</h1>
-                                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <h1 class="modal-title fs-5 text-light">Отговор</h1>
+                                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal"></button>
                             </div>
                             <div class="modal-body">
                                 <p class="text-light fs-3">@quiz.CorrectAnswer</p>
@@ -72,6 +79,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         }
     </div>
@@ -79,34 +87,43 @@
 
 @section Scripts {
     <script>
-        document.addEventListener("DOMContentLoaded", function(){
-            let correctAnswers = 0;
-            const quizId = document.querySelector('.startQuizForm').getAttribute('data-quiz-id');
+        document.addEventListener("DOMContentLoaded", function () {
 
-            document.querySelectorAll('.quizOptionButton').forEach(button => {
+            let score = 0;
+            let totalScore = 0;
+
+            const quizForms = document.querySelectorAll('.start-quiz-form');
+
+            quizForms.forEach(form => {
+                totalScore += parseInt(form.getAttribute('data-points'));
+            });
+
+            const quizCollectionId = quizForms[0].getAttribute('data-quiz-id');
+
+            document.querySelectorAll('.quiz-option-button').forEach(button => {
                 button.addEventListener('click', function () {
-                    const container = this.closest('.quizAnswersContainer');
+
+                    const container = this.closest('.quiz-answers-container');
                     const correctAnswer = container.getAttribute('data-correct-answer');
 
-                    container.querySelectorAll('.quizOptionButton').forEach(btn => {
+                    const quizForm = this.closest('.start-quiz-form');
+                    const questionPoints = parseInt(quizForm.getAttribute('data-points'));
+
+                    container.querySelectorAll('.quiz-option-button').forEach(btn => {
                         btn.classList.remove('btn-success', 'btn-danger');
                         btn.classList.add('btn-light');
                     });
 
-                    if (this.textContent.trim() === correctAnswer.trim()) 
-                    {
+                    if (this.textContent.trim() === correctAnswer.trim()) {
                         this.classList.remove('btn-light');
                         this.classList.add('btn-success');
-                        correctAnswers++;
-                    } 
-                    else 
-                    {
+                        score += questionPoints;
+                    } else {
                         this.classList.remove('btn-light');
                         this.classList.add('btn-danger');
-                        container.querySelectorAll('.quizOptionButton').forEach(btn => 
-                        {
-                            if (btn.textContent.trim() === correctAnswer.trim()) 
-                            {
+
+                        container.querySelectorAll('.quiz-option-button').forEach(btn => {
+                            if (btn.textContent.trim() === correctAnswer.trim()) {
                                 btn.classList.remove('btn-light');
                                 btn.classList.add('btn-success');
                             }
@@ -116,38 +133,37 @@
             });
 
             let currentIndex = 0;
-            const quizContainers = document.querySelectorAll('.startQuizForm');
-            let totalQuestions = quizContainers.length;
-            quizContainers[currentIndex].style.display = 'block';
+            quizForms[currentIndex].style.display = 'block';
 
-            document.querySelectorAll('.btnNextQuestion').forEach(button => {
+            document.querySelectorAll('.btn-next-question').forEach(button => {
                 button.addEventListener('click', function () {
-                    quizContainers[currentIndex].style.display = 'none';
+                    quizForms[currentIndex].style.display = 'none';
                     currentIndex++;
-                    if (currentIndex < quizContainers.length) {
-                        quizContainers[currentIndex].style.display = 'block';
+
+                    if (currentIndex < quizForms.length) {
+                        quizForms[currentIndex].style.display = 'block';
                     } else {
-                        addQuizResult(quizId, correctAnswers, totalQuestions);
+                        addQuizResult(quizCollectionId, score, totalScore);
                     }
                 });
             });
-        })
+        });
 
-        function addQuizResult(quizId, correctAnswers, totalQuestions)
-        {
-            $.post("@Url.Action("Index","QuizResult")?quizId=" + quizId,
-                { 
-                    Score: correctAnswers, 
-                    TotalQuestions : totalQuestions,
-                    QuizId: quizId,
+        function addQuizResult(quizCollectionId, score, totalScore) {
+
+            $.post("@Url.Action("Create", "QuizResult")?quizCollectionId=" + quizCollectionId,
+                {
+                    Score: score,
+                    TotalScore: totalScore,
+                    quizCollectionId: quizCollectionId,
                     TakenAt: Date.now()
                 },
-                function(){
-                    window.location.href = `/QuizResult/Index?quizId=${quizId}`;
+                function () {
+                    window.location.href = `/QuizResult/Index?quizCollectionId=${quizCollectionId}`;
                 })
-                .fail(function(){
-                  alert("error");
-            });
+                .fail(function () {
+                    alert("error");
+                });
         }
     </script>
 }
