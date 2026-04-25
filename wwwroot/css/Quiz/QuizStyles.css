@@ -29,6 +29,17 @@
     background: #0A3F0A;
     background: #51A051;
 }
+
+
+.quiz-input-container {
+    background-color: #6BCF6B;
+    border-radius: 10px;
+}
+.quiz-input-container label {
+    color: #0F3A0F;
+}
+
+
 .quiz-questions-container {
     border-radius: 20px;
     border: medium solid white;

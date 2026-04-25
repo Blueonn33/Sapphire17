@@ -10,29 +10,31 @@
 <body>
     <div class="pb-5">
         <section class="quiz-content-container container mt-5">
-            <h1 class="mt-5 mb-5">Въпроси за теста</h1>
+            <h1 class="mt-5 mb-5">Добавяне на въпрос</h1>
             <form method="post" asp-action="CreateQuiz" asp-controller="Quiz">
-                <div class="quiz-input-container">
+                <div class="quiz-input-container px-5 py-3">
                     <input type="hidden" name="quizCollectionId" value="@ViewBag.QuizCollectionId"/>
                     <div class="mb-3">
-                        <label for="Question" class="form-label fs-4 text-light">Въпрос</label>
+                        <label for="Question" class="form-label fs-4 fw-bold">Въпрос</label>
                         <input name="Question" class="form-control"/>
                     </div>
-                    <div class="mb-3 grid-group">
-                        <label for="AnswerA" class="form-label fs-4 fw-bold">A</label>
-                        <input name="AnswerA" class="form-control"/>
-                    </div>
-                    <div class="mb-3 grid-group">
-                        <label for="AnswerB" class="form-label fs-4 fw-bold">B</label>
-                        <input name="AnswerB" class="form-control"/>
-                    </div>
-                    <div class="mb-3 gridGroup">
-                        <label for="AnswerC" class="form-label fs-4 fw-bold">C</label>
-                        <input name="AnswerC" class="form-control"/>
-                    </div>
-                    <div class="mb-3 grid-group">
-                        <label for="AnswerD" class="form-label fs-4 fw-bold">D</label>
-                        <input name="AnswerD" class="form-control"/>
+                    <div class="question-answers-container">
+                        <div class="mb-3 grid-group">
+                            <label for="AnswerA" class="form-label fs-4 fw-bold">A</label>
+                            <input name="AnswerA" class="form-control"/>
+                        </div>
+                        <div class="mb-3 grid-group">
+                            <label for="AnswerB" class="form-label fs-4 fw-bold">B</label>
+                            <input name="AnswerB" class="form-control"/>
+                        </div>
+                        <div class="mb-3 gridGroup">
+                            <label for="AnswerC" class="form-label fs-4 fw-bold">C</label>
+                            <input name="AnswerC" class="form-control"/>
+                        </div>
+                        <div class="mb-3 grid-group">
+                            <label for="AnswerD" class="form-label fs-4 fw-bold">D</label>
+                            <input name="AnswerD" class="form-control"/>
+                        </div>
                     </div>
                     <div class="mb-3 grid-group">
                         <label for="CorrectAnswer" class="form-label fs-4 fw-bold">Верен отговор</label>
@@ -47,6 +49,7 @@
                     </div>
                 </div>
             </form>
+            <h2 class="mt-5 mb-5">Списък с въпроси</h2>
             <div class="quiz-questions-container mt-5">
                 @foreach (var quiz in Model)
                 {
