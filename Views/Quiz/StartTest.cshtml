@@ -135,7 +135,7 @@
 
         function addQuizResult(quizId, correctAnswers, totalQuestions)
         {
-            $.post("@Url.Action("Create", "QuizResult")?quizId=" + quizId,
+            $.post("@Url.Action("Index","QuizResult")?quizId=" + quizId,
                 { 
                     Score: correctAnswers, 
                     TotalQuestions : totalQuestions,

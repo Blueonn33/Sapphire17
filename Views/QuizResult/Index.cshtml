@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Резултат от теста";
 }
-﻿@model QuizResult;
+@model Sapphire17.Models.QuizResult
 
 <head>
     <link href="~/css/QuizResult/QuizResultStyles.css" rel="stylesheet" />
@@ -17,7 +17,7 @@
     <img src="~/Images/award.png" class="img-fluid awardImage"/>
 </section>
 <section class="testResultButtonsContainer mt-5">
-    <a class="btn btn-lg btn-startTest" asp-action="StartTest" asp-controller="Quiz" asp-route-quizId="@Model.QuizId">Започни нов</a>
+    <a class="btn btn-lg btn-startTest" asp-action="StartTest" asp-controller="Quiz" asp-route-quizCollectionId="@Model.QuizCollectionId">Започни нов</a>
     <a class="btn btn-lg btn-exitTest" asp-action="Index" asp-controller="Quiz">Изход</a>
 </section>
 </body>

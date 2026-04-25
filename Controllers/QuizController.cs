@@ -54,7 +54,7 @@ namespace Sapphire17.Controllers
         [HttpGet]
         public async Task<IActionResult> StartTest()
         {
-
+            return View();
         }
     }
 }
