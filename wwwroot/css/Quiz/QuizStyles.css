@@ -45,4 +45,14 @@
 }
 .question-answer {
     background-color: white;
+    border: none;
+    border-radius: 10px;
+}
+.question-answer span {
+    display: flex;
+    justify-self: flex-start;
+    background-color: #51A051;
+    border-radius: 10px;
+/*    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;*/
 }

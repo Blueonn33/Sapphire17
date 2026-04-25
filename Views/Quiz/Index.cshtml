@@ -51,30 +51,30 @@
                 @foreach (var quiz in Model)
                 {
                     <div class="quiz-element px-5 mb-5">
-                        <p class="question-text fs-3 text-light">@quiz.Question</p>
+                        <p class="question-text fs-2 text-light">@quiz.Question</p>
                         <div class="question-answers-container">
                             <button class="question-answer text-dark fs-5">
-                                <span class="question-letter me-2">A:</span>
+                                <span class="question-letter me-2 px-2 mt-1">А</span>
                                 @quiz.AnswerA
                             </button>
                             <button class="question-answer text-dark fs-5">
-                                <span class="question-letter me-2">B:</span>
+                                <span class="question-letter me-2 px-2 mt-1">Б</span>
                                 @quiz.AnswerB
                             </button>
                             <button class="question-answer text-dark fs-5">
-                                <span class="question-letter me-2">C:</span>
+                                <span class="question-letter me-2 px-2 mt-1">В</span>
                                 @quiz.AnswerC
                             </button>
                             <button class="question-answer text-dark fs-5">
-                                <span class="question-letter me-2">D:</span>
+                                <span class="question-letter me-2 px-2 mt-1">Г</span>
                                 @quiz.AnswerD
                             </button>
                         </div>
-                        <p class="question-right-answer text-dark fs-5">
+                        <p class="question-right-answer text-light fs-4 mt-2 mb-0">
                             <span class="question-right-answer-span">Верен отговор:</span>
                             <strong>@quiz.CorrectAnswer</strong>
                         </p>
-                        <p class="question-points text-light fs-5">
+                        <p class="question-points text-light fs-4">
                             <span class="question-points-span">Точки:</span>
                             <strong>@quiz.Points</strong>
                         </p>
