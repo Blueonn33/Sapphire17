@@ -32,3 +32,10 @@
     background: #0A3F0A;
     background: #51A051;
 }
+.test-over-heading-container {
+    text-align: center;
+}
+.award-image-container, .test-result-button-container {
+    display: flex;
+    justify-content: center;
+}
