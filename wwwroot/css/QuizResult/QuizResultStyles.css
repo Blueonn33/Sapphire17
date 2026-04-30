@@ -1,1 +1,34 @@
-﻿
+﻿body {
+    background-color: #C0F5C0 !important;
+}
+
+.navbar {
+    background-color: transparent !important;
+}
+
+.nav-item, .nav-profile, footer {
+    background-color: #0A3F0A !important;
+}
+
+.nav-item:hover {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #0A3F0A;
+    border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #0A3F0A;
+    background: #51A051;
+}
