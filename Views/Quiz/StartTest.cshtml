@@ -19,12 +19,13 @@
                         <hr class="quiz-line" />
                     </header>
 
-                    <div class="quiz-get-answer-container me-5">
+                    <div class="quiz-get-answer-container">
                         <div class="quiz-question-container">
                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#show-answer-modal-@quiz.Id">
                                 <img src="~/Images/question.png" width="50" class="p-1" />
                             </button>
                         </div>
+                        <hr class="quiz-line" />
                     </div>
 
                     <div class="quiz-answers-container mx-5 mt-5" data-correct-answer="@quiz.CorrectAnswer">
@@ -32,28 +33,28 @@
                             <div class="quiz-option-letter-container m-3">
                                 <p class="quiz-option-letter text-light fs-3 m-0">A</p>
                             </div>
-                            <button class="btn btn-lg btn-light m-3 quiz-option-button">@quiz.AnswerA</button>
+                            <button class="btn btn-lg btn-light m-3 px-5 quiz-option-button">@quiz.AnswerA</button>
                         </div>
 
                         <div class="quiz-option-container">
                             <div class="quiz-option-letter-container m-3">
                                 <p class="quiz-option-letter text-light fs-3 m-0">B</p>
                             </div>
-                            <button class="btn btn-lg btn-light m-3 quiz-option-button">@quiz.AnswerB</button>
+                            <button class="btn btn-lg btn-light m-3 px-5 quiz-option-button">@quiz.AnswerB</button>
                         </div>
 
                         <div class="quiz-option-container">
                             <div class="quiz-option-letter-container m-3">
                                 <p class="quiz-option-letter text-light fs-3 m-0">C</p>
                             </div>
-                            <button class="btn btn-lg btn-light m-3 quiz-option-button">@quiz.AnswerC</button>
+                            <button class="btn btn-lg btn-light m-3 px-5 quiz-option-button">@quiz.AnswerC</button>
                         </div>
 
                         <div class="quiz-option-container">
                             <div class="quiz-option-letter-container m-3">
                                 <p class="quiz-option-letter text-light fs-3 m-0">D</p>
                             </div>
-                            <button class="btn btn-lg btn-light m-3 quiz-option-button">@quiz.AnswerD</button>
+                            <button class="btn btn-lg btn-light m-3 px-5 quiz-option-button">@quiz.AnswerD</button>
                         </div>
                     </div>
                 </div>

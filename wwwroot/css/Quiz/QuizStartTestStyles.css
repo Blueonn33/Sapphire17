@@ -69,3 +69,16 @@
 .question-text, .question-right-answer, .question-points {
     color: #0F3A0F;
 }
+
+.start-quiz-element {
+    background-color: #51A051;
+    text-align: center;
+    border-radius: 20px;
+}
+.quiz-answers-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.question-answers-container button{
+    width: 300px;
+}
