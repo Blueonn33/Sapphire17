@@ -82,3 +82,7 @@
 .question-answers-container button{
     width: 300px;
 }
+.question-image{
+    background-color: white;
+    border-radius: 20px;
+}
