@@ -31,28 +31,28 @@
                     <div class="quiz-answers-container mx-5 mt-5" data-correct-answer="@quiz.CorrectAnswer">
                         <div class="quiz-option-container">
                             <div class="quiz-option-letter-container m-3">
-                                <p class="quiz-option-letter text-light fs-3 m-0">A</p>
+                                <p class="quiz-option-letter text-dark fs-3 m-0">А</p>
                             </div>
                             <button class="btn btn-lg btn-light m-3 px-5 quiz-option-button">@quiz.AnswerA</button>
                         </div>
 
                         <div class="quiz-option-container">
                             <div class="quiz-option-letter-container m-3">
-                                <p class="quiz-option-letter text-light fs-3 m-0">B</p>
+                                <p class="quiz-option-letter text-dark fs-3 m-0">Б</p>
                             </div>
                             <button class="btn btn-lg btn-light m-3 px-5 quiz-option-button">@quiz.AnswerB</button>
                         </div>
 
                         <div class="quiz-option-container">
                             <div class="quiz-option-letter-container m-3">
-                                <p class="quiz-option-letter text-light fs-3 m-0">C</p>
+                                <p class="quiz-option-letter text-dark fs-3 m-0">В</p>
                             </div>
                             <button class="btn btn-lg btn-light m-3 px-5 quiz-option-button">@quiz.AnswerC</button>
                         </div>
 
                         <div class="quiz-option-container">
                             <div class="quiz-option-letter-container m-3">
-                                <p class="quiz-option-letter text-light fs-3 m-0">D</p>
+                                <p class="quiz-option-letter text-dark fs-3 m-0">Г</p>
                             </div>
                             <button class="btn btn-lg btn-light m-3 px-5 quiz-option-button">@quiz.AnswerD</button>
                         </div>
@@ -60,7 +60,6 @@
                 </div>
 
                 <div class="quiz-buttons-container container my-5">
-
                     <a asp-action="Index" asp-controller="QuizCollection" class="btn btn-lg btn-info ms-5">Край на теста</a>
                     <a class="btn btn-lg btn-light me-5 btn-next-question">Следващ въпрос</a>
                 </div>
@@ -97,10 +96,14 @@
             const quizForms = document.querySelectorAll('.start-quiz-form');
 
             quizForms.forEach(form => {
+                form.style.display = "none";
                 totalScore += parseInt(form.getAttribute('data-points'));
             });
 
             const quizCollectionId = quizForms[0].getAttribute('data-quiz-id');
+
+            let currentIndex = 0;
+            quizForms[currentIndex].style.display = 'block';
 
             document.querySelectorAll('.quiz-option-button').forEach(button => {
                 button.addEventListener('click', function () {
@@ -111,34 +114,31 @@
                     const quizForm = this.closest('.start-quiz-form');
                     const questionPoints = parseInt(quizForm.getAttribute('data-points'));
 
-                    container.querySelectorAll('.quiz-option-button').forEach(btn => {
-                        btn.classList.remove('btn-success', 'btn-danger');
-                        btn.classList.add('btn-light');
+                    const allButtons = container.querySelectorAll('.quiz-option-button');
+
+                    allButtons.forEach(btn => btn.disabled = true);
+
+                    allButtons.forEach(btn => {
+                        const isCorrect = btn.textContent.trim() === correctAnswer.trim();
+
+                        btn.classList.remove('btn-light');
+
+                        if (isCorrect) {
+                            btn.classList.add('btn-success');
+                        } else {
+                            btn.classList.add('btn-danger');
+                        }
                     });
 
                     if (this.textContent.trim() === correctAnswer.trim()) {
-                        this.classList.remove('btn-light');
-                        this.classList.add('btn-success');
                         score += questionPoints;
-                    } else {
-                        this.classList.remove('btn-light');
-                        this.classList.add('btn-danger');
-
-                        container.querySelectorAll('.quiz-option-button').forEach(btn => {
-                            if (btn.textContent.trim() === correctAnswer.trim()) {
-                                btn.classList.remove('btn-light');
-                                btn.classList.add('btn-success');
-                            }
-                        });
                     }
                 });
             });
 
-            let currentIndex = 0;
-            quizForms[currentIndex].style.display = 'block';
-
             document.querySelectorAll('.btn-next-question').forEach(button => {
                 button.addEventListener('click', function () {
+
                     quizForms[currentIndex].style.display = 'none';
                     currentIndex++;
 
@@ -169,3 +169,4 @@
         }
     </script>
 }
+

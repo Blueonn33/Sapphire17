@@ -30,12 +30,9 @@
     background: #51A051;
 }
 
-.quiz-input-container {
-    background-color: #6BCF6B;
-    border-radius: 10px;
-}
-.quiz-input-container label {
-    color: #0F3A0F;
+.start-quiz-element {
+    border: 3px solid black;
+    border-collapse: collapse;
 }
 .quiz-element {
     border-radius: 20px;
@@ -75,7 +72,10 @@
     text-align: center;
     border-radius: 20px;
 }
-.quiz-answers-container{
+.quiz-answers-container {
+    background-color: #C0F5C0;
+    border: 3px solid black;
+    border-radius: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -85,4 +85,11 @@
 .question-image{
     background-color: white;
     border-radius: 20px;
+}
+.quiz-buttons-container{
+    display: flex;
+    justify-content: space-between;
+}
+.start-quiz-form {
+    display: none;
 }
