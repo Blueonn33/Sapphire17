@@ -5,3 +5,7 @@
 .quiz-collection-create-container h1 {
     text-align: center;
 }
+.quiz-collection-create-buttons-container{
+    display: flex;
+    justify-content: space-between;
+}
