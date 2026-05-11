@@ -93,3 +93,6 @@
 .start-quiz-form {
     display: none;
 }
+.quiz-option-button {
+    width: 50%;
+}
