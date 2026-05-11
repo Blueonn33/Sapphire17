@@ -108,6 +108,8 @@
             document.querySelectorAll('.quiz-option-button').forEach(button => {
                 button.addEventListener('click', function () {
 
+                    button.classList.add('quiz-option-button-clicked');
+
                     const container = this.closest('.quiz-answers-container');
                     const correctAnswer = container.getAttribute('data-correct-answer');
 

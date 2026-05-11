@@ -96,3 +96,6 @@
 .quiz-option-button {
     width: 50%;
 }
+.quiz-option-button-clicked {
+    outline: 5px solid black;
+}
