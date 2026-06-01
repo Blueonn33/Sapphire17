@@ -31,14 +31,15 @@
 
 ## 👇 Долен колонтитул
 - Съдържа името ми: Мартин Маринов
-<img width="1271" height="41" alt="footer" src="https://github.com/user-attachments/assets/3995c51b-fa65-4a16-96cf-2624acf15f9f" />
+<img width="2529" height="100" alt="footer" src="https://github.com/user-attachments/assets/57931cbc-bbbe-43f7-a975-8637df5a99fe" />
 
 ## 🏡 Начална страница
 - Съдържа кратко описание на приложението, представена е секция, в която са описани основни функционалности, а след това имаме описание на конкретни функционалности, като към всяка е приложена и картинка. Най-долу в страницата има видео, в което обяснявам как се използва приложението. 📽️ <a href="https://www.youtube.com/watch?v=Y-f7vtZBfvE" target="_blank">Виж видеото</a>
-<img width="2537" height="1259" alt="image" src="https://github.com/user-attachments/assets/a358e398-c24c-47d7-9921-ce75c6d60744" />
-<img width="1272" height="675" alt="Home-1" src="https://github.com/user-attachments/assets/6a794dcb-c275-4c21-9b3a-bb06687acae8" />
-<img width="1272" height="675" alt="Home-2" src="https://github.com/user-attachments/assets/8ce2e69d-efe2-46e0-88d9-1415ad153a26" />
-<img width="1272" height="675" alt="Home-3" src="https://github.com/user-attachments/assets/e07b7ab7-6e3c-4fc0-a634-fca6245a6b3a" />
-<img width="1272" height="675" alt="Home-4" src="https://github.com/user-attachments/assets/c085cdfb-be09-4038-915e-8401aef7d550" />
-<img width="1272" height="675" alt="Home-5" src="https://github.com/user-attachments/assets/2986e46f-5db7-4d0f-8f98-0fb753920f68" />
+<img width="2530" height="1259" alt="Home-1" src="https://github.com/user-attachments/assets/a358e398-c24c-47d7-9921-ce75c6d60744" />
+<img width="2530" height="1252" alt="Home-2" src="https://github.com/user-attachments/assets/7275dd03-f16c-46cd-b17c-95bc18c91963" />
+<img width="2530" height="902" alt="Home-3" src="https://github.com/user-attachments/assets/890a0a26-b57e-48e2-8587-d87c0d91ece6" />
+<img width="2530" height="1257" alt="Home-4" src="https://github.com/user-attachments/assets/c39b5cfc-656c-4fb5-8e47-494be85c2312" />
+<img width="2530" height="1260" alt="Home-5" src="https://github.com/user-attachments/assets/c8862358-dbc3-4834-824e-7586ef496b92" />
+
+
 
