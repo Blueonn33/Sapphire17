@@ -107,12 +107,9 @@
 
 - Има 2 начина за използване на флашкартите
   - 1 - При натискане на бутона `Отвори` на конкретната флашкарта. Вместо само да четем въпроси и отговори, можем да използваме и точки. Чрез точките (от 1 до 5) отбелязваме колко добре знаем отговора на даден въпрос. След се избрали дадена оценка, се показва и списък с резултатите ни за този флашкарта. По този начин разбираме дали има напредък в изучаването на този въпрос.
-
-<img width="2548" height="1262" alt="open-flashcard" src="https://github.com/user-attachments/assets/e8e2f8d4-0add-4ee9-b21b-863b16e5a11d" />
-
+  - <img width="2548" height="1262" alt="open-flashcard" src="https://github.com/user-attachments/assets/e8e2f8d4-0add-4ee9-b21b-863b16e5a11d" />
   - 2 - Другият вариант е да отворим всички флашкарти чрез бутона `Отвори всички`. Така се показват както въпросите, така и отговорите и можем да четем свободно.
-
-<img width="2549" height="1265" alt="open-all-flashcards" src="https://github.com/user-attachments/assets/0284a483-9449-49a8-abfe-c0db3680422a" />
+  - <img width="2549" height="1265" alt="open-all-flashcards" src="https://github.com/user-attachments/assets/0284a483-9449-49a8-abfe-c0db3680422a" />
 
 - За създаването на флашкарта е нужен само въпрос и отговор за него.
 
@@ -124,10 +121,10 @@
 <img width="2553" height="1263" alt="advices" src="https://github.com/user-attachments/assets/db350468-6b1b-46b0-b68b-41c4cfe8a756" />
 
 - При създаването на съвет се попълва следното:
- - `Изображение`.
- - `Име`.
- - `Тип` - статия или видео.
- - `Връзка`.
+  - `Изображение`.
+  - `Име`.
+  - `Тип` - статия или видео.
+  - `Връзка`.
 
 <img width="2559" height="1266" alt="create-advice" src="https://github.com/user-attachments/assets/9d2f35a2-a0a3-41c3-bb6f-6a47a564ddc0" />
 
