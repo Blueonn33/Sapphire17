@@ -23,10 +23,11 @@
     - `Изход` - изход от профила.
 
   - Навигация, ако потребителят е регистриран
-  <img width="1271" height="67" alt="nav-registered-user" src="https://github.com/user-attachments/assets/85810710-543b-4aa4-8585-13318f50263a" />
+  <img width="2529" height="163" alt="nav-registered-user" src="https://github.com/user-attachments/assets/61881548-3323-4d54-b411-2aac1131c369" />
 
   - Навигация, ако потребителят не е регистриран
-  <img width="1271" height="67" alt="nav-not-registered-user" src="https://github.com/user-attachments/assets/1d88cfe5-0946-434b-84f2-f3084b27b147" />
+  <img width="2521" height="160" alt="nav-not-registered-user" src="https://github.com/user-attachments/assets/44f260a8-e82e-451d-a701-486f0a4a46ba" />
+
 
 ## 👇 Долен колонтитул
 - Съдържа името ми: Мартин Маринов
