@@ -21,3 +21,22 @@
     - `Регистрация` - води към формата за регистрация.
     - `Вход` - води към формата за вход.
     - `Изход` - изход от профила.
+
+  - Навигация, ако потребителят е регистриран
+  <img width="1271" height="67" alt="nav-registered-user" src="https://github.com/user-attachments/assets/85810710-543b-4aa4-8585-13318f50263a" />
+
+  - Навигация, ако потребителят не е регистриран
+  <img width="1271" height="67" alt="nav-not-registered-user" src="https://github.com/user-attachments/assets/1d88cfe5-0946-434b-84f2-f3084b27b147" />
+
+## 👇 Долен колонтитул
+- Съдържа името ми: Мартин Маринов
+<img width="1271" height="41" alt="footer" src="https://github.com/user-attachments/assets/3995c51b-fa65-4a16-96cf-2624acf15f9f" />
+
+## 🏡 Начална страница
+- Съдържа кратко описание на приложението, представена е секция, в която са описани основни функционалности, а след това имаме описание на конкретни функционалности, като към всяка е приложена и картинка. Най-долу в страницата има видео, в което обяснявам как се използва приложението. 📽️ <a href="https://www.youtube.com/watch?v=Y-f7vtZBfvE" target="_blank">Виж видеото</a>
+<img width="1272" height="675" alt="Home-1" src="https://github.com/user-attachments/assets/6a794dcb-c275-4c21-9b3a-bb06687acae8" />
+<img width="1272" height="675" alt="Home-2" src="https://github.com/user-attachments/assets/8ce2e69d-efe2-46e0-88d9-1415ad153a26" />
+<img width="1272" height="675" alt="Home-3" src="https://github.com/user-attachments/assets/e07b7ab7-6e3c-4fc0-a634-fca6245a6b3a" />
+<img width="1272" height="675" alt="Home-4" src="https://github.com/user-attachments/assets/c085cdfb-be09-4038-915e-8401aef7d550" />
+<img width="1272" height="675" alt="Home-5" src="https://github.com/user-attachments/assets/2986e46f-5db7-4d0f-8f98-0fb753920f68" />
+
